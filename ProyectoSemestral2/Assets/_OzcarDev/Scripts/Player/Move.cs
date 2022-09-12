@@ -1,0 +1,156 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace com.OzcarDev.WalkingSim
+{
+    public class Move : MonoBehaviour
+    {
+        // Movement
+        CharacterController characterController;
+        private float x;
+        private float z;
+        public float maxSpeed;
+        public float crouchSpeed;
+        public float groundSpeed;
+        private float speed;
+        private Vector3 dir;
+        public float gravityForce;
+        GameManager gameManager;
+
+        //Rotation
+        private Transform cam;
+        Vector2 inputRot;
+        public float sensibility;
+
+        //Crouch
+        Vector3 normalScale;
+        Vector3 crouchScale;
+        Vector3 lieScale;
+       
+        public float crouchingTime;
+
+        public enum State
+        {
+            Normal,
+            Crouching,
+            Ground
+        }
+        public State _State;
+
+        void Start()
+        {
+            Globals.playerKeys.Add("");
+            speed = maxSpeed;
+            _State = State.Normal;
+            gameManager = GameObject.Find("GameManager").GetComponent <GameManager> ();
+            characterController = GetComponent<CharacterController>();
+            cam = transform.Find("Camera");
+            Cursor.lockState = CursorLockMode.Locked;
+
+            normalScale = transform.localScale;
+            crouchScale = normalScale;
+            crouchScale.y = normalScale.y * 0.75f;
+            lieScale = normalScale;
+            lieScale.y = normalScale.y * 0.2f;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+            if (gameManager.isPaused||gameManager.readingMode) return;
+            RotateMouse();
+            Movement();
+            Crouch();
+            Debug.Log(speed);
+        }
+
+       
+
+        void RotateMouse()
+        {
+            inputRot.x = Input.GetAxis("Mouse X") * sensibility;
+            inputRot.y = Input.GetAxis("Mouse Y") * sensibility;
+            
+            transform.Rotate(Vector3.up*inputRot.x*sensibility);
+
+            float angle = (cam.localEulerAngles.x - inputRot.y * sensibility+360)%360;
+
+            if (angle > 180) angle -= 360;
+            angle = Mathf.Clamp(angle, -80, 80);
+
+            cam.localEulerAngles = Vector3.right * angle;
+        }
+
+
+
+        void Movement()
+        {
+            x = Input.GetAxisRaw("Horizontal");
+            z = Input.GetAxisRaw("Vertical");
+
+            dir.x = x;
+            dir.z = z;
+            
+            var  movePlayer = dir.normalized.x * cam.right+ dir.normalized.z*transform.forward;
+            var gravity = Vector3.down * Time.deltaTime * gravityForce;
+            characterController.Move( (movePlayer* Time.deltaTime * speed)+gravity);
+            
+        }
+
+        private Coroutine CrouchCoroutine;
+        void Crouch()
+        {
+            if (Input.GetButtonDown("Crouch")&&CrouchCoroutine==null)
+            {
+                switch (_State)
+                {
+                    case State.Normal:
+                        _State = State.Crouching;
+                        speed = crouchSpeed;
+                        CrouchCoroutine=StartCoroutine(Crouching(normalScale, crouchScale));
+                        
+                        break;
+
+                    case State.Crouching:
+                        _State = State.Ground;
+                        speed = groundSpeed;
+                        CrouchCoroutine = StartCoroutine(Crouching(crouchScale, lieScale));
+
+                        break;
+
+                    case State.Ground:
+                        _State = State.Normal;
+                        speed = maxSpeed;
+                        CrouchCoroutine = StartCoroutine(Crouching(lieScale, normalScale));
+
+                        break;
+
+                    default:
+                        _State = State.Normal;
+                        speed = maxSpeed;
+                        CrouchCoroutine = StartCoroutine(Crouching(lieScale, normalScale));
+                        break;
+                }
+            }
+           
+        }
+
+        IEnumerator Crouching(Vector3 a, Vector3 b)
+        {
+            
+            float time=0;
+
+            while (time < crouchingTime)
+            {
+                time += Time.deltaTime;
+                float value = time / crouchingTime;
+                transform.localScale = Vector3.Lerp(a, b,value);
+                yield return null;
+            }
+            CrouchCoroutine = null;
+        }
+
+    }
+}
