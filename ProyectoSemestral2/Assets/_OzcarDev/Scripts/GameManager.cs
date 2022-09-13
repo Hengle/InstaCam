@@ -16,6 +16,15 @@ public class GameManager : MonoBehaviour
     MessagesManager messagesManager;
     
 	public TextMeshProUGUI noteBooK;
+	public Animator block;
+	public Animator advice;
+	public TextMeshProUGUI adviceContent;
+	enum AnimState
+	{
+		On,
+		Off
+	}
+	 AnimState _AnimState;
     
     void Start()
     {
@@ -26,7 +35,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+	    if(Input.GetKeyDown(KeyCode.Q)&&Globals.playerKeys.Contains("PhotoAlbum")) NoteBook();
 
         if (Input.GetKeyDown(KeyCode.Escape)) Pause();
 
@@ -42,6 +51,21 @@ public class GameManager : MonoBehaviour
         isPaused = !isPaused;
     }
 
+	public void NoteBook(){
+		if (_AnimState == AnimState.On)
+		{
+			block.CrossFade("In", .25f);
+			_AnimState = AnimState.Off;
+		}
+		else
+		{
+			block.CrossFade("Out", .25f);
+			_AnimState = AnimState.On;
+		}
+	}
+	
+	
+	
 	public void Draw()
 	{
 		noteBooK.text="";
@@ -59,8 +83,11 @@ public class GameManager : MonoBehaviour
         	Debug.Log(Globals.currentObjective);
 	        if (Globals.currentObjective == Globals.ToDoList[i])
             {
-		        Debug.Log("FotoGuardada");
+		        
 		        Globals.ToDoList.Remove(Globals.currentObjective);
+		        adviceContent.text = "New Photo Album Entry" + " \""+Globals.currentObjective+"\"";
+		        advice.StopPlayback();
+		        advice.Play("Show");
             }
         }
     }

@@ -38,10 +38,12 @@ public class ScreenShotHandler : MonoBehaviour
 
             byte[] byteArray = renderResult.EncodeToPNG();
             System.IO.File.WriteAllBytes(Application.persistentDataPath +"_"+Globals.currentObjective+".png", byteArray);
-            Debug.Log("ScreenShot");
+	        Debug.Log("ScreenShot");
+	        if(Globals.playerKeys.Contains("PhotoAlbum")){
 	        gameManager.ToDoList();
 	        gameManager.Draw();
-            gameManager.panelPhotoMode.GetComponent<Animator>().Play("Flash");
+	        }
+	        gameManager.panelPhotoMode.GetComponent<Animator>().Play("Flash");
             RenderTexture.ReleaseTemporary(renderTexture);
             
             myCamera.targetTexture = null;
