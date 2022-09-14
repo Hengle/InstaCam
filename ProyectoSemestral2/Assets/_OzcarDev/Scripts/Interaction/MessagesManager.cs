@@ -15,6 +15,8 @@ public class MessagesManager : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
+    
+    
 
     // Update is called once per frame
     void Update()
@@ -27,14 +29,14 @@ public class MessagesManager : MonoBehaviour
                 {
                     NextLine();
                 }
-                else
+                else if(dialogueText.text.Length>1)
                 {
-                    StopAllCoroutines();
-                    dialogueText.text = Globals.currentContent[index];
+	                StopAllCoroutines();
+	                 dialogueText.text = Globals.currentContent[index];
                 }
             }
         }
-        Debug.Log(index);
+        
     }
 
     public void StartDialogue()
@@ -47,7 +49,8 @@ public class MessagesManager : MonoBehaviour
     }
 
     IEnumerator WriteLine()
-    {
+	{
+		
         foreach(char letter in Globals.currentContent[index].ToCharArray())
         {
             dialogueText.text += letter;

@@ -59,11 +59,11 @@ namespace com.OzcarDev.WalkingSim
         void Update()
         {
 
-            if (gameManager.isPaused||gameManager.readingMode) return;
+	        if (gameManager.isPaused||gameManager.readingMode||gameManager.playerIsOverlapping) return;
             RotateMouse();
             Movement();
             Crouch();
-            Debug.Log(speed);
+            
         }
 
        
@@ -86,7 +86,8 @@ namespace com.OzcarDev.WalkingSim
 
 
         void Movement()
-        {
+	    {
+		    
             x = Input.GetAxisRaw("Horizontal");
             z = Input.GetAxisRaw("Vertical");
 

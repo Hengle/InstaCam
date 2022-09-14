@@ -26,15 +26,20 @@ public class GameManager : MonoBehaviour
 	}
 	 AnimState _AnimState;
     
+	public bool playerIsOverlapping;
+    
+    
     void Start()
-    {
+	{
+		playerIsOverlapping = false;
 	    messagesManager = GameObject.Find("MessagesManager").GetComponent<MessagesManager>();
 	    Draw();
     }
 
     // Update is called once per frame
     void Update()
-    {
+	{
+		Debug.Log(playerIsOverlapping);
 	    if(Input.GetKeyDown(KeyCode.Q)&&Globals.playerKeys.Contains("PhotoAlbum")) NoteBook();
 
         if (Input.GetKeyDown(KeyCode.Escape)) Pause();
@@ -80,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         for(int i=0; i < Globals.ToDoList.Count; i++)
         {
-        	Debug.Log(Globals.currentObjective);
+        	
 	        if (Globals.currentObjective == Globals.ToDoList[i])
             {
 		        
@@ -113,12 +118,15 @@ public class GameManager : MonoBehaviour
 
     public void ReadingMode()
     {
-        readingMode = true;
+        
 	    panelText.SetActive(true);
 	    panelGamePlay.SetActive(false);
-        messagesManager.StartDialogue();
+	    readingMode = true;
+	    messagesManager.StartDialogue();
+	    
     }
 
+	
    
 
     public void Save()

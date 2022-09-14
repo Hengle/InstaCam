@@ -117,7 +117,9 @@
 -define:ENABLE_TERRAIN
 -define:ENABLE_TILEMAP
 -define:ENABLE_TIMELINE
+-define:ENABLE_INPUT_SYSTEM
 -define:ENABLE_LEGACY_INPUT_MANAGER
+-define:CROSS_PLATFORM_INPUT
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
@@ -338,6 +340,11 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/Portals/PhotoSelection.cs"
+"Assets/Portals/PortalCamera.cs"
+"Assets/Portals/PortalTeleporter.cs"
+"Assets/Portals/PortalTextureSetup.cs"
+"Assets/_OzcarDev/Prueba.cs"
 "Assets/_OzcarDev/Scripts/Album/PhotoCard.cs"
 "Assets/_OzcarDev/Scripts/Camera/CameraHandler.cs"
 "Assets/_OzcarDev/Scripts/Camera/ScreenShotHandler.cs"
