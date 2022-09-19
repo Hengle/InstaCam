@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
 public class Globals 
 {
   
@@ -14,4 +13,9 @@ public class Globals
 	    "Arcade","Drum Set","Computer"    
     
     };
+    
+	public static float[] position= new float[3]{-3.186f,4.9f,-1.34f};
+	public static float[] rotation= new float[3]{0,270,0};
+	
+	
 }

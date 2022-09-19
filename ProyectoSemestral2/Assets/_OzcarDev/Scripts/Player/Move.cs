@@ -46,15 +46,24 @@ namespace com.OzcarDev.WalkingSim
             gameManager = GameObject.Find("GameManager").GetComponent <GameManager> ();
             characterController = GetComponent<CharacterController>();
             cam = transform.Find("Camera");
-            Cursor.lockState = CursorLockMode.Locked;
+	        Cursor.lockState = CursorLockMode.Locked;
+            
+	        InitializeValues();
 
             normalScale = transform.localScale;
             crouchScale = normalScale;
             crouchScale.y = normalScale.y * 0.75f;
             lieScale = normalScale;
-            lieScale.y = normalScale.y * 0.2f;
+	        lieScale.y = normalScale.y * 0.2f;
+	        
         }
 
+	    void InitializeValues(){
+	   
+	    	
+	    	transform.position = new Vector3( Globals.position[0],Globals.position[1],Globals.position[2]);
+	    	transform.rotation = Quaternion.Euler(Globals.rotation[0],Globals.rotation[1],Globals.rotation[2]);
+	    }
         // Update is called once per frame
         void Update()
         {
@@ -69,7 +78,8 @@ namespace com.OzcarDev.WalkingSim
        
 
         void RotateMouse()
-        {
+	    {
+		  
             inputRot.x = Input.GetAxis("Mouse X") * sensibility;
             inputRot.y = Input.GetAxis("Mouse Y") * sensibility;
             
@@ -102,7 +112,7 @@ namespace com.OzcarDev.WalkingSim
 
         private Coroutine CrouchCoroutine;
         void Crouch()
-        {
+	    { 
             if (Input.GetButtonDown("Crouch")&&CrouchCoroutine==null)
             {
                 switch (_State)

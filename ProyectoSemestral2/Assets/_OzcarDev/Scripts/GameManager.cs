@@ -28,10 +28,11 @@ public class GameManager : MonoBehaviour
     
 	public bool playerIsOverlapping;
     
-    
+	public Transform player;
     void Start()
 	{
 		playerIsOverlapping = false;
+		player = GameObject.Find("Player").GetComponent<Transform>();
 	    messagesManager = GameObject.Find("MessagesManager").GetComponent<MessagesManager>();
 	    Draw();
     }
@@ -40,7 +41,8 @@ public class GameManager : MonoBehaviour
     void Update()
 	{
 		Debug.Log(playerIsOverlapping);
-	    if(Input.GetKeyDown(KeyCode.Q)&&Globals.playerKeys.Contains("PhotoAlbum")) NoteBook();
+		if(Input.GetKeyDown(KeyCode.Q)&&Globals.playerKeys.Contains("PhotoAlbum")) NoteBook();
+		if(Input.GetKeyDown(KeyCode.P)&&Globals.playerKeys.Contains("PhotoAlbum")) PhotoAlbum();
 
         if (Input.GetKeyDown(KeyCode.Escape)) Pause();
 
@@ -55,6 +57,16 @@ public class GameManager : MonoBehaviour
     {
         isPaused = !isPaused;
     }
+	public void PhotoAlbum(){
+		Globals.position[0] = player.position.x;
+		Globals.position[1] = player.position.y;
+		Globals.position[2] = player.position.z;
+		
+		Globals.rotation[0] = player.rotation.x;
+		Globals.rotation[1] = player.rotation.y;
+		Globals.rotation[2] = player.rotation.z;
+		LoadScene.LoadNextScene("PhotoAlbum");
+	}
 
 	public void NoteBook(){
 		if (_AnimState == AnimState.On)
@@ -130,8 +142,8 @@ public class GameManager : MonoBehaviour
    
 
     public void Save()
-    {
-       /* if (Input.GetKeyDown(KeyCode.G))
+	{/*
+       if (Input.GetKeyDown(KeyCode.G))
         {
             SaveManager.SavePlayerData();
             Debug.Log("DatosGuardados");
@@ -142,7 +154,7 @@ public class GameManager : MonoBehaviour
             PlayerData playerData = SaveManager.LoadPlayerData();
 
             if (playerData == null) return;
-                Globals.photo_index = playerData.photo_index;
+                
             Debug.Log("DatosCargados");
         }
 
@@ -150,7 +162,7 @@ public class GameManager : MonoBehaviour
         {
             SaveManager.DeletePlayerData();
             Debug.Log("DatosBorrados");
-        }*/
+		}*/
     }
 
 }
