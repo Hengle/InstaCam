@@ -67,8 +67,11 @@
     <Compile Include="Assets\_OzcarDev\Scripts\LoadScene.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\LimitFPS.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\DataBase\SaveManager.cs" />
+    <Compile Include="Assets\Portal\PortalCamera.cs" />
+    <Compile Include="Assets\Portal\PortalTextureSetup.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Camera\ScreenShotHandler.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Interaction\MessagesManager.cs" />
+    <Compile Include="Assets\Portal\PortalTeleporter.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Globals.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\DataBase\PlayerData.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\GameManager.cs" />
@@ -88,6 +91,7 @@
     <None Include="Assets\Shaders\Simple Toon\Shaders\STTransparent.shader" />
     <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Portal\ScreenCutoutShader.shader" />
     <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\Models\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Models\TextMesh Pro\Shaders\TMPro_Properties.cginc" />

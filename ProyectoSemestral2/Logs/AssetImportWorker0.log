@@ -1,0 +1,1857 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.8f1 (b30333d56e81) revision 11731763'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'es' Physical Memory: 24534 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.8f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/UnityProjects/ProyectoSemestral2
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+57088
+Successfully changed project path to: D:/UnityProjects/ProyectoSemestral2
+D:/UnityProjects/ProyectoSemestral2
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 45.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.8f1 (b30333d56e81)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/UnityProjects/ProyectoSemestral2/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Radeon RX550/550 Series (ID=0x699f)
+    Vendor:   ATI
+    VRAM:     2028 MB
+    Driver:   30.0.13023.4001
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56904
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.012632 seconds.
+Native extension for WindowsStandalone target not found
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 49.83 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.810 seconds
+Domain Reload Profiling:
+	ReloadAssembly (811ms)
+		BeginReloadAssembly (88ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (574ms)
+			LoadAssemblies (87ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (145ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (329ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (85ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (50ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (130ms)
+				ProcessInitializeOnLoadMethodAttributes (61ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.003978 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.65 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.498 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1499ms)
+		BeginReloadAssembly (301ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (14ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (159ms)
+		EndReloadAssembly (1043ms)
+			LoadAssemblies (91ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (241ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (53ms)
+			SetupLoadedEditorAssemblies (616ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (40ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (69ms)
+				ProcessInitializeOnLoadAttributes (463ms)
+				ProcessInitializeOnLoadMethodAttributes (33ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1778 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 21 unused Assets / (297.5 KB). Loaded Objects now: 2263.
+Memory consumption went from 94.3 MB to 94.0 MB.
+Total: 3.085400 ms (FindLiveObjects: 0.188000 ms CreateObjectMapping: 0.094100 ms MarkObjects: 2.542400 ms  DeleteObjects: 0.259900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 101518.055680 seconds.
+  path: Assets/_OzcarDev/Scripts/GameManager.cs
+  artifactKey: Guid(42a6deb7293c1924b9e553bfbf012399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_OzcarDev/Scripts/GameManager.cs using Guid(42a6deb7293c1924b9e553bfbf012399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39fd289ae57c96c3712226011a8987fe') in 0.066629 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003461 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.187 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1188ms)
+		BeginReloadAssembly (130ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (948ms)
+			LoadAssemblies (78ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (217ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (46ms)
+			SetupLoadedEditorAssemblies (555ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (39ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (53ms)
+				ProcessInitializeOnLoadAttributes (414ms)
+				ProcessInitializeOnLoadMethodAttributes (39ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.30 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1756 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (275.7 KB). Loaded Objects now: 2266.
+Memory consumption went from 92.5 MB to 92.2 MB.
+Total: 4.654400 ms (FindLiveObjects: 0.197900 ms CreateObjectMapping: 0.089800 ms MarkObjects: 3.937300 ms  DeleteObjects: 0.428300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 101.057250 seconds.
+  path: Assets/_OzcarDev/Scripts/GameManager.cs
+  artifactKey: Guid(42a6deb7293c1924b9e553bfbf012399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_OzcarDev/Scripts/GameManager.cs using Guid(42a6deb7293c1924b9e553bfbf012399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c63d5bb7fc8c9c65490e34ff92353b7a') in 0.006916 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003374 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.176 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1177ms)
+		BeginReloadAssembly (129ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (36ms)
+		EndReloadAssembly (938ms)
+			LoadAssemblies (77ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (216ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (546ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (43ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (54ms)
+				ProcessInitializeOnLoadAttributes (404ms)
+				ProcessInitializeOnLoadMethodAttributes (33ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.62 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1756 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (275.7 KB). Loaded Objects now: 2269.
+Memory consumption went from 92.5 MB to 92.2 MB.
+Total: 5.026500 ms (FindLiveObjects: 0.180500 ms CreateObjectMapping: 0.077300 ms MarkObjects: 4.519100 ms  DeleteObjects: 0.248700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003790 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.177 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1178ms)
+		BeginReloadAssembly (137ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (37ms)
+		EndReloadAssembly (926ms)
+			LoadAssemblies (82ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (211ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (44ms)
+			SetupLoadedEditorAssemblies (537ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (37ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (52ms)
+				ProcessInitializeOnLoadAttributes (402ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.30 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1756 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (275.6 KB). Loaded Objects now: 2272.
+Memory consumption went from 92.5 MB to 92.2 MB.
+Total: 4.602600 ms (FindLiveObjects: 0.174500 ms CreateObjectMapping: 0.073400 ms MarkObjects: 3.688800 ms  DeleteObjects: 0.664700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004303 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.150 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1151ms)
+		BeginReloadAssembly (133ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (909ms)
+			LoadAssemblies (81ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (211ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (529ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (39ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (57ms)
+				ProcessInitializeOnLoadAttributes (392ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
+				AfterProcessingInitializeOnLoad (12ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.71 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1756 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (275.5 KB). Loaded Objects now: 2275.
+Memory consumption went from 92.5 MB to 92.2 MB.
+Total: 3.760400 ms (FindLiveObjects: 0.220500 ms CreateObjectMapping: 0.097700 ms MarkObjects: 3.129200 ms  DeleteObjects: 0.312000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003361 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.50 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.202 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1203ms)
+		BeginReloadAssembly (135ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (36ms)
+		EndReloadAssembly (961ms)
+			LoadAssemblies (82ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (207ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (584ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (41ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (60ms)
+				ProcessInitializeOnLoadAttributes (439ms)
+				ProcessInitializeOnLoadMethodAttributes (32ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.43 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1756 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (275.8 KB). Loaded Objects now: 2278.
+Memory consumption went from 92.5 MB to 92.2 MB.
+Total: 3.293500 ms (FindLiveObjects: 0.176400 ms CreateObjectMapping: 0.075100 ms MarkObjects: 2.770500 ms  DeleteObjects: 0.270200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 4475.240233 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Roads/Roads_00.prefab
+  artifactKey: Guid(9ab11efc5994bf34088b8bcf52c10b98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Roads/Roads_00.prefab using Guid(9ab11efc5994bf34088b8bcf52c10b98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d52758371decb30837ca35cdc808b31') in 0.166924 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Roads/Roads_01.prefab
+  artifactKey: Guid(7abc4fe79c7ee00458da398d15648ce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Roads/Roads_01.prefab using Guid(7abc4fe79c7ee00458da398d15648ce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7feda5f6d14639c9ac76f3b36a2fb45') in 0.030417 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Roads/Roads_03.prefab
+  artifactKey: Guid(502e023306136ee49b0b88b217c15c9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Roads/Roads_03.prefab using Guid(502e023306136ee49b0b88b217c15c9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18af1592ef5f7040de399c3905d556bb') in 0.031842 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Roads/Roads_02.prefab
+  artifactKey: Guid(28b944f3525ccf34781384bd7ebf4c7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Roads/Roads_02.prefab using Guid(28b944f3525ccf34781384bd7ebf4c7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8835d8113a45083f9c221408093b1ac1') in 0.026558 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.996681 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/AirConditioning_A1.fbx
+  artifactKey: Guid(36f0a5a6b43abeb4493d7bc30a9c9e6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/AirConditioning_A1.fbx using Guid(36f0a5a6b43abeb4493d7bc30a9c9e6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fba34ca066418ccd9257cdb059955848') in 0.092687 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Stairs_B1.fbx
+  artifactKey: Guid(ba7b59261fbe71f4ca37b1e1135aaa0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Stairs_B1.fbx using Guid(ba7b59261fbe71f4ca37b1e1135aaa0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c17185575c591a711f2e68f7cb78f69') in 0.029982 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_D01.fbx
+  artifactKey: Guid(dbbd6f305dc4cba47b32818121b758a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_D01.fbx using Guid(dbbd6f305dc4cba47b32818121b758a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b336a2911b32b2bb984247d9f07e5c7') in 0.034699 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/AirConditioning_B3.fbx
+  artifactKey: Guid(9a02f3406231ebb40844da4397d4fcae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/AirConditioning_B3.fbx using Guid(9a02f3406231ebb40844da4397d4fcae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd698df1f65ab4d0d238e48aa4e70cec6') in 0.029839 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Sign_Go.fbx
+  artifactKey: Guid(5cd8e53893a419f409cb2708e0bf40e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Sign_Go.fbx using Guid(5cd8e53893a419f409cb2708e0bf40e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f57edfe1e57e50c30e1fec5d7372ee8') in 0.026886 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_E02.fbx
+  artifactKey: Guid(d5cf3e32535c0824991be75b02f68e0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_E02.fbx using Guid(d5cf3e32535c0824991be75b02f68e0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48fa5a769a7bee3b0757ab8501914b18') in 0.029796 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Box_A1.fbx
+  artifactKey: Guid(3de66014aaec87c49a633ca3cc0255f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Box_A1.fbx using Guid(3de66014aaec87c49a633ca3cc0255f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d81302ff18fb8be33610cfa77c21f4d') in 0.027027 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Fence_A2.fbx
+  artifactKey: Guid(48c625ac76bd41147b35576e4bf025b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Fence_A2.fbx using Guid(48c625ac76bd41147b35576e4bf025b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21a19e82f4d2c2f0fa4e52a3e2c25958') in 0.026631 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Subway_01.fbx
+  artifactKey: Guid(f73e7e34fe659184baffac986fa3d5e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Subway_01.fbx using Guid(f73e7e34fe659184baffac986fa3d5e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4810c77115bd77130991f035624e5174') in 0.026396 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Stairs_B2.fbx
+  artifactKey: Guid(adc2b176a92e98a47b45b2b7737294ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Stairs_B2.fbx using Guid(adc2b176a92e98a47b45b2b7737294ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1392e88400c2f761954f0db9040a09e') in 0.024182 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Fence_A1.fbx
+  artifactKey: Guid(8dd71c49afd23c24a98de0ae7162957b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Fence_A1.fbx using Guid(8dd71c49afd23c24a98de0ae7162957b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b03da905fb02449bdf8fbcc9b3aab07') in 0.028318 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Dumpster_B1.fbx
+  artifactKey: Guid(ce337395fcb072347b4a9674f3e410ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Dumpster_B1.fbx using Guid(ce337395fcb072347b4a9674f3e410ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03ec83f03ea83800a22f11124d785a03') in 0.026155 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Mailbox_01.fbx
+  artifactKey: Guid(026df8a2315aac249a734c8d5ca0948a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Mailbox_01.fbx using Guid(026df8a2315aac249a734c8d5ca0948a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e6814218afb2a92e1c4b690bf3011c2') in 0.021468 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Sign_Stop.fbx
+  artifactKey: Guid(d0ed0c5a40fadb74da55a72330d37bf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Sign_Stop.fbx using Guid(d0ed0c5a40fadb74da55a72330d37bf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a40e6c59ba926600c6868ea7694eb49') in 0.027424 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Road_Sign_A3.fbx
+  artifactKey: Guid(59f4bdf8965c2794da3eaca74019e137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Road_Sign_A3.fbx using Guid(59f4bdf8965c2794da3eaca74019e137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48e4836f76ab90dc57205cddf11f41da') in 0.023247 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_E01.fbx
+  artifactKey: Guid(049b59aa2202b8b4594a8da0737a9620) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_E01.fbx using Guid(049b59aa2202b8b4594a8da0737a9620) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efac6d17ed6423657061c2fbb8ff7c1f') in 0.020960 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Sign_01.fbx
+  artifactKey: Guid(c8b56cfdeb792144381e0242f2b70121) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Sign_01.fbx using Guid(c8b56cfdeb792144381e0242f2b70121) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c58a24ab41a0611e432ef144e415beb7') in 0.025226 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_C01.fbx
+  artifactKey: Guid(43da6dfbd9fd4aa40b2e70eb8fc663c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_C01.fbx using Guid(43da6dfbd9fd4aa40b2e70eb8fc663c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5e226153d2c6e5b0572634587b2db84') in 0.022083 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_A01.fbx
+  artifactKey: Guid(d8095ac0253ef0e4ea749af361a2e17c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_A01.fbx using Guid(d8095ac0253ef0e4ea749af361a2e17c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a760860aa772a20f7da4ac04a29728dd') in 0.022897 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/AirConditioning_B1.fbx
+  artifactKey: Guid(fa591b7b752758e43a091fd55d94a4f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/AirConditioning_B1.fbx using Guid(fa591b7b752758e43a091fd55d94a4f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '015275ff58855c2c16c80d8b92d840ed') in 0.027901 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Road_Sign_A4.fbx
+  artifactKey: Guid(cbdb11e5e96c8be4cb4a216b4638e04a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Road_Sign_A4.fbx using Guid(cbdb11e5e96c8be4cb4a216b4638e04a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbeec74984a550ffbacddcd427465b7b') in 0.022509 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Stairs_A1.fbx
+  artifactKey: Guid(2e595276cd6ab5e43bd9b63c8fce1d5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Stairs_A1.fbx using Guid(2e595276cd6ab5e43bd9b63c8fce1d5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e46c98d2224410622d9bd7b834b8b5c') in 0.027450 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/SignBlock.fbx
+  artifactKey: Guid(1572277e855b26b47a555be0351b413c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/SignBlock.fbx using Guid(1572277e855b26b47a555be0351b413c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd936587a17c5948ccda466c574b53feb') in 0.022784 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Cantero_B2.fbx
+  artifactKey: Guid(79126e9ef51a2ac44b47fa4983f8fbd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Cantero_B2.fbx using Guid(79126e9ef51a2ac44b47fa4983f8fbd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '573206b5a5343c5b6764ee625f140d76') in 0.024501 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Sign_02.fbx
+  artifactKey: Guid(47f9c4126c96fc9429e32bed24e04d1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Sign_02.fbx using Guid(47f9c4126c96fc9429e32bed24e04d1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3c79171bb856119cfec9b8323374a7f') in 0.022629 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Cantero_A1.fbx
+  artifactKey: Guid(402f0cb4d6247e141a80140b2e727754) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Cantero_A1.fbx using Guid(402f0cb4d6247e141a80140b2e727754) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52dda7f87277de94028399e0b0c8b759') in 0.023756 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Dumpster_A1.fbx
+  artifactKey: Guid(09c93df3b46a0db42bf12f2a1174b1e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Dumpster_A1.fbx using Guid(09c93df3b46a0db42bf12f2a1174b1e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77377bc2d16778c6fc8a9ffd77bbdd9a') in 0.025697 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Table_A1.fbx
+  artifactKey: Guid(1bbfa6ab1236ffa49ba4928f155e7c13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Table_A1.fbx using Guid(1bbfa6ab1236ffa49ba4928f155e7c13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce6b43cb15475d913e7c35811b5e4a4c') in 0.022944 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Cone_A2.fbx
+  artifactKey: Guid(02284de7bf5b6d64dad99cef9b5c8868) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Cone_A2.fbx using Guid(02284de7bf5b6d64dad99cef9b5c8868) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63b85e01d760d4a194e93092faf7b989') in 0.027023 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Cone_A1.fbx
+  artifactKey: Guid(8f1302f45f8910a4bb78f1636e36a38e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Cone_A1.fbx using Guid(8f1302f45f8910a4bb78f1636e36a38e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '761ea6376935f6a145d00a48736aeebc') in 0.026995 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Road_Sign_A1.fbx
+  artifactKey: Guid(e11c445d096840f479b622b9bc8ff697) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Road_Sign_A1.fbx using Guid(e11c445d096840f479b622b9bc8ff697) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b04e4bbcb277ab50e81482b64ad5077a') in 0.021515 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Awning_A1.fbx
+  artifactKey: Guid(6867f048a7415d04e825d56110d1f754) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Awning_A1.fbx using Guid(6867f048a7415d04e825d56110d1f754) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e2097752051b28c09bd06200d6b6a02') in 0.026791 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Awning_A2.fbx
+  artifactKey: Guid(085f865affa9c0941be053c53c792804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Awning_A2.fbx using Guid(085f865affa9c0941be053c53c792804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1901f62a96c8f8918f9909fb586cd594') in 0.024913 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Street_Lamp_A.fbx
+  artifactKey: Guid(b3d1634f8720c4748ae3f34978122ac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Street_Lamp_A.fbx using Guid(b3d1634f8720c4748ae3f34978122ac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6aa15fd4d7eeaa483b7b1a9c795583e6') in 0.022671 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Antena_A1.fbx
+  artifactKey: Guid(3108cc6913a440140b60f580bd987219) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Antena_A1.fbx using Guid(3108cc6913a440140b60f580bd987219) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01f61eb719b76e906a36de52792b7f09') in 0.026905 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Chair_A2.fbx
+  artifactKey: Guid(c93238c9b481cb243af810cc0c802927) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Chair_A2.fbx using Guid(c93238c9b481cb243af810cc0c802927) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edb5971136e0c8a99a6b61de5073120f') in 0.024494 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Chair_A1.fbx
+  artifactKey: Guid(e41ef3a72f9004d45bed1b24453080f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Chair_A1.fbx using Guid(e41ef3a72f9004d45bed1b24453080f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94733711eb9523b3837c3b583f1f69ef') in 0.025869 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_Crossing_01.fbx
+  artifactKey: Guid(4ea1277dc72899a41b59b0fd81c6506f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_Crossing_01.fbx using Guid(4ea1277dc72899a41b59b0fd81c6506f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c92b7e1df61b4aa5e378cffbf330b96') in 0.023498 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Awning_A4.fbx
+  artifactKey: Guid(4ab06ffe15ca5354b8aea7ac0f608749) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Awning_A4.fbx using Guid(4ab06ffe15ca5354b8aea7ac0f608749) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '049d07cb8e30e4e748f016c4cea73af3') in 0.024352 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Awning_A3.fbx
+  artifactKey: Guid(c7cae1278cab90c41b61ff717a40aafa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Awning_A3.fbx using Guid(c7cae1278cab90c41b61ff717a40aafa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a9de8ffbf658407e2cdd8144efd24ac') in 0.026927 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Box_A2.fbx
+  artifactKey: Guid(f216c903d20a69240b0f884602cdb095) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Box_A2.fbx using Guid(f216c903d20a69240b0f884602cdb095) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39ce3392f7a041321f8cf99f8d4a70ce') in 0.024840 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Hydrant.fbx
+  artifactKey: Guid(309010b44f2f6154695caf1d0fdf3617) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Hydrant.fbx using Guid(309010b44f2f6154695caf1d0fdf3617) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5380d5ca480bfc3719d516784e824f04') in 0.025792 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_B02.fbx
+  artifactKey: Guid(addbfb6ea81c2e34d81d02638704aa5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_B02.fbx using Guid(addbfb6ea81c2e34d81d02638704aa5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fcf5d1f8bd501c90cb302b1d0d979fef') in 0.024004 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Road_Sign_A2.fbx
+  artifactKey: Guid(99aeaa5682fab8a4aa49403e19e741cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Road_Sign_A2.fbx using Guid(99aeaa5682fab8a4aa49403e19e741cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d735871708272b8fc2346a849cd2567') in 0.020733 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Street_Lamp_B.fbx
+  artifactKey: Guid(cf300d9f7de7b3442acecf6836e37dda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Street_Lamp_B.fbx using Guid(cf300d9f7de7b3442acecf6836e37dda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a98a3ef2adae56fabba0fb4e9dcef34') in 0.024562 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/BusStop_01.fbx
+  artifactKey: Guid(eebff4ff7095dd84c850d03ea4a91bb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/BusStop_01.fbx using Guid(eebff4ff7095dd84c850d03ea4a91bb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd6d67c5a31b31da54c6c6bc7a9cd731') in 0.026976 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_A02.fbx
+  artifactKey: Guid(4791759ccc5cab94b8cae63295e97496) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_A02.fbx using Guid(4791759ccc5cab94b8cae63295e97496) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b358bbc8bc9def26e24f2965a2e7a767') in 0.021209 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/AirConditioning_B2.fbx
+  artifactKey: Guid(efa5d2cf1e6961642b81a7cf47abada5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/AirConditioning_B2.fbx using Guid(efa5d2cf1e6961642b81a7cf47abada5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '147175b4369708e0f1d4aeb7f0cc1ea9') in 0.024410 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_B01.fbx
+  artifactKey: Guid(6dd019053489e7e47821f12684fed1c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Railroad_B01.fbx using Guid(6dd019053489e7e47821f12684fed1c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13e7284da77258ef01c5ad6b1fa63cdf') in 0.030859 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.442090 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Table_B1.fbx
+  artifactKey: Guid(e6577c1145dc5e745ba1b01f17bdf4bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Table_B1.fbx using Guid(e6577c1145dc5e745ba1b01f17bdf4bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24772f7b289539e96758ed69f7d1c8fe') in 0.027338 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Tree_B1.fbx
+  artifactKey: Guid(fe915049e0038fc46a05e5736ce0fa86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Tree_B1.fbx using Guid(fe915049e0038fc46a05e5736ce0fa86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '708c64f6b8a629b6a22092ef4e573f56') in 0.032280 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Trafic_Ligth_A1.fbx
+  artifactKey: Guid(0b2a6cec7e3632e41ad9403fcc320760) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Trafic_Ligth_A1.fbx using Guid(0b2a6cec7e3632e41ad9403fcc320760) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c33ebaf54e485ba7a681142f21b57967') in 0.028660 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Umbrella_A3.fbx
+  artifactKey: Guid(6935f633c3ddb8f40a39c063b8f5fe0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Umbrella_A3.fbx using Guid(6935f633c3ddb8f40a39c063b8f5fe0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e18302a06fd834c47587ad291b4e96e') in 0.027310 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Train_Stopper_01.fbx
+  artifactKey: Guid(3286261d1774efc4ba3f15d4248a51a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Train_Stopper_01.fbx using Guid(3286261d1774efc4ba3f15d4248a51a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '615014a0df068735bf983e2b89b169a7') in 0.023827 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Tree_A2.fbx
+  artifactKey: Guid(981f54d2403d5e245b8ab55a0142d823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Tree_A2.fbx using Guid(981f54d2403d5e245b8ab55a0142d823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0127e1fa51e44410d03a885ef2e77869') in 0.025854 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Umbrella_A1.fbx
+  artifactKey: Guid(8dd2a274805fc3047b79a3b7b8cf2a66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Umbrella_A1.fbx using Guid(8dd2a274805fc3047b79a3b7b8cf2a66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2f25c630c8c8ed6486ca018b7511ee7') in 0.024684 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/WaterTank_A1.fbx
+  artifactKey: Guid(8cf989c95eef27f488eddd93a791a9ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/WaterTank_A1.fbx using Guid(8cf989c95eef27f488eddd93a791a9ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78c7ac441795a65ba88d3ca00ae7b6ca') in 0.027067 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/WaterTank_A2.fbx
+  artifactKey: Guid(b3aad17e31d4e194eb90ffe2199c93d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/WaterTank_A2.fbx using Guid(b3aad17e31d4e194eb90ffe2199c93d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec7eb5c5e638aedd4683d5f208f490ac') in 0.026207 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Tree_A1.fbx
+  artifactKey: Guid(6c6d95252de2dca419eed0c64f36c4ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Tree_A1.fbx using Guid(6c6d95252de2dca419eed0c64f36c4ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e4434b9cc208bee674fa6248eedf793') in 0.025422 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Umbrella_A2.fbx
+  artifactKey: Guid(38a7232a49f59eb429e31297f56ec6d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Umbrella_A2.fbx using Guid(38a7232a49f59eb429e31297f56ec6d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c4b0db74f8e3281e56f404faa858f4f') in 0.020041 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/WaterTank_B2.fbx
+  artifactKey: Guid(fcc5649d932167248b6be937f43fff49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/WaterTank_B2.fbx using Guid(fcc5649d932167248b6be937f43fff49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '942d4b1b38678912e2af01cbc31d6324') in 0.026256 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/WaterTankBase.fbx
+  artifactKey: Guid(d7c23cc5be136974d8cc66cb7c3e3745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/WaterTankBase.fbx using Guid(d7c23cc5be136974d8cc66cb7c3e3745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0de5ed807987b92990230fbf127340b1') in 0.025173 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Trafic_Ligth_A2.fbx
+  artifactKey: Guid(bca4141dba271464eb8ed3937bf993b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/Trafic_Ligth_A2.fbx using Guid(bca4141dba271464eb8ed3937bf993b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3066293dfa85c4c86315980fb56a5573') in 0.023792 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/WaterTank_B1.fbx
+  artifactKey: Guid(9d429ea367cd2684182a22767a6084d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Extras/WaterTank_B1.fbx using Guid(9d429ea367cd2684182a22767a6084d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc3acfdfe9f017b0d0d1ef003f302ad3') in 0.023129 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.957498 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_A0.fbx
+  artifactKey: Guid(930ed4f1249680c42b7bc3ff7d17d06e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_A0.fbx using Guid(930ed4f1249680c42b7bc3ff7d17d06e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd334b4fc1a51fc270e30dfc7fad88d56') in 0.035716 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_A1.fbx
+  artifactKey: Guid(79df2bfb148ff074a9284fc9e344b582) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_A1.fbx using Guid(79df2bfb148ff074a9284fc9e344b582) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d1bebda39e7e65596d3b56e507da7b4') in 0.028903 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_D1.fbx
+  artifactKey: Guid(6fdc1992f6c5d3f469323f3bd8a03853) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_D1.fbx using Guid(6fdc1992f6c5d3f469323f3bd8a03853) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '549f0a78bf4f4adbf81ae1cda0515351') in 0.027136 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_A5.fbx
+  artifactKey: Guid(811bc4500dc54b14d94027a7f50cf234) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_A5.fbx using Guid(811bc4500dc54b14d94027a7f50cf234) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d18236ab3804aa2812847790f13fbe4') in 0.032336 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_A4.fbx
+  artifactKey: Guid(2d1b341832df43a4a880aaa2ed902108) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_A4.fbx using Guid(2d1b341832df43a4a880aaa2ed902108) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36b3f177b4b80dee20c49ae12f2ae493') in 0.025691 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_D2.fbx
+  artifactKey: Guid(463e444c0092a624fae65284f70d9d70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_D2.fbx using Guid(463e444c0092a624fae65284f70d9d70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffdf489339a74b66625d505ed98ed733') in 0.025433 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_B0.fbx
+  artifactKey: Guid(ce8ebde783f1916448c7f6505844d0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_B0.fbx using Guid(ce8ebde783f1916448c7f6505844d0f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd1dc5ba02a0011ba0e1d8ea3604b9c4') in 0.030869 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_B2.fbx
+  artifactKey: Guid(8227a384ee6359b438f766620b5b870c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_B2.fbx using Guid(8227a384ee6359b438f766620b5b870c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '565eab213bf210b5662a53ead3656c1b') in 0.026685 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_B3.fbx
+  artifactKey: Guid(8ee57af2ad0f31546be9ba9f22e0897d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_B3.fbx using Guid(8ee57af2ad0f31546be9ba9f22e0897d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74e84499e64be0176023bd62680ae8d9') in 0.023064 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_B1.fbx
+  artifactKey: Guid(c7290232b3a16064cbc7d6a1226eacb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_B1.fbx using Guid(c7290232b3a16064cbc7d6a1226eacb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2085cb77a7e10c311adccd9332755aea') in 0.027855 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_A3.fbx
+  artifactKey: Guid(fb7396163c191b9418789f58fca04f4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_A3.fbx using Guid(fb7396163c191b9418789f58fca04f4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94da041cd26d43305d883318f8419508') in 0.025803 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_C3.fbx
+  artifactKey: Guid(31bcd2798f516ae4fa1bc2f272686389) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_C3.fbx using Guid(31bcd2798f516ae4fa1bc2f272686389) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e00cd69d8ec9e53b424e2baad8b4a44a') in 0.026434 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_C0.fbx
+  artifactKey: Guid(21192b7f1b3d20746868aa518d5d7290) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_C0.fbx using Guid(21192b7f1b3d20746868aa518d5d7290) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b89e3418a64a969ed24ce0c5bf675827') in 0.027274 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_C2.fbx
+  artifactKey: Guid(8724aea533bdcb14e96e2e0fb88d672d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_C2.fbx using Guid(8724aea533bdcb14e96e2e0fb88d672d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77fa77658c065d19a714cf0a17bb5a01') in 0.027353 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_C1.fbx
+  artifactKey: Guid(e73b6ebbd4ade9e47960afeeb798ee38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_C1.fbx using Guid(e73b6ebbd4ade9e47960afeeb798ee38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c80a15feeeed07debc18d69a39e67bb') in 0.026633 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_A2.fbx
+  artifactKey: Guid(661277a9e03e11f42a44220271ff20ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_A2.fbx using Guid(661277a9e03e11f42a44220271ff20ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33746028e33bdee900da51eed0236493') in 0.026886 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_C4.fbx
+  artifactKey: Guid(37243ed06c01dfb4d93eb40a1c773f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Sidewalks/Sidewalk_C4.fbx using Guid(37243ed06c01dfb4d93eb40a1c773f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8a3ccb0445deb6d51899daaf0e5188d') in 0.024366 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.957377 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_A.fbx
+  artifactKey: Guid(402cf99bd7791174aab655617b830bac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_A.fbx using Guid(402cf99bd7791174aab655617b830bac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f107133861b75f314566a3847d38e5e') in 0.038707 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/BridgeColumn_01.fbx
+  artifactKey: Guid(8fa7275663bdbcf4ebcf81ee1ace05b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/BridgeColumn_01.fbx using Guid(8fa7275663bdbcf4ebcf81ee1ace05b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '456621bfa24188faed3e7449d838b937') in 0.035289 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_E2.fbx
+  artifactKey: Guid(b15dc2d2600cc384dbbfb787e15a5001) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_E2.fbx using Guid(b15dc2d2600cc384dbbfb787e15a5001) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93cef60c3e5aa376a7db2e9010563b6b') in 0.034420 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_C.fbx
+  artifactKey: Guid(5abf44f4657d41047a93117865fa36f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_C.fbx using Guid(5abf44f4657d41047a93117865fa36f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b303dcc3bb7f0af493b3ea1ab242cecf') in 0.027713 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_E3.fbx
+  artifactKey: Guid(a2b16b7bd07efd84e8375ad6201030aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_E3.fbx using Guid(a2b16b7bd07efd84e8375ad6201030aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b59b5005b22fdf2bbc507a7b8078615f') in 0.026684 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_D.fbx
+  artifactKey: Guid(72dfe4449704c8b4bb78dae17cf432b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_D.fbx using Guid(72dfe4449704c8b4bb78dae17cf432b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c9fa0b0e6d51a0446290b437944b8e0') in 0.026637 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_Crossing.fbx
+  artifactKey: Guid(d2e02e21416db134499e8cde605a9f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_Crossing.fbx using Guid(d2e02e21416db134499e8cde605a9f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ac1bfd4e8fcaa7e476c7cde08422294') in 0.022593 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_B.fbx
+  artifactKey: Guid(a6bd931c8d6cb904084d02c78889a8bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_B.fbx using Guid(a6bd931c8d6cb904084d02c78889a8bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b05fd2f5f1223ca4c1b20ea232145bea') in 0.023100 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_E1.fbx
+  artifactKey: Guid(666de6ef15343e243b2fc3b627074af5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt/Asphalt_E1.fbx using Guid(666de6ef15343e243b2fc3b627074af5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63d322dbe5a8ba637642cb5692b82636') in 0.026179 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.077654 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Buildings/Bock_A2.fbx
+  artifactKey: Guid(63c9b6bdcb3aa2244a6b356d42dc4fe9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Buildings/Bock_A2.fbx using Guid(63c9b6bdcb3aa2244a6b356d42dc4fe9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd185d36ced770e4fca7f7e20466f6e1d') in 0.058389 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.248171 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Block_A01.fbx
+  artifactKey: Guid(c0c03840da9739c4fbd806d2014c948e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Block_A01.fbx using Guid(c0c03840da9739c4fbd806d2014c948e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bc253f54086fee15c388bb866d54761') in 0.036989 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Block_A03.fbx
+  artifactKey: Guid(446118135d408be41afd5a60b68d2bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Block_A03.fbx using Guid(446118135d408be41afd5a60b68d2bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '995a3abb154d30b159ff95c963d09081') in 0.034028 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/RoofTop_A01.fbx
+  artifactKey: Guid(2da59bdc83d845e41912487a0db1c06f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/RoofTop_A01.fbx using Guid(2da59bdc83d845e41912487a0db1c06f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcda91cc2b952cf9b687b6bb9530e0ef') in 0.026668 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/RoofTop_A03.fbx
+  artifactKey: Guid(75d0b33c354834e42ba20ef65c05432a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/RoofTop_A03.fbx using Guid(75d0b33c354834e42ba20ef65c05432a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '097e036dfe69285f2dfec2379e75724c') in 0.030553 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/RoofTop_A02.fbx
+  artifactKey: Guid(1ac1190af3721e840a5d22fa6b379519) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/RoofTop_A02.fbx using Guid(1ac1190af3721e840a5d22fa6b379519) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5e299cd0376733a97212439bb381d6c') in 0.026599 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Bottle_01.fbx
+  artifactKey: Guid(b5b364e1d57115f40b382ca67ef314e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Bottle_01.fbx using Guid(b5b364e1d57115f40b382ca67ef314e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd36c015415f1213d3c8f886a29ce0749') in 0.027914 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Bottom_A01.fbx
+  artifactKey: Guid(9d6d258ecf05d7448ab0db052631c37e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Bottom_A01.fbx using Guid(9d6d258ecf05d7448ab0db052631c37e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88906b1ba4a3173b9f2112441fa2c01b') in 0.020369 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Hamburger_01.fbx
+  artifactKey: Guid(58c48f85d4550f04c873a629164119c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Hamburger_01.fbx using Guid(58c48f85d4550f04c873a629164119c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8191ca5616e48f223e401b080fa85879') in 0.025405 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Door_A01.fbx
+  artifactKey: Guid(60ea6cad622271b4aad092c79ce21042) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Door_A01.fbx using Guid(60ea6cad622271b4aad092c79ce21042) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f48a2aae717e19954c69f0ab9302b52') in 0.027025 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Block_A04.fbx
+  artifactKey: Guid(8c8bb4399d218fe4ab3c504561371d4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Block_A04.fbx using Guid(8c8bb4399d218fe4ab3c504561371d4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97504e3a1c3dbb624dd751c562f19ff5') in 0.023561 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Bottom_A02.fbx
+  artifactKey: Guid(6151dc4525b2ef147973d3c2bcfbe40c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Bottom_A02.fbx using Guid(6151dc4525b2ef147973d3c2bcfbe40c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '865a7d6d092ba8a230ffab69e90677ef') in 0.020920 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/RoofTop_A04.fbx
+  artifactKey: Guid(84e42c80a549b3f449301b36f786638d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/RoofTop_A04.fbx using Guid(84e42c80a549b3f449301b36f786638d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '556de7303a0b5a9a8d0f3af7e72469ac') in 0.026938 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Block_A02.fbx
+  artifactKey: Guid(de8fce2b1f7c64d498f779c709adc2d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Burgers/Block_A02.fbx using Guid(de8fce2b1f7c64d498f779c709adc2d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7366c277cbf8d2177172f9f6f19f57e') in 0.026884 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.417792 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Ambulance.fbx
+  artifactKey: Guid(8d43d0c8acbaff94bba0553211b92d05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Ambulance.fbx using Guid(8d43d0c8acbaff94bba0553211b92d05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff5e76df6fcb4ab44e48d621f684765b') in 0.119528 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Truck_A1.fbx
+  artifactKey: Guid(18c5c9c2216bd5e4e9780e7614b6c8be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Truck_A1.fbx using Guid(18c5c9c2216bd5e4e9780e7614b6c8be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fce9474cfa2b63a014101c360861a410') in 0.067076 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_C2.fbx
+  artifactKey: Guid(86524e71dee970d44a5db72617fdfa07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_C2.fbx using Guid(86524e71dee970d44a5db72617fdfa07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97930c192b832185633d6be1b036b046') in 0.087598 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Ban_A2.fbx
+  artifactKey: Guid(8d22aaddefd94f24092aae3637aca317) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Ban_A2.fbx using Guid(8d22aaddefd94f24092aae3637aca317) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b7d42f6cbd94b0e42dc36550b52d94a') in 0.070096 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Truck_A2.fbx
+  artifactKey: Guid(ba0490197f1ff5e4e8c037d89a534041) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Truck_A2.fbx using Guid(ba0490197f1ff5e4e8c037d89a534041) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a9bb8dffeff8a8a3600eb649819353a') in 0.074176 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_A2.fbx
+  artifactKey: Guid(896c3cdd43f08114d87e50fcd48d8edb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_A2.fbx using Guid(896c3cdd43f08114d87e50fcd48d8edb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d95a85c17945a2f9b173c6ea2136a39') in 0.080519 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_A3.fbx
+  artifactKey: Guid(48b47e218e9632e45ac82039f9b2d1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_A3.fbx using Guid(48b47e218e9632e45ac82039f9b2d1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4450494f929498b1364cdc138a6d9e9') in 0.073337 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_A5.fbx
+  artifactKey: Guid(7426405a186134c439da3a44666e7c19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_A5.fbx using Guid(7426405a186134c439da3a44666e7c19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6ab382c469d1c2263c80b7b54b3fe1e') in 0.074328 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_D5.fbx
+  artifactKey: Guid(eef13241a73ae104ca40cb5faedec77c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_D5.fbx using Guid(eef13241a73ae104ca40cb5faedec77c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fe025c402974d199950c9b6e69666f9') in 0.077124 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Truck_A4.fbx
+  artifactKey: Guid(d05f147236d6e7443a97f0dd78683e5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Truck_A4.fbx using Guid(d05f147236d6e7443a97f0dd78683e5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bf9ca9e951d87f175fe05ada6cfb310') in 0.073206 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_B5.fbx
+  artifactKey: Guid(3e58b5e2fb18b244d8b3d12aacdde842) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_B5.fbx using Guid(3e58b5e2fb18b244d8b3d12aacdde842) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ede9431d6e9864399f645aafecb4496') in 0.077142 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_C5.fbx
+  artifactKey: Guid(470ad6d45ab5a594c905f889331c712f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_C5.fbx using Guid(470ad6d45ab5a594c905f889331c712f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6473c0ca8044dd210dd60c1afb917fc1') in 0.075278 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_C1.fbx
+  artifactKey: Guid(661aad8beb0ae094d8b86c46dee56e0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_C1.fbx using Guid(661aad8beb0ae094d8b86c46dee56e0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad8cb9d6753cfbcf3c164682b8ff47bd') in 0.075938 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_B3.fbx
+  artifactKey: Guid(942b6b97a7c0258459fa660af1e969db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_B3.fbx using Guid(942b6b97a7c0258459fa660af1e969db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13e85c6b2b7855014876c1ff00d08554') in 0.078255 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_D2.fbx
+  artifactKey: Guid(8a9ea64b9a4c04b4abef46ee812e4633) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_D2.fbx using Guid(8a9ea64b9a4c04b4abef46ee812e4633) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75918b410dd18b325f4f1aa582f8a496') in 0.076300 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Ban_A1.fbx
+  artifactKey: Guid(c768d15cf700a9344ab257a48dc8a9e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Ban_A1.fbx using Guid(c768d15cf700a9344ab257a48dc8a9e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '800ed178c776142eb27498432cd51a6e') in 0.074367 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Ban_A4.fbx
+  artifactKey: Guid(95fb86f4fda4c50498502768b4d7874f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Ban_A4.fbx using Guid(95fb86f4fda4c50498502768b4d7874f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '006b5a82c98d0f455d6480f0b85f02e0') in 0.069967 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Ban_A3.fbx
+  artifactKey: Guid(b8e16d7e31cb8294bb5eb7fe502517c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Ban_A3.fbx using Guid(b8e16d7e31cb8294bb5eb7fe502517c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34c025b5a24b739d993f913037a33ba0') in 0.069117 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_D3.fbx
+  artifactKey: Guid(0b6c33cb9e0c39f4d8640c9fb84065b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_D3.fbx using Guid(0b6c33cb9e0c39f4d8640c9fb84065b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd8438008e588509b01af23520867406') in 0.073113 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_A4.fbx
+  artifactKey: Guid(c3c540fd93409b24fb08c1eea7d8e7e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_A4.fbx using Guid(c3c540fd93409b24fb08c1eea7d8e7e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2587b8a94852f9787d2337c212f32400') in 0.074346 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_B2.fbx
+  artifactKey: Guid(85f4d6f7aaf9e3b45aafdc76d8eb9d4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_B2.fbx using Guid(85f4d6f7aaf9e3b45aafdc76d8eb9d4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44d271f5652bd6fd9e7e9cd138aee4d1') in 0.075845 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Ban_A5.fbx
+  artifactKey: Guid(fce540b0d352e15409610072380f0b27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Ban_A5.fbx using Guid(fce540b0d352e15409610072380f0b27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4cd6356981503e85d7ef90047e72881') in 0.070728 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_C4.fbx
+  artifactKey: Guid(3ff73897a1b40c84fa839a7d1b2848d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_C4.fbx using Guid(3ff73897a1b40c84fa839a7d1b2848d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8020b581073555139aceea95323df826') in 0.074565 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000070 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_A1.fbx
+  artifactKey: Guid(529cd6680a6c520479ada3db920c1b08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_A1.fbx using Guid(529cd6680a6c520479ada3db920c1b08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ba137385b5018d770da30db20a67cbb') in 0.070097 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_B1.fbx
+  artifactKey: Guid(bc5962d971fb50a4eaca9cf7ea38b2f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_B1.fbx using Guid(bc5962d971fb50a4eaca9cf7ea38b2f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91bf65136a2d3189416012f6ef4660fc') in 0.075158 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Truck_A5.fbx
+  artifactKey: Guid(8eef4385d4d334c48869c99457008cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Truck_A5.fbx using Guid(8eef4385d4d334c48869c99457008cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbba0e32aa35a7d9054cc92a53ffd3eb') in 0.071231 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Police_Car.fbx
+  artifactKey: Guid(d5f9d5aeb19f4364b88aec2f1fce8cb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Police_Car.fbx using Guid(d5f9d5aeb19f4364b88aec2f1fce8cb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5530e1643adc31b1fba5f6a6cbe90ed9') in 0.072638 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Truck_A3.fbx
+  artifactKey: Guid(85319cd37f31d5a439c963945e594d38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Truck_A3.fbx using Guid(85319cd37f31d5a439c963945e594d38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1bc92fd1c1f66ee91a765cf77c76b50') in 0.075497 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Tram.fbx
+  artifactKey: Guid(d7003a85e241dca4faf413970a0361ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Tram.fbx using Guid(d7003a85e241dca4faf413970a0361ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8689c6392766f2beb2f3e2e00c83b30b') in 0.025725 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_D1.fbx
+  artifactKey: Guid(22b3b97e861e84d458aaea3889ab0933) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_D1.fbx using Guid(22b3b97e861e84d458aaea3889ab0933) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13aac4c1187a6dce3c92ee6f29255701') in 0.074208 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_C3.fbx
+  artifactKey: Guid(4a44ddf56b2daa2408dfecbade010004) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_C3.fbx using Guid(4a44ddf56b2daa2408dfecbade010004) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88f8bc0304b7438172859c1c131d8c48') in 0.072970 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_B4.fbx
+  artifactKey: Guid(fa9b7357a6cd2ca47a8e1f58bb63376f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_B4.fbx using Guid(fa9b7357a6cd2ca47a8e1f58bb63376f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84bc1e2a78abefe490483aab8fe251d7') in 0.073943 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_D4.fbx
+  artifactKey: Guid(58e7504d486eb004eb08e510a53f5292) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Cars/Car_D4.fbx using Guid(58e7504d486eb004eb08e510a53f5292) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adb769f18ce7d170c674bc2989a6df5e') in 0.072547 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.614816 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Column_A1.fbx
+  artifactKey: Guid(5a5ff1f29bf977048af74baf38cea569) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Column_A1.fbx using Guid(5a5ff1f29bf977048af74baf38cea569) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b418d574d6ec9a8c1d1aee4ee0bceef') in 0.032431 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wood_A5.fbx
+  artifactKey: Guid(2ebba1d98e263fa46a9a44d4d6332a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wood_A5.fbx using Guid(2ebba1d98e263fa46a9a44d4d6332a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbb34373ff6763f2275123a530be34d5') in 0.028764 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wood_A4.fbx
+  artifactKey: Guid(48f017209d0978b4e9b8331f596a3c79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wood_A4.fbx using Guid(48f017209d0978b4e9b8331f596a3c79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a03181d20d8c1a05ff28d8ab23260fb1') in 0.030999 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wall_A1.fbx
+  artifactKey: Guid(2ec5656e0c4703b409284a874a3e74ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wall_A1.fbx using Guid(2ec5656e0c4703b409284a874a3e74ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae57767970e16465edaae8242a145d59') in 0.027087 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wall_A2.fbx
+  artifactKey: Guid(7554a3f422c7b634da06c5bdabb31c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wall_A2.fbx using Guid(7554a3f422c7b634da06c5bdabb31c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dff92fae49beac4303f144721be361b1') in 0.021953 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Stairs_A1.fbx
+  artifactKey: Guid(37aeacfceb64e584b850f298b3d1dd67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Stairs_A1.fbx using Guid(37aeacfceb64e584b850f298b3d1dd67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2eaad486c4a3785b04217ba04de34d8') in 0.026301 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Easel_A1.fbx
+  artifactKey: Guid(b18c656d3ffcc2244affe9fea337da8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Easel_A1.fbx using Guid(b18c656d3ffcc2244affe9fea337da8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da914a0a69ddf08830d5396dd6eae9d0') in 0.021701 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wall_A3.fbx
+  artifactKey: Guid(022d8f2e58b5a6d499e4af0e5d4e18a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wall_A3.fbx using Guid(022d8f2e58b5a6d499e4af0e5d4e18a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba0b3db41b56e1f0005c2d5ed9eb6b8d') in 0.022078 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wood_A1.fbx
+  artifactKey: Guid(084c6faf7e3c5dd4c91a191b8d30da77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wood_A1.fbx using Guid(084c6faf7e3c5dd4c91a191b8d30da77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a4a1719d1538b479f51defbbbfc5165') in 0.026199 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wood_A3.fbx
+  artifactKey: Guid(9f857c65d70fb064db839c7abbf401f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wood_A3.fbx using Guid(9f857c65d70fb064db839c7abbf401f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35ab5391f24c559c058ee118ef0d5d7b') in 0.026109 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Floor_A1.fbx
+  artifactKey: Guid(f0ff0912308019d499fbd55016bc7758) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Floor_A1.fbx using Guid(f0ff0912308019d499fbd55016bc7758) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '784517bb4a5ff7eedc117e7db405fd63') in 0.024449 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Floor_A2.fbx
+  artifactKey: Guid(f476cca0977a03d4f9013fd7263df202) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Floor_A2.fbx using Guid(f476cca0977a03d4f9013fd7263df202) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42b4d00d37aff0f71da23a22e161b07e') in 0.025248 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wood_A2.fbx
+  artifactKey: Guid(1f61e510509c8f645a115fd05720afb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Construction/Wood_A2.fbx using Guid(1f61e510509c8f645a115fd05720afb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25ca07c3ec97671f988299d1ffe56bc9') in 0.018326 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.973071 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_A01.fbx
+  artifactKey: Guid(cbc21de0d95c6ed41b998dd2c684a3e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_A01.fbx using Guid(cbc21de0d95c6ed41b998dd2c684a3e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b678043dc4836ed3f3034c2c5bf1970b') in 0.023771 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_B05.fbx
+  artifactKey: Guid(f04d1275857bbea469ec1d69fd5afafd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_B05.fbx using Guid(f04d1275857bbea469ec1d69fd5afafd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '395c7df87d96572b1359f0b80e313cc7') in 0.030430 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_E01.fbx
+  artifactKey: Guid(18d23122870536845980939b0f494203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_E01.fbx using Guid(18d23122870536845980939b0f494203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfdc76845d43b422552f95298f5c5fe1') in 0.038751 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_C04.fbx
+  artifactKey: Guid(bbbe4435d597c4542a805d1c97e3ebea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_C04.fbx using Guid(bbbe4435d597c4542a805d1c97e3ebea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b3b2ae41d9d38a3b783a0d85fce89c5') in 0.032569 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000073 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_E04.fbx
+  artifactKey: Guid(dddc459e0eadd8541974c71b21e801b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_E04.fbx using Guid(dddc459e0eadd8541974c71b21e801b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a2dc927550f0a156805b82bc2541db3') in 0.029285 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_C01.fbx
+  artifactKey: Guid(cefaf1e314ab2b34ca3961ee09fba976) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_C01.fbx using Guid(cefaf1e314ab2b34ca3961ee09fba976) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0abc6e6c104372e18f39e1e03a8c429') in 0.036193 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_C05.fbx
+  artifactKey: Guid(7ba1b949f756d464e9634a97204109b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_C05.fbx using Guid(7ba1b949f756d464e9634a97204109b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb10689d636ac3b67d3f069647206537') in 0.025684 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_D02.fbx
+  artifactKey: Guid(d43166ab63cd907428aee72fc573cadb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_D02.fbx using Guid(d43166ab63cd907428aee72fc573cadb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd39487a6318e65ea8325e457116b8762') in 0.031038 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_C02.fbx
+  artifactKey: Guid(01bfd760ecf381041a84a54614b74776) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_C02.fbx using Guid(01bfd760ecf381041a84a54614b74776) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afa1e46386fa3c17979683b13b6f8730') in 0.027659 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_A03.fbx
+  artifactKey: Guid(706dcd00c43eff245a4c75a1a5732d39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_A03.fbx using Guid(706dcd00c43eff245a4c75a1a5732d39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a4658b6fc3ddc6a47b3cf4fb50b5509') in 0.029940 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_D03.fbx
+  artifactKey: Guid(de165407d84754542b653b224841907c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_D03.fbx using Guid(de165407d84754542b653b224841907c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d1fb2ef1377c59787edc7a43d1422f4') in 0.027875 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_D04.fbx
+  artifactKey: Guid(88ac49f3a726f6241b4f148195af434c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_D04.fbx using Guid(88ac49f3a726f6241b4f148195af434c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b88aaf75ac5511dee0c06c89f84a9b36') in 0.027493 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_B03.fbx
+  artifactKey: Guid(aa4b58c3c2ee7a244838db3d3851fdc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_B03.fbx using Guid(aa4b58c3c2ee7a244838db3d3851fdc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '937b99ad8b8e04fe1b5423e0b4472f0a') in 0.027328 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_C03.fbx
+  artifactKey: Guid(4e815458df85a424e8eff2b5d26aaa6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_C03.fbx using Guid(4e815458df85a424e8eff2b5d26aaa6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1b917d813700e4a65ab464552549e2c') in 0.025235 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_D05.fbx
+  artifactKey: Guid(84209cdf2383ba649ab2a300d2bef6db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_D05.fbx using Guid(84209cdf2383ba649ab2a300d2bef6db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8eaaea43fc40bb6bcc7949f40a40f72') in 0.024415 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_B04.fbx
+  artifactKey: Guid(597be90910cfc624f991e1d2ff4cf92d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_B04.fbx using Guid(597be90910cfc624f991e1d2ff4cf92d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15b76680b09a098e1cf4cfe91c295588') in 0.026273 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_E02.fbx
+  artifactKey: Guid(58b7d0f20d3341d48876216464dd296e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_E02.fbx using Guid(58b7d0f20d3341d48876216464dd296e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ee999533e0ddf95ceff61b4116e04a4') in 0.018818 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_A02.fbx
+  artifactKey: Guid(67a2106840ad14040bc79f21a5b9ff31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_A02.fbx using Guid(67a2106840ad14040bc79f21a5b9ff31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '989449a60aee662d3de8c052e4fac75d') in 0.026325 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_B02.fbx
+  artifactKey: Guid(4358937d4addeed45ba707f282800787) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_B02.fbx using Guid(4358937d4addeed45ba707f282800787) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63fe6af8d895e68581220a44836ad78f') in 0.026471 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_D01.fbx
+  artifactKey: Guid(01600b9aa318f764db40fa7773d714bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_D01.fbx using Guid(01600b9aa318f764db40fa7773d714bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95faa0c7dafa27d9db46fa510bd0fdc0') in 0.024797 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_B01.fbx
+  artifactKey: Guid(c3a1f11986d37e646b356e05b691681c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_B01.fbx using Guid(c3a1f11986d37e646b356e05b691681c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '935fa57b9a56192a6bcc55545df9d39d') in 0.024992 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_A05.fbx
+  artifactKey: Guid(cefd17a04a0cc9b449764d031add07b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_A05.fbx using Guid(cefd17a04a0cc9b449764d031add07b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e79f47c16f617fb1fab29ec85418d01') in 0.023765 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_A04.fbx
+  artifactKey: Guid(b3b61bff3315e1e44b0ead11ec80c09f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_A04.fbx using Guid(b3b61bff3315e1e44b0ead11ec80c09f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71d6f68dde5e6de0b6509cb6b7a25156') in 0.023894 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_E05.fbx
+  artifactKey: Guid(4b7511d2e9b8a344590199edf1a7de2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_E05.fbx using Guid(4b7511d2e9b8a344590199edf1a7de2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8e4f3b31a5a0b2e6c4d9ef11d1effac') in 0.025102 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_E03.fbx
+  artifactKey: Guid(e623277bd2f0fa34ead39445a153b8d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Doors/Door_E03.fbx using Guid(e623277bd2f0fa34ead39445a153b8d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91d29d899e2be40562eb09f731e16e5e') in 0.025939 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.505943 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Bock_A1.fbx
+  artifactKey: Guid(602cabd8adf547449bd85228f9ebad50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Bock_A1.fbx using Guid(602cabd8adf547449bd85228f9ebad50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a4473ab288b59d687579a5374d86a2f') in 0.029726 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Silo_A1.fbx
+  artifactKey: Guid(0e66e712dad0a9d4ba516b93271e2921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Silo_A1.fbx using Guid(0e66e712dad0a9d4ba516b93271e2921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '804f5c21565ce055af7f2da172eb1b22') in 0.030815 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Bock_A2.fbx
+  artifactKey: Guid(32d784e2e66b71143b60bf3123638690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Bock_A2.fbx using Guid(32d784e2e66b71143b60bf3123638690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76738770a57e36bfedec815a65a888aa') in 0.029997 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Bock_A4.fbx
+  artifactKey: Guid(5e675c9cd48043b45864b2440fffe9cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Bock_A4.fbx using Guid(5e675c9cd48043b45864b2440fffe9cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c74e6fd48f3e197a92793014fa9953e') in 0.029651 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Chimney_A2.fbx
+  artifactKey: Guid(4b219cde1985a484c8eb06a2b969ee6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Chimney_A2.fbx using Guid(4b219cde1985a484c8eb06a2b969ee6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '021f1920461d36e6ac0955cf28b8eaf6') in 0.030843 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Bock_A3.fbx
+  artifactKey: Guid(7b01d2d300117654f82b32b1624828a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Bock_A3.fbx using Guid(7b01d2d300117654f82b32b1624828a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe93300b206e3f011d500fcea5dd8a4b') in 0.026458 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Wall_02.fbx
+  artifactKey: Guid(d531273d552f1674695cddbca642a430) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Wall_02.fbx using Guid(d531273d552f1674695cddbca642a430) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2e9cc3cde5e174b8e8d94af8d33b53e') in 0.029142 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000100 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Floor_A1.fbx
+  artifactKey: Guid(ea8524341d28ab243bffc30e4f02d533) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Floor_A1.fbx using Guid(ea8524341d28ab243bffc30e4f02d533) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9de5c17403808bd92b074cbed42399db') in 0.025735 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Chimney_A1.fbx
+  artifactKey: Guid(c2b7c169bf012364796e6170cf32f39e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Chimney_A1.fbx using Guid(c2b7c169bf012364796e6170cf32f39e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '795dc18fdeacdfdc109da93d02e96a58') in 0.035413 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Wall_01.fbx
+  artifactKey: Guid(ac260e9a5ad8c0145b25d2f48d4ce805) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Wall_01.fbx using Guid(ac260e9a5ad8c0145b25d2f48d4ce805) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96319e57341d81f8d68f3f3d16f8eea3') in 0.031307 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Silo_A2.fbx
+  artifactKey: Guid(f4c64f55440bf7349b8feb2a3ce836e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Silo_A2.fbx using Guid(f4c64f55440bf7349b8feb2a3ce836e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd7b8126395dd77bb8685d9ae967a85a') in 0.029273 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Bock_A5.fbx
+  artifactKey: Guid(fa4f8f1ebf4a57c4d80baa287482a1d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Factory/Bock_A5.fbx using Guid(fa4f8f1ebf4a57c4d80baa287482a1d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c445eeda392eb922f908affc1eff272d') in 0.031308 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.448239 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Bock_A1.fbx
+  artifactKey: Guid(016a853ec255b184a8c713a3b8985e88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Bock_A1.fbx using Guid(016a853ec255b184a8c713a3b8985e88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84861d17619b228524fa4a2017895f65') in 0.024410 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/RoofTop_A4.fbx
+  artifactKey: Guid(7385bf1709947294ca2ed8ac3aee1c29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/RoofTop_A4.fbx using Guid(7385bf1709947294ca2ed8ac3aee1c29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eab32a134e151b236ca03dcd3503e35a') in 0.033680 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/RoofTop_A2.fbx
+  artifactKey: Guid(eebcd2643aea6dc4a93136c5a4d9577d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/RoofTop_A2.fbx using Guid(eebcd2643aea6dc4a93136c5a4d9577d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08624c70c0e6f130d757911dd4958a22') in 0.033271 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Column_A1.fbx
+  artifactKey: Guid(cbc56cd9f0ad39d499d626d736cadcc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Column_A1.fbx using Guid(cbc56cd9f0ad39d499d626d736cadcc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89c4cc8eaf7ca8f9d4638a0037ac7ff8') in 0.029736 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000431 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Bottom_A1.fbx
+  artifactKey: Guid(a95ea6382cd070148a2d573db3ffb593) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Bottom_A1.fbx using Guid(a95ea6382cd070148a2d573db3ffb593) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '963404b8bd0f41ad914e8458a19c610a') in 0.035921 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000279 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A7.fbx
+  artifactKey: Guid(ac0d335cbb4945e45a8503d155a6eafe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A7.fbx using Guid(ac0d335cbb4945e45a8503d155a6eafe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19a7970795580519978509cfda07cbc8') in 0.031776 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Stairs_A1.fbx
+  artifactKey: Guid(97fabb3e61c43c249ba4ffd402a6893c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Stairs_A1.fbx using Guid(97fabb3e61c43c249ba4ffd402a6893c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c8852871ec120898142fbbb402ca6cb') in 0.034075 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A2.fbx
+  artifactKey: Guid(2054851fcd51a05419fefe18aab69635) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A2.fbx using Guid(2054851fcd51a05419fefe18aab69635) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5973e1e36d62f2b63da70f70142a2487') in 0.030314 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Bottom_A2.fbx
+  artifactKey: Guid(fcd581b3e575e8c4ebd572b7a999ffb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Bottom_A2.fbx using Guid(fcd581b3e575e8c4ebd572b7a999ffb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5e634d117670bf40ae5bf88ff851e65') in 0.026901 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Sign_A1.fbx
+  artifactKey: Guid(433cdb47fbe97064da977763d5c15f8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Sign_A1.fbx using Guid(433cdb47fbe97064da977763d5c15f8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '034360f13c5cf3134ad72464ad9c4a75') in 0.028135 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Cantero_A1.fbx
+  artifactKey: Guid(d0be7e7c61a409d4ebdc38733fe9873e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Cantero_A1.fbx using Guid(d0be7e7c61a409d4ebdc38733fe9873e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c007b96b6f016f8bf539812b6f81415b') in 0.024483 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A4.fbx
+  artifactKey: Guid(b6466b3e27d17f34087099ccd85f0306) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A4.fbx using Guid(b6466b3e27d17f34087099ccd85f0306) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22ca425d3e15c8efc0147d8d919ae519') in 0.030379 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A6.fbx
+  artifactKey: Guid(ac7fc117d51022e4fa02b86f070a25cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A6.fbx using Guid(ac7fc117d51022e4fa02b86f070a25cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71ec8016db4ee6e4f5ccda686d7ac6ae') in 0.030236 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Bottom_A3.fbx
+  artifactKey: Guid(81f154777d670354e9fa9459a50c2460) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Bottom_A3.fbx using Guid(81f154777d670354e9fa9459a50c2460) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be02dbce81744bd4bf0357a515b3e488') in 0.031540 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000390 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/RoofTop_A3.fbx
+  artifactKey: Guid(2388cc3bbc7cff44195ccd29bff22a06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/RoofTop_A3.fbx using Guid(2388cc3bbc7cff44195ccd29bff22a06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf3d7f8f05ee77d658dd2b5b144bf36a') in 0.026660 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Helipad.fbx
+  artifactKey: Guid(ec52ebc08aafe58428faa8d2d34c699f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Helipad.fbx using Guid(ec52ebc08aafe58428faa8d2d34c699f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c14ba07b9de028a93254fc0a16c44a9') in 0.029016 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Stairs_A2.fbx
+  artifactKey: Guid(0166599cc9649904ba781869ad1b593f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Stairs_A2.fbx using Guid(0166599cc9649904ba781869ad1b593f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b6f72ea2ccb39866237d9766828d609') in 0.025708 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A8.fbx
+  artifactKey: Guid(f480e9f3e229cd249911a111e4c20497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A8.fbx using Guid(f480e9f3e229cd249911a111e4c20497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70461f605b5d1ca223eecc4fe9f5d345') in 0.025636 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Roof.fbx
+  artifactKey: Guid(c6988d171e2e55e4d8eb76ed78c8168f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Roof.fbx using Guid(c6988d171e2e55e4d8eb76ed78c8168f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afc69e2ea5b20a2298a2459ffce9167b') in 0.029935 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/RoofTop_A1.fbx
+  artifactKey: Guid(454c3bf2735a05e47a5e0658aa19e9c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/RoofTop_A1.fbx using Guid(454c3bf2735a05e47a5e0658aa19e9c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e711a0bee6d42a60ed8fa189b1d1398') in 0.024756 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A5.fbx
+  artifactKey: Guid(80ecbffd084e7154ead282cda15e81e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A5.fbx using Guid(80ecbffd084e7154ead282cda15e81e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2aed8508797bdaa54d325bb4b450559c') in 0.027985 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Door_A1.fbx
+  artifactKey: Guid(cd0ba959de0289747bfcc0967406011f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Door_A1.fbx using Guid(cd0ba959de0289747bfcc0967406011f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8de6419a44fde848327786d50a0955c') in 0.030243 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Bottom_A4.fbx
+  artifactKey: Guid(89db03fcd9102674782980824af009e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Bottom_A4.fbx using Guid(89db03fcd9102674782980824af009e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '439b887e9326139fa4f4ccff2b6dc353') in 0.025689 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A1.fbx
+  artifactKey: Guid(a4a8d02520ea9474bab7f399c99f8818) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A1.fbx using Guid(a4a8d02520ea9474bab7f399c99f8818) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'addc6f89b3e7e82780cfba7b014eccfc') in 0.026691 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Sign_A3.fbx
+  artifactKey: Guid(fc2fe6b83316aa9429c060076f0aa432) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Sign_A3.fbx using Guid(fc2fe6b83316aa9429c060076f0aa432) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fdfc91a6f39142aae101785828ecc7b') in 0.033926 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Garage_A1.fbx
+  artifactKey: Guid(7b362e5cb4ab93e4c8595ab14a64ba93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Garage_A1.fbx using Guid(7b362e5cb4ab93e4c8595ab14a64ba93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b908d55fe8af4972b918e4a782672cef') in 0.024814 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Stairs_A4.fbx
+  artifactKey: Guid(31cbae5ba42d6b2498ece8a4090af020) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Stairs_A4.fbx using Guid(31cbae5ba42d6b2498ece8a4090af020) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80992b09d224ad4f38366dc3e12a585f') in 0.027417 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A3.fbx
+  artifactKey: Guid(bb5012be1f308f04bb024880d27e10b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Window_A3.fbx using Guid(bb5012be1f308f04bb024880d27e10b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd3d81cae433c0929a293dc800ba3dcd') in 0.030211 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Stairs_A3.fbx
+  artifactKey: Guid(dd0092e00ef81d949a6f868005679ca4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Stairs_A3.fbx using Guid(dd0092e00ef81d949a6f868005679ca4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86b27877ccd88c056c8100d9b950fbd4') in 0.028060 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Bock_A2.fbx
+  artifactKey: Guid(08c35f8df9a205e419f65cf324b398e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Hospital/Bock_A2.fbx using Guid(08c35f8df9a205e419f65cf324b398e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02f3afe85e3827b6664eba0f6c5ce778') in 0.025524 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 24.700190 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Barrier.fbx
+  artifactKey: Guid(c33a2cac1cabd784db37551dfc204f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Barrier.fbx using Guid(c33a2cac1cabd784db37551dfc204f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc229a42ae84cd44bd3016bc2dea60ea') in 0.044886 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Pilar1.fbx
+  artifactKey: Guid(0daa2506df7ab7544807cbb5b777aec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Pilar1.fbx using Guid(0daa2506df7ab7544807cbb5b777aec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06ab404e0657feacd9447bec778f5931') in 0.034112 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Lamp_01.fbx
+  artifactKey: Guid(51d2715ebdf01bd4f80d5f344b1b53b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Lamp_01.fbx using Guid(51d2715ebdf01bd4f80d5f344b1b53b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bb71fd13e9b917035ab927024e983d5') in 0.028450 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/PilarA.fbx
+  artifactKey: Guid(0534bea65a8e8ba4fb3893ed6596d225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/PilarA.fbx using Guid(0534bea65a8e8ba4fb3893ed6596d225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1113e9c0a4e015a09446c1e6d238174') in 0.026305 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Sign.fbx
+  artifactKey: Guid(b0fc69cd3f0945a43b38ca09a471c99b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Sign.fbx using Guid(b0fc69cd3f0945a43b38ca09a471c99b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d5b1eef5f1f472a5a2ede297332ffd2') in 0.026089 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/BarrierStand.fbx
+  artifactKey: Guid(16fdf553c4707434f98e35eaa4b7b1ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/BarrierStand.fbx using Guid(16fdf553c4707434f98e35eaa4b7b1ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7ef330049a2c722ef235fc59e677e75') in 0.029769 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/House.fbx
+  artifactKey: Guid(f13934aa5a02b754c812d8ebcdcf5a2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/House.fbx using Guid(f13934aa5a02b754c812d8ebcdcf5a2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c50e4ff0bf57e85e846637717041bee') in 0.027866 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Wall_01.fbx
+  artifactKey: Guid(4e462c64fb84f8c48b15839e12f50bf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Wall_01.fbx using Guid(4e462c64fb84f8c48b15839e12f50bf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b050f31c462b3e8f7370489e16d8e4f7') in 0.024321 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Floor.fbx
+  artifactKey: Guid(8d248dea5a3aa9443980503843757fe7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Floor.fbx using Guid(8d248dea5a3aa9443980503843757fe7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '890465533e1686de635fdd67d79c4e57') in 0.024303 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Sidewalk.fbx
+  artifactKey: Guid(909528cbcaa57f34ea27f164c331e74e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/Sidewalk.fbx using Guid(909528cbcaa57f34ea27f164c331e74e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f7bc801fe54a5f22a5d94043318507e') in 0.025028 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/PilarB.fbx
+  artifactKey: Guid(25e2e80e1b59d7e479ec8848c9725fed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Meshes/Parking/PilarB.fbx using Guid(25e2e80e1b59d7e479ec8848c9725fed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '496ffaf700f21ae08054675ec585640e') in 0.027004 seconds 

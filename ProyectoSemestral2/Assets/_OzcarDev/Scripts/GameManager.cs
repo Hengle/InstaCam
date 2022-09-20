@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 	{
 		
 		if(Input.GetKeyDown(KeyCode.Q)&&Globals.playerKeys.Contains("PhotoAlbum")) NoteBook();
-		if(Input.GetKeyDown(KeyCode.P)&&Globals.playerKeys.Contains("PhotoAlbum")) PhotoAlbum();
+		if(Input.GetKeyDown(KeyCode.P)&&Globals.playerKeys.Contains("PhotoAlbum")&&!isPaused) PhotoAlbum();
 
         if (Input.GetKeyDown(KeyCode.Escape)) Pause();
 
