@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -29,6 +29,7 @@ namespace com.OzcarDev.WalkingSim
 
        if (Physics.Raycast(ray, out hit, 5, layerMask))
        {
+       	if(hit.transform.gameObject.tag== "Interaction"){
 
                 gameManager.panelGamePlay.GetComponent<Animator>().Play("bigCursor");
                 objectText.text = hit.transform.gameObject.name;
@@ -59,6 +60,7 @@ namespace com.OzcarDev.WalkingSim
                 Globals.currentObjective = null;
             }
        
+       }
             
     }
 

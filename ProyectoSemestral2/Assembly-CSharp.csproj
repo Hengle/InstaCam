@@ -70,15 +70,15 @@
     <Compile Include="Assets\_OzcarDev\Scripts\LoadScene.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\LimitFPS.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\DataBase\SaveManager.cs" />
+    <Compile Include="Assets\Portal\PortalCamera.cs" />
+    <Compile Include="Assets\Portal\PortalTextureSetup.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Camera\ScreenShotHandler.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Interaction\MessagesManager.cs" />
+    <Compile Include="Assets\Portal\PortalTeleporter.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Globals.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\DataBase\PlayerData.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\GameManager.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Album\PhotoCard.cs" />
-    <Compile Include="Assets\Portal\PortalCamera.cs" />
-    <Compile Include="Assets\Portal\PortalTeleporter.cs" />
-    <Compile Include="Assets\Portal\PortalTextureSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\TextMesh Pro\Shaders\TMPro.cginc" />
