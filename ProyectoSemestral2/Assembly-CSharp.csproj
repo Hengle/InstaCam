@@ -76,6 +76,9 @@
     <Compile Include="Assets\_OzcarDev\Scripts\DataBase\PlayerData.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\GameManager.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Album\PhotoCard.cs" />
+    <Compile Include="Assets\Portal\PortalCamera.cs" />
+    <Compile Include="Assets\Portal\PortalTeleporter.cs" />
+    <Compile Include="Assets\Portal\PortalTextureSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -91,6 +94,7 @@
     <None Include="Assets\Shaders\Simple Toon\Shaders\STTransparent.shader" />
     <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Portal\ScreenCutoutShader.shader" />
     <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\Models\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Models\TextMesh Pro\Shaders\TMPro_Properties.cginc" />

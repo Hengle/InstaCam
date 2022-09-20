@@ -3,15 +3,22 @@
 public class PlayerData 
 {
   
+	float positionX;
+	float positionY;
+	float positionZ;
+	
+	float rotationX;
+	float rotationY;
+	float rotationZ;
 
     public PlayerData()
     {
-	    /*	    Globals.position[0];
-	    Globals.position[1];
-	    Globals.position[2];
+	    positionX=Globals.position[0];
+	    positionY=Globals.position[1];
+	    positionZ=Globals.position[2];
 		
-	    Globals.rotation[0];
-	    Globals.rotation[1];
-	    Globals.rotation[2];*/
+	    rotationX=Globals.rotation[0];
+	    rotationY=Globals.rotation[1];
+	    rotationZ=Globals.rotation[2];
     }
 }

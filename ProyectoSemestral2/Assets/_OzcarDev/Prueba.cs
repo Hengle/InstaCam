@@ -22,8 +22,8 @@ public class Prueba : MonoBehaviour
 	{
 		if(other.gameObject.tag=="Player"){
 			Debug.Log("HOla");
-			gameManager.playerIsOverlapping = true;
-			other.gameObject.transform.position = new Vector3(300,300,300);
+			
+			StartCoroutine(	other. gameObject.GetComponent<Move>().Teleporting(new Vector3(300,300,300)));
 		}
 	}
 }

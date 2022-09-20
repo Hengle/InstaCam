@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2021.3/staging' branch; Version is '2021.3.8f1 (b30333d56e81) revision 11731763'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'es' Physical Memory: 16332 MB
+OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'es' Physical Memory: 24534 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -15,7 +15,7 @@ D:/UnityProjects/ProyectoSemestral2
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52348
+58842
 Successfully changed project path to: D:/UnityProjects/ProyectoSemestral2
 D:/UnityProjects/ProyectoSemestral2
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ D:/UnityProjects/ProyectoSemestral2
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 47.28 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 50.55 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.8f1 (b30333d56e81)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/Resources/UnitySubsystems
@@ -55,98 +55,106 @@ Initialize engine version: 2021.3.8f1 (b30333d56e81)
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1660 SUPER (ID=0x21c4)
-    Vendor:   NVIDIA
-    VRAM:     5991 MB
-    Driver:   31.0.15.1640
+    Renderer: Radeon RX550/550 Series (ID=0x699f)
+    Vendor:   ATI
+    VRAM:     2028 MB
+    Driver:   30.0.13023.4001
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56044
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56116
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.8f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.012490 seconds.
-Native extension for UWP target not found
+Registered in 0.011027 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 54.81 ms, found 2 plugins.
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 46.77 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.733 seconds
+- Completed reload, in  0.743 seconds
 Domain Reload Profiling:
-	ReloadAssembly (733ms)
-		BeginReloadAssembly (90ms)
+	ReloadAssembly (743ms)
+		BeginReloadAssembly (84ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (504ms)
-			LoadAssemblies (87ms)
+		EndReloadAssembly (529ms)
+			LoadAssemblies (83ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (118ms)
+			SetupTypeCache (136ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (31ms)
-			SetupLoadedEditorAssemblies (294ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (300ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (12ms)
+				InitializePlatformSupportModulesInManaged (82ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (55ms)
-				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (171ms)
-				ProcessInitializeOnLoadMethodAttributes (55ms)
+				RefreshPlugins (47ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (120ms)
+				ProcessInitializeOnLoadMethodAttributes (50ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004803 seconds.
+Registered in 0.003588 seconds.
 Begin MonoManager ReloadAssembly
-Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.52 ms, found 2 plugins.
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.197 seconds
+- Completed reload, in  1.392 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1198ms)
-		BeginReloadAssembly (129ms)
+	ReloadAssembly (1393ms)
+		BeginReloadAssembly (258ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (7ms)
+			DisableScriptedObjects (8ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (19ms)
-		EndReloadAssembly (927ms)
-			LoadAssemblies (87ms)
+			CreateAndSetChildDomain (144ms)
+		EndReloadAssembly (989ms)
+			LoadAssemblies (79ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (209ms)
+			SetupTypeCache (214ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (546ms)
+			RebuildScriptCaches (49ms)
+			SetupLoadedEditorAssemblies (598ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (9ms)
+				InitializePlatformSupportModulesInManaged (33ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (67ms)
-				ProcessInitializeOnLoadAttributes (424ms)
-				ProcessInitializeOnLoadMethodAttributes (31ms)
-				AfterProcessingInitializeOnLoad (14ms)
+				BeforeProcessingInitializeOnLoad (62ms)
+				ProcessInitializeOnLoadAttributes (454ms)
+				ProcessInitializeOnLoadMethodAttributes (36ms)
+				AfterProcessingInitializeOnLoad (12ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1774 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 21 unused Assets / (297.4 KB). Loaded Objects now: 2257.
-Memory consumption went from 94.1 MB to 93.8 MB.
-Total: 3.685200 ms (FindLiveObjects: 0.176100 ms CreateObjectMapping: 0.046500 ms MarkObjects: 3.183700 ms  DeleteObjects: 0.277800 ms)
+Unloading 21 unused Assets / (297.2 KB). Loaded Objects now: 2259.
+Memory consumption went from 94.0 MB to 93.7 MB.
+Total: 3.401600 ms (FindLiveObjects: 0.188300 ms CreateObjectMapping: 0.085800 ms MarkObjects: 2.851000 ms  DeleteObjects: 0.275800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -160,271 +168,55 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 188868.733523 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Cat_LOD0.prefab
-  artifactKey: Guid(ef93452ea8f98324b8b2b9efa56dfaec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Cat_LOD0.prefab using Guid(ef93452ea8f98324b8b2b9efa56dfaec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb6ed2b4324eaa691074e9cfb6bd0ecb') in 0.279537 seconds 
+  Time since last request: 14879.421215 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab
+  artifactKey: Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab using Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c93d6a151d85fdbd3c97fb911757bc51') in 0.165723 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Goldfish.prefab
-  artifactKey: Guid(9dca3db7ef2697244afa1a2fa4b684c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Goldfish.prefab using Guid(9dca3db7ef2697244afa1a2fa4b684c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69aa31603510045a81d9d5b27dade5a4') in 0.113663 seconds 
+  Time since last request: 1.021764 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab
+  artifactKey: Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab using Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5906d3c80badb759cfa2296abd36fbfb') in 0.031599 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Pigeon_LOD1.prefab
-  artifactKey: Guid(4c86055e9b44f2e4c811309dff4a14db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Pigeon_LOD1.prefab using Guid(4c86055e9b44f2e4c811309dff4a14db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca5ee30ebf4f515bfd20765acd8050c2') in 0.061404 seconds 
+  Time since last request: 8.146692 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab
+  artifactKey: Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab using Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c17bef201b17188c14e6b58660deb8f8') in 0.027337 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Parrot_LOD1.prefab
-  artifactKey: Guid(0bb200482223d8d44a949feb8b815d1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Parrot_LOD1.prefab using Guid(0bb200482223d8d44a949feb8b815d1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1b32c5aae71c33dcd352ea6f2608b74') in 0.064684 seconds 
+  Time since last request: 0.315737 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab
+  artifactKey: Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab using Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1d4139fbda8531acd4964ad84508a86') in 0.025657 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Pigeon_LOD0.prefab
-  artifactKey: Guid(aaf7159620486c843a73ad2fd1aa04c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Pigeon_LOD0.prefab using Guid(aaf7159620486c843a73ad2fd1aa04c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0de928f16cb12f6a12896250eb0aa04') in 0.049569 seconds 
+  Time since last request: 6.646944 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab
+  artifactKey: Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab using Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '659b088ff4b46f51b2a27561228451c2') in 0.024122 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Goldfish_LOD2.prefab
-  artifactKey: Guid(bf6788e0837b51f4fa54fcc0f1b767d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Goldfish_LOD2.prefab using Guid(bf6788e0837b51f4fa54fcc0f1b767d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f73699644bab67438fa68285021ee26') in 0.034303 seconds 
+  Time since last request: 11.103853 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab
+  artifactKey: Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab using Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cab174ef46b78c219c6747078590ae9') in 0.025194 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Cat.prefab
-  artifactKey: Guid(27e82c8a2f2dc474a8d10d84ae09e664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Cat.prefab using Guid(27e82c8a2f2dc474a8d10d84ae09e664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5768b7b6c1934e803e254d946e5f3548') in 0.061431 seconds 
+  Time since last request: 17.122937 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab
+  artifactKey: Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab using Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d34fefb92f85e860266aa15fa99f614') in 0.023276 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000048 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Tortoise_LOD3.prefab
-  artifactKey: Guid(d1e4db868d9a92d46b3f021d773a1bcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Tortoise_LOD3.prefab using Guid(d1e4db868d9a92d46b3f021d773a1bcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f28f798269623147b76ba271b9b0e20b') in 0.067983 seconds 
+  Time since last request: 0.400928 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab
+  artifactKey: Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab using Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd933b605d4edc9fd4e2b20c0c250412') in 0.029204 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Tortoise_LOD1.prefab
-  artifactKey: Guid(14f553e7d12fb864caf1cd13c23289a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Tortoise_LOD1.prefab using Guid(14f553e7d12fb864caf1cd13c23289a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '054bbb1bfd57f8fadd3d93be0441e4dc') in 0.040347 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Rabbit_LOD0.prefab
-  artifactKey: Guid(d9de5ae283d5c714bb43c475cfdb3214) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Rabbit_LOD0.prefab using Guid(d9de5ae283d5c714bb43c475cfdb3214) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f4cd0e6a4ec0ba918cb90277587709c') in 0.060670 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Tortoise.prefab
-  artifactKey: Guid(a6002dee3229d954384f4b1de9a0901d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Tortoise.prefab using Guid(a6002dee3229d954384f4b1de9a0901d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7136bda36d46c84046f4bc704e7fd238') in 0.054966 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Mouse_LOD2.prefab
-  artifactKey: Guid(5cb27b340a05b30428ca9e5d3e4234b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Mouse_LOD2.prefab using Guid(5cb27b340a05b30428ca9e5d3e4234b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c64e40defe881b93a94bc0ef9672d84') in 0.057202 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Parrot_LOD2.prefab
-  artifactKey: Guid(95642d415acb40549aaf66da9e568a5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Parrot_LOD2.prefab using Guid(95642d415acb40549aaf66da9e568a5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '540fe5b88122bdc7466d667ff19d0fd4') in 0.037434 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Tortoise_LOD0.prefab
-  artifactKey: Guid(8bae6981b4589e84cbeec489f5dcda4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Tortoise_LOD0.prefab using Guid(8bae6981b4589e84cbeec489f5dcda4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8068e8116e34616e3f349f0027f8e1d') in 0.032187 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dove_LOD3.prefab
-  artifactKey: Guid(ac2212454be5b7d419d649633f1eab06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dove_LOD3.prefab using Guid(ac2212454be5b7d419d649633f1eab06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f6daae09e3b170dd3ca203fdecaa9a2') in 0.058601 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Mouse.prefab
-  artifactKey: Guid(b78cbd54c6fc6404eac3c4919de1ad38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Mouse.prefab using Guid(b78cbd54c6fc6404eac3c4919de1ad38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52ed403c069615d555024690e4b303f5') in 0.059978 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dog_LOD0.prefab
-  artifactKey: Guid(e77bacc72d1db5140b0dc6a43486ac5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dog_LOD0.prefab using Guid(e77bacc72d1db5140b0dc6a43486ac5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5ddc9f5eaf24ca340793c4c3d6b4c4b') in 0.060530 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Parrot.prefab
-  artifactKey: Guid(b36fce94519368e448b068fd7447702a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Parrot.prefab using Guid(b36fce94519368e448b068fd7447702a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6597edcffd0cb30d054baa8bf3a94c0e') in 0.052063 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Pigeon.prefab
-  artifactKey: Guid(bcfec05f2f2a33246a92bb0b9547bb6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Pigeon.prefab using Guid(bcfec05f2f2a33246a92bb0b9547bb6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab14097bbe32ae5e00e31be464130275') in 0.050667 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Tortoise_LOD2.prefab
-  artifactKey: Guid(4245796cdbfd9c04687734db9108131e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Tortoise_LOD2.prefab using Guid(4245796cdbfd9c04687734db9108131e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b13e989bd5dfc8d62ee0551ea8da646') in 0.029753 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dog_LOD3.prefab
-  artifactKey: Guid(84c32bbf5383daa41a77ea1c68f96ffe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dog_LOD3.prefab using Guid(84c32bbf5383daa41a77ea1c68f96ffe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3e118c7c1dddd81bcae750109b17b34') in 0.039587 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Rabbit_LOD1.prefab
-  artifactKey: Guid(c2da253db87971c49aa27fd64f3f9b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Rabbit_LOD1.prefab using Guid(c2da253db87971c49aa27fd64f3f9b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3ef23d9bad3137995d728e117004f48') in 0.040508 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Cat_LOD3.prefab
-  artifactKey: Guid(73dd1b1e56abdca40a55e9072dbf68ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Cat_LOD3.prefab using Guid(73dd1b1e56abdca40a55e9072dbf68ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f12bca46ac92b5a6d0272b55cf4aad30') in 0.032160 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000059 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dove_LOD2.prefab
-  artifactKey: Guid(2215451af924fc34d862eb7363885af3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dove_LOD2.prefab using Guid(2215451af924fc34d862eb7363885af3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9c41772b78d73355f768f57af44687b') in 0.040664 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Mouse_LOD3.prefab
-  artifactKey: Guid(a0d471296d54c3140a0b70c8b9d3afe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Mouse_LOD3.prefab using Guid(a0d471296d54c3140a0b70c8b9d3afe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33b962e916bcc027e23cb2d55621f880') in 0.034778 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Cat_LOD1.prefab
-  artifactKey: Guid(d6a28cf22e48e6740950afbd58ce7f76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Cat_LOD1.prefab using Guid(d6a28cf22e48e6740950afbd58ce7f76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11aed473f3681e9740d8e665d31040b7') in 0.031026 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dove_LOD1.prefab
-  artifactKey: Guid(e13fef9f33a4e8c40b3034d5ebc3420c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dove_LOD1.prefab using Guid(e13fef9f33a4e8c40b3034d5ebc3420c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4566bd2be64bede757524136c3f6d03b') in 0.039259 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Goldfish_LOD1.prefab
-  artifactKey: Guid(eaa484cc916ee56458adfdfd415d941d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Goldfish_LOD1.prefab using Guid(eaa484cc916ee56458adfdfd415d941d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56c5636a98e9ec7292c6774d03456045') in 0.033761 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dog_LOD1.prefab
-  artifactKey: Guid(fbb6e7ef337780b429dbf4b031f6b0d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dog_LOD1.prefab using Guid(fbb6e7ef337780b429dbf4b031f6b0d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e754e80611b24c14396c924183e244ca') in 0.040754 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Cat_LOD2.prefab
-  artifactKey: Guid(bea643da9b6aa7546ba833f24e82a318) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Cat_LOD2.prefab using Guid(bea643da9b6aa7546ba833f24e82a318) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9afe6a1b38e4335b06de467b088d195') in 0.031237 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000034 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Parrot_LOD3.prefab
-  artifactKey: Guid(267d98ac832d57448bd0e7742aa59908) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Parrot_LOD3.prefab using Guid(267d98ac832d57448bd0e7742aa59908) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd1e6668b7d37d4103d61b8b0096efa1') in 0.032570 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Rabbit_LOD3.prefab
-  artifactKey: Guid(cea43d0bba417954286245fd52eaac71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Rabbit_LOD3.prefab using Guid(cea43d0bba417954286245fd52eaac71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afac4fddd248c2100aa1f51492237948') in 0.037729 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Pigeon_LOD2.prefab
-  artifactKey: Guid(8e0b7d2777f832040afae81d559efe4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Pigeon_LOD2.prefab using Guid(8e0b7d2777f832040afae81d559efe4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c4f21e6d47f378347c9a7dccd42d33e') in 0.033552 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000046 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Mouse_LOD1.prefab
-  artifactKey: Guid(7155c23c810db81408d028543227037b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Mouse_LOD1.prefab using Guid(7155c23c810db81408d028543227037b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f3931e823ff44e2e7f9f721dd9bf82c') in 0.034358 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dove_LOD0.prefab
-  artifactKey: Guid(8198a3c83d9e02d478412b5448ef3522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dove_LOD0.prefab using Guid(8198a3c83d9e02d478412b5448ef3522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66f1df6ee15cfe2c5cc5729f73582725') in 0.043654 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Pigeon_LOD3.prefab
-  artifactKey: Guid(cbebf229627ce9c4ba4c6a59af02f2c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Pigeon_LOD3.prefab using Guid(cbebf229627ce9c4ba4c6a59af02f2c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26f412cc72cceb3833b2e9d4f8c1057b') in 0.032072 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dog.prefab
-  artifactKey: Guid(8d863aa0b58a54345a3b739c9e0954cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dog.prefab using Guid(8d863aa0b58a54345a3b739c9e0954cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ccc60744e0d85a49f3d9f5410d99aa7') in 0.046681 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Mouse_LOD0.prefab
-  artifactKey: Guid(5b2af359e946fc7448c06623fc28733f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Mouse_LOD0.prefab using Guid(5b2af359e946fc7448c06623fc28733f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24308a2d300aebe9931b5cd1d17b50ac') in 0.030979 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Parrot_LOD0.prefab
-  artifactKey: Guid(d9260db1a776ec946b53f6cc09001891) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Parrot_LOD0.prefab using Guid(d9260db1a776ec946b53f6cc09001891) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86152b346976832ecd36f482d0b1a4e5') in 0.033020 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Rabbit.prefab
-  artifactKey: Guid(50bf0d89f095438448e61792c16f8bef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Rabbit.prefab using Guid(50bf0d89f095438448e61792c16f8bef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12abb2d02f311ecb94902b971bdd86af') in 0.045981 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dog_LOD2.prefab
-  artifactKey: Guid(efcca91662b32cc408c8c6e894b2b595) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dog_LOD2.prefab using Guid(efcca91662b32cc408c8c6e894b2b595) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbc3171ff15e6d5521a7b35ff97bf281') in 0.032159 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Rabbit_LOD2.prefab
-  artifactKey: Guid(f7813b5a52f69e74aad20d348d527c4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Rabbit_LOD2.prefab using Guid(f7813b5a52f69e74aad20d348d527c4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a598f0b1b2949f038b4c0d51e69f09d') in 0.030926 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Goldfish_LOD3.prefab
-  artifactKey: Guid(b567b055ffeed0646abf9ee3b6fb8863) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Goldfish_LOD3.prefab using Guid(b567b055ffeed0646abf9ee3b6fb8863) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad870f7892efdcdb56410b6dbb9123b7') in 0.031143 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dove.prefab
-  artifactKey: Guid(810ac474263433e47bd7533267a256d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Dove.prefab using Guid(810ac474263433e47bd7533267a256d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de6ef4f8b4368b16de3e565432573b68') in 0.037741 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Goldfish_LOD0.prefab
-  artifactKey: Guid(e0d4f30bdfad1e040937b3bdf84dd6f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Quirky Series Vol.1 [v1.3]/Pets Vol.1/Prefabs/Goldfish_LOD0.prefab using Guid(e0d4f30bdfad1e040937b3bdf84dd6f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63b405fe57eb913629aebbd2dc03aecd') in 0.042077 seconds 
+  Time since last request: 0.584208 seconds.
+  path: Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab
+  artifactKey: Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tiny_Toony_City_Extended/Prefabs/Buildings/Building_01.prefab using Guid(3d13c5f255442ca4e9a9361194027d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69abb9953c08cca59188a6ae20787221') in 0.022013 seconds 

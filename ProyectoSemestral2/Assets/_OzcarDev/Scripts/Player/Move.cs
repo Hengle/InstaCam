@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace com.OzcarDev.WalkingSim
-{
+
     public class Move : MonoBehaviour
     {
         // Movement
-        CharacterController characterController;
+	    CharacterController characterController;
+	    Rigidbody rigidbody;
         private float x;
         private float z;
         public float maxSpeed;
@@ -38,8 +38,10 @@ namespace com.OzcarDev.WalkingSim
         }
         public State _State;
 
+	    private bool isTeleporting=false;
         void Start()
-        {
+	    {
+		    rigidbody = GetComponent<Rigidbody>();
             Globals.playerKeys.Add("");
             speed = maxSpeed;
             _State = State.Normal;
@@ -62,16 +64,19 @@ namespace com.OzcarDev.WalkingSim
 	   
 	    	
 	    	transform.position = new Vector3( Globals.position[0],Globals.position[1],Globals.position[2]);
-	    	transform.rotation = Quaternion.Euler(Globals.rotation[0],Globals.rotation[1],Globals.rotation[2]);
+	    	
 	    }
         // Update is called once per frame
         void Update()
-        {
+	    {
+		   
 
-	        if (gameManager.isPaused||gameManager.readingMode||gameManager.playerIsOverlapping) return;
+		    if (gameManager.isPaused||gameManager.readingMode||isTeleporting) return;
+		    
             RotateMouse();
-            Movement();
+		    Movement();
             Crouch();
+            
             
         }
 
@@ -102,11 +107,14 @@ namespace com.OzcarDev.WalkingSim
             z = Input.GetAxisRaw("Vertical");
 
             dir.x = x;
-            dir.z = z;
-            
-            var  movePlayer = dir.normalized.x * cam.right+ dir.normalized.z*transform.forward;
+		    dir.z = z;
+		   
+			    
+		    var  movePlayer = dir.normalized.x * cam.right+ dir.normalized.z*transform.forward; 
             var gravity = Vector3.down * Time.deltaTime * gravityForce;
-            characterController.Move( (movePlayer* Time.deltaTime * speed)+gravity);
+		    characterController.Move( (movePlayer* Time.deltaTime * speed)+gravity);
+            
+		    
             
         }
 
@@ -162,6 +170,14 @@ namespace com.OzcarDev.WalkingSim
             }
             CrouchCoroutine = null;
         }
+        
+	    public IEnumerator Teleporting(Vector3 target){
+	    	isTeleporting = true;
+	    	yield return new WaitForEndOfFrame();
+	    	this.gameObject.transform.position = target;
+	    	yield return new WaitForEndOfFrame();
+	    	isTeleporting = false;
+	    }
 
-    }
+    
 }
