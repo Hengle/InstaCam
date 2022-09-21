@@ -123,3 +123,6 @@
 
 # Spine export file for Unity
 *.skel.bytes        binary
+
+*lld
+*.lld
