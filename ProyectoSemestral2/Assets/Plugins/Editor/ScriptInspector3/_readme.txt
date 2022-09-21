@@ -1,24 +1,11 @@
 -------------------------------------
 SCRIPT INSPECTOR 3
-version 3.0.30, May 2021
-Copyright © 2012-2021, Flipbook Games
+version 3.0.33, May 2022
+Copyright © 2012-2022, Flipbook Games
 -------------------------------------
 
 
-Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text, now transformed into an advanced C# IDE!!!
-
-
-IMPORTANT NOTE to all OS X users with Unity 2018.x, Unity 2017.x, and 5.x, either Personal or Professional, and Unity 4.x Pro:
-
-You may want to extend Si3's functionality with @inventor2010's amazing free plugin posted here:
-	http://forum.unity3d.com/threads/script-inspector-3.195218/page-13#post-2226154
-
-The plugin allows handling of Cmd-S, Cmd-Z, and Shift-Cmd-Z in Unity on OS X for more natural shortcuts for Save, Undo, and Redo operations in Si3!
-
-WARNING: Please, DO NOT USE the updated version of that plugin posted here:
-	http://forum.unity3d.com/threads/script-inspector-3.195218/page-20#post-2414302
-
-Thank you @inventor2010 for being awesome!!! :)
+Script Inspector 3 - World's Fastest IDE for Unity
 
 
 Note: Version history is now moved to SI Changes.txt file.
@@ -27,7 +14,7 @@ Note: Version history is now moved to SI Changes.txt file.
 1. Description
 
 
-SCRIPT INSPECTOR 3 is the latest HUGE improvement of that legendary editor extension for Unity which you've been using so far only as a quick editor for your scripts, shaders and text assets. Within the last two years of development it has been transformed into a powerful C# IDE embedded right inside your Unity Editor!
+SCRIPT INSPECTOR 3 is the latest HUGE improvement of that legendary editor extension for Unity which you've been using so far only as a quick editor for your scripts, shaders and text assets. Within the last 10 years (yeah, ten years - not a typo) of development it has been transformed into a powerful C# IDE embedded right inside your Unity Editor!
 
 Built with performance in mind since the beginning while keeping the quality at the highest standards, it was growing with new features, to finally become the fastest and most comfortable solution for programmers to write code for Unity.
 

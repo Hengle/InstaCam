@@ -1,9 +1,9 @@
 ﻿/* SCRIPT INSPECTOR 3
- * version 3.0.30, May 2021
- * Copyright © 2012-2021, Flipbook Games
+ * version 3.0.33, May 2022
+ * Copyright © 2012-2022, Flipbook Games
  * 
- * Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text,
- * now transformed into an advanced C# IDE!!!
+ * Script Inspector 3 - World's Fastest IDE for Unity
+ * 
  * 
  * Follow me on http://twitter.com/FlipbookGames
  * Like Flipbook Games on Facebook http://facebook.com/FlipbookGames
@@ -47,6 +47,8 @@ public enum SemanticFlags
 	MethodDeclarator,
 	LocalVariableDeclarator,
 	OutVariableDeclarator,
+	IsVariableDeclarator,
+	TupleDeconstructVariableDeclarator,
 	ForEachVariableDeclaration,
 	FromClauseVariableDeclaration,
 	CaseVariableDeclaration,
@@ -167,7 +169,7 @@ public class ParseTree
 				return _resolvedSymbol;
 			}
 			set {
-				if (_resolvedVersion == 0)
+				if (_resolvedVersion == 0 && _resolvedSymbol != null)
 				{
 #if SI3_WARNINGS
 					Debug.LogWarning("Whoops! " + _resolvedSymbol);
@@ -258,6 +260,30 @@ public class ParseTree
 				result = result.parent;
 			return result;
 		}
+		
+		public Node FirstNonTrivialParent()
+		{
+			var result = parent;
+			while (result != null && result.numValidNodes == 1)
+				result = result.parent;
+			if (result != null && result.numValidNodes == 0)
+				result = null;
+			return result;
+		}
+		
+		public Node FirstNonTrivialParent(out int childIndex)
+		{
+			childIndex = this.childIndex;
+			var result = parent;
+			while (result != null && result.numValidNodes == 1)
+			{
+				childIndex = result.childIndex;
+				result = result.parent;
+			}
+			if (result != null && result.numValidNodes == 0)
+				result = null;
+			return result;
+		}
 
 		public override string ToString()
 		{
@@ -335,63 +361,6 @@ public class ParseTree
 			} while (true);
 		}
 
-		public bool HasErrors()
-		{
-			var it = this;
-			do
-			{
-				var node = it as Node;
-				if (node == null)
-				{
-					if (it.syntaxError != null)
-						return true;
-					
-					if (it == this)
-						return false;
-
-					var next = it.nextSibling;
-					while (next == null || next.childIndex >= next.parent.numValidNodes)
-					{
-						it = it.parent;
-						if (it == this)
-							return false;
-						next = it.nextSibling;
-					}
-					
-					it = next;
-					continue;
-				}
-				
-				it = node.FirstChild;
-				while (it != null && it.childIndex < node.numValidNodes)
-				{
-					var nextNode = it as Node;
-					if (nextNode == null)
-					{
-						if (it.syntaxError != null)
-							return true;
-							
-						it = it.nextSibling;
-						continue;
-					}
-					node = nextNode;
-					it = node.FirstChild;
-				}
-				
-				if (node == this)
-					return false;
-				
-				it = node.nextSibling;
-				while (it == null || it.childIndex >= it.parent.numValidNodes)
-				{
-					node = node.parent;
-					if (node == this)
-						return false;
-					it = node.nextSibling;
-				}
-			} while (true);
-		}
-		
 		public abstract bool IsLit(string litText);
 		
 		public Leaf GetFirstLeaf() { return GetFirstLeaf(true); }
@@ -508,6 +477,11 @@ public class ParseTree
 		public override Leaf GetFirstLeaf(bool validNodesOnly)
 		{
 			return this;
+		}
+
+		public bool HasErrors()
+		{
+			return syntaxError != null;
 		}
 	}
 
@@ -969,6 +943,60 @@ public class ParseTree
 			return node;
 		}
 
+		public bool HasErrors()
+		{
+			BaseNode it = this;
+			do
+			{
+				var node = it as Node;
+				if (node == null)
+				{
+					if (it.syntaxError != null)
+						return true;
+
+					var next = it.nextSibling;
+					while (next == null || next.childIndex >= next.parent.numValidNodes)
+					{
+						it = it.parent;
+						if (it == this)
+							return false;
+						next = it.nextSibling;
+					}
+					
+					it = next;
+					continue;
+				}
+				
+				it = node.FirstChild;
+				while (it != null && it.childIndex < node.numValidNodes)
+				{
+					var nextNode = it as Node;
+					if (nextNode == null)
+					{
+						if (it.syntaxError != null)
+							return true;
+							
+						it = it.nextSibling;
+						continue;
+					}
+					node = nextNode;
+					it = node.FirstChild;
+				}
+				
+				if (node == this)
+					return false;
+				
+				it = node.nextSibling;
+				while (it == null || it.childIndex >= it.parent.numValidNodes)
+				{
+					node = node.parent;
+					if (node == this)
+						return false;
+					it = node.nextSibling;
+				}
+			} while (true);
+		}
+		
 		public BaseNode FindChildByName(string name)
 		{
 			for (var child = firstChild; child != null && child.childIndex < numValidNodes; child = child.nextSibling)
@@ -1252,6 +1280,20 @@ public abstract class FGGrammar
 		public override string GetErrorMessage()
 		{
 			return "Unexpected token! Expected " + lookahead.ToString(parser);
+		}
+	}
+	
+	public class IntegerConstantIsTooLargeErrorMessage : ErrorMessageProvider
+	{
+		public static readonly IntegerConstantIsTooLargeErrorMessage Instance = new IntegerConstantIsTooLargeErrorMessage();
+		
+		public IntegerConstantIsTooLargeErrorMessage()
+			: base(null, null)
+		{}
+		
+		public override string GetErrorMessage()
+		{
+			return "Integer constant is too large";
 		}
 	}
 	
@@ -2289,7 +2331,7 @@ public abstract class FGGrammar
 		}
 
 		public If(string currentText, Node pred, Node node, bool debug = false)
-		: base(node)
+			: base(node)
 		{
 			currentTokenText = currentText;
 			nodePredicate = pred;
@@ -2669,6 +2711,11 @@ public abstract class FGGrammar
 			nts.Add(nt, rule);
 			rules.Add(rule);
 		}
+		
+		public void Add(Id nt, Node rhs)
+		{
+			Add(new Rule(nt, rhs));
+		}
 
 		public void InitializeGrammar()
 		{
@@ -2786,14 +2833,14 @@ public abstract class FGGrammar
 				var line = scanner.CurrentLine();
 				var tokenIndex = scanner.CurrentTokenIndex();
 				var rule = scanner.CurrentGrammarNode;
-				var node = scanner.CurrentParseTreeNode;
+				//var node = scanner.CurrentParseTreeNode;
 
 				if (!ParseStep(scanner))
 					break;
 				
 				if (scanner.ErrorMessage == null)
 				{
-					if (scanner.CurrentParseTreeNode == node && scanner.CurrentGrammarNode == rule && scanner.CurrentTokenIndex() == tokenIndex && scanner.CurrentLine() == line)
+					if (/*scanner.CurrentParseTreeNode == node &&*/ scanner.CurrentGrammarNode == rule && scanner.CurrentTokenIndex() == tokenIndex && scanner.CurrentLine() == line)
 					{
 						tryToRecover = false;
 						//Debug.LogError("Cannot continue parsing - stuck at line " + line + ", token index " + tokenIndex);
@@ -3045,6 +3092,11 @@ public abstract class FGGrammar
 
 		// right hand side subtree.
 		protected Node rhs;
+		
+		public Rule(Id nt, Node rhs)
+			: this(nt.GetName(), rhs)
+		{
+		}
 
 		public Rule(string nt, Node rhs)
 		{

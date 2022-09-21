@@ -1,28 +1,67 @@
 -------------------------------------
 SCRIPT INSPECTOR 3
-version 3.0.30, May 2021
-Copyright © 2012-2021, Flipbook Games
+version 3.0.33, May 2022
+Copyright © 2012-2022, Flipbook Games
 -------------------------------------
 
 
-Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text, now transformed into an advanced C# IDE!!!
+Script Inspector 3 - World's Fastest IDE for Unity
 
 
-IMPORTANT NOTE to all OS X users with Unity 2018.x, Unity 2017.x, and 5.x, either Personal or Professional, and Unity 4.x Pro:
-
-You may want to extend Si3's functionality with @inventor2010's amazing free plugin posted here:
-	http://forum.unity3d.com/threads/script-inspector-3.195218/page-13#post-2226154
-
-The plugin allows handling of Cmd-S, Cmd-Z, and Shift-Cmd-Z in Unity on OS X for more natural shortcuts for Save, Undo, and Redo operations in Si3!
-
-WARNING: Please, DO NOT USE the updated version of that plugin posted here:
-	http://forum.unity3d.com/threads/script-inspector-3.195218/page-20#post-2414302
-
-Thank you @inventor2010 for being awesome!!! :)
-
-
-Script Inspector 3 - Version History
+Version History
 =====================================
+
+New in version 3.0.33:
+- IMPORTANT FIX:
+  * Fixed assembly references when they are stripped out
+- Fixed resolving certain generic extension method overloads
+- Fixed Unity Scripting API URL for event members
+
+New in version 3.0.32:
+- CRITICAL FIXES:
+  * Fixed crash on resolving discard variable - thanks @michaellandonhatfield
+  * Fixed crash on resolving named arguments
+- Supported double-click and right-click on log entries in SI Console logged with Full Stack Trace Logging
+- Updated look of search field and Code Navigation toolbar in Unity 2019.3+
+- Optimized keyboard input handling
+- Fixed resolving foreach variable type for non-interface enumerables
+- Fixed auto-suggestions after "new" keyword
+- Fixed auto-fix for adding a missing using directives and fully qualifying symbols
+- Fixed missing duplicates in call-stack frames for log entries on right-click in SI Console
+- Fixed tooltip on first word-wrapped symbol
+
+New in version 3.0.31:
+- IMPORTANT FIXES:
+  * Fixed indentation with tab characters
+  * Fixed potential infinite loop in the parser
+- C# 5.0-8.0 support:
+  * Tuple types with explicitly and implicitly named fields, decomposition, and discard variables
+  * Discard variables in assignments and out arguments
+  * Pattern matching in "is expressions" for all 3 types: declaration, constant, and var patterns
+  * Both null-conditional operators: ?. and ?[]
+  * Null-coalescing assignment operator ??=
+  * Binary literals
+  * Digit separators
+- Added argument hints for constructors
+- Added "Search in Selection" option to Find in Files and Replace All - thanks @iloveloon
+- Added tooltips on SI tab titles showing file location
+- Improved tooltips to show short syntax for Nullable types
+- Improved keyboard handling on Windows when the search field is focused
+- Saving CPU time and battery power by not blinking the caret when Unity Editor is not in focus
+- Fixed implicitly typed parameters of lambda expressions used as contructor arguments - thanks @zKici
+- Fixed reloading of externally modified files - thanks @jrDev
+- Fixed resolving contructor overloads
+- Fixed scope of foreach local variables
+- Fixed parsing of interpolated strings
+- Fixed lifted operators for nullable types
+- Fixed implicit conversion of types to an interface they implement
+- Fixed positioning of tooltips for C# code symbols
+- Fixed key bindings for quick find commands when arguments hint tooltip is open
+- Fixed syntax highlighting of the keyword "finally"
+- Fixed highlighting of matching braces
+- Fixed highlighting the line number of the current line
+- Fixed a rare issue with vertical positioning of text lines
+- Fixed a rare issue with the background color
 
 New in version 3.0.30:
 - CRITICAL FIX: Fixed autocompletion for C# 4

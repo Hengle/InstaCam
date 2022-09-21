@@ -1,9 +1,9 @@
 ﻿/* SCRIPT INSPECTOR 3
- * version 3.0.30, May 2021
- * Copyright © 2012-2021, Flipbook Games
+ * version 3.0.33, May 2022
+ * Copyright © 2012-2022, Flipbook Games
  * 
- * Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text,
- * now transformed into an advanced C# IDE!!!
+ * Script Inspector 3 - World's Fastest IDE for Unity
+ * 
  * 
  * Follow me on http://twitter.com/FlipbookGames
  * Like Flipbook Games on Facebook http://facebook.com/FlipbookGames
@@ -226,6 +226,11 @@ public struct TextSpan
 			}
 		}
 	}
+	
+	public bool IsEmpty
+	{
+		get { return lineOffset == 0 && indexOffset == 0; }
+	}
 
 	public TextPosition EndPosition
 	{
@@ -335,6 +340,29 @@ public class SyntaxToken //: IComparable<SyntaxToken>
 [UnityEditor.InitializeOnLoad]
 public abstract class FGParser
 {
+	public static bool isCSharp4 =
+#if UNITY_2019_3_OR_NEWER
+		false;
+#elif UNITY_2017_1_OR_NEWER
+		UnityEditor.PlayerSettings.scriptingRuntimeVersion == UnityEditor.ScriptingRuntimeVersion.Legacy;
+#else
+		true;
+#endif
+
+	public static bool isCSharp8 =
+#if UNITY_2020_2_OR_NEWER
+		true;
+#else
+		false;
+#endif
+
+	public static bool isCSharp9 =
+#if UNITY_2021_2_OR_NEWER
+		true;
+#else
+		false;
+#endif
+
 	protected static readonly char[] whitespaces = { ' ', '\t' };
 	//protected static readonly Regex emailRegex = new Regex(@"\b([A-Z0-9._%-]+)@([A-Z0-9.-]+\.[A-Z]{2,6})\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
@@ -379,32 +407,33 @@ public abstract class FGParser
 		RegisterParsers();
 		
 		unityTypes = new HashSet<string>();
-		var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-		foreach (var assembly in assemblies)
-		{
-			try
-			{
-				if (assembly is System.Reflection.Emit.AssemblyBuilder)
-					continue;
+		
+		//var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+		//foreach (var assembly in assemblies)
+		//{
+		//	try
+		//	{
+		//		if (assembly is System.Reflection.Emit.AssemblyBuilder)
+		//			continue;
 				
-				var takeAllTypes = AssemblyDefinition.IsScriptAssembly(assembly);
-				var assemblyTypes = takeAllTypes ? assembly.GetTypes() : assembly.GetExportedTypes();
-				foreach (var type in assemblyTypes)
-				{
-					var name = type.Name;
-					var index = name.IndexOf('`');
-					if (index >= 0)
-						name = name.Remove(index);
-					unityTypes.Add(name);
-					if (type.IsSubclassOf(typeof(Attribute)) && name.FastEndsWith("Attribute"))
-						unityTypes.Add(name.Substring(0, name.Length - "Attribute".Length));
-				}
-			}
-			catch (ReflectionTypeLoadException)
-			{
-				Debug.LogWarning("Error reading types from assembly " + assembly.FullName);
-			}
-		}
+		//		var takeAllTypes = AssemblyDefinition.IsScriptAssembly(assembly);
+		//		var assemblyTypes = takeAllTypes ? assembly.GetTypes() : assembly.GetExportedTypes();
+		//		foreach (var type in assemblyTypes)
+		//		{
+		//			var name = type.Name;
+		//			var index = name.IndexOf('`');
+		//			if (index >= 0)
+		//				name = name.Remove(index);
+		//			unityTypes.Add(name);
+		//			if (type.IsSubclassOf(typeof(Attribute)) && name.FastEndsWith("Attribute"))
+		//				unityTypes.Add(name.Substring(0, name.Length - "Attribute".Length));
+		//		}
+		//	}
+		//	catch (ReflectionTypeLoadException)
+		//	{
+		//		Debug.LogWarning("Error reading types from assembly " + assembly.FullName);
+		//	}
+		//}
 	}
 
 
@@ -749,10 +778,102 @@ public abstract class FGParser
 		startAt = i;
 		return token;
 	}
+	
+	protected static void ScanDigitsWithUnderscore(string line, ref int i)
+	{
+		if (isCSharp4)
+		{
+			while (i < line.Length)
+			{
+				char c = line[i];
+				if (c >= '0' && c <= '9')
+					++i;
+				else
+					break;
+			}
+			return;
+		}
+		
+		while (i < line.Length)
+		{
+			char c = line[i];
+			if (c >= '0' && c <= '9')
+			{
+				++i;
+				continue;
+			}
+			
+			var underscore = i;
+			while (underscore < line.Length && line[underscore] == '_')
+				++underscore;
+			
+			if (underscore == i || underscore == line.Length)
+				break;
+			
+			c = line[underscore];
+			if (c < '0' || c > '9')
+				break;
+	
+			i = underscore + 1;
+		};
+	}
+	
+	protected static void ScanBinaryDigitsWithUnderscore(string line, ref int i)
+	{
+		while (i < line.Length)
+		{
+			char c = line[i];
+			if (c == '0' || c == '1')
+			{
+				++i;
+				continue;
+			}
+			
+			var underscore = i;
+			while (underscore < line.Length && line[underscore] == '_')
+				++underscore;
+			
+			if (underscore == i || underscore == line.Length)
+				break;
+			
+			c = line[underscore];
+			if (c != '0' && c != '1')
+				break;
+	
+			i = underscore + 1;
+		};
+	}
+	
+	protected static void ScanHexDigitsWithUnderscore(string line, ref int i)
+	{
+		while (i < line.Length)
+		{
+			char c = line[i];
+			if (c >= '0' && c <= '9' || c >= 'A' && c <= 'F' || c >= 'a' && c <= 'f')
+			{
+				++i;
+				continue;
+			}
+			
+			var underscore = i;
+			while (underscore < line.Length && line[underscore] == '_')
+				++underscore;
+			
+			if (underscore == i || underscore == line.Length)
+				break;
+			
+			c = line[underscore];
+			if (c < '0' || c > '9' && c < 'A' || c > 'F' && c < 'a' || c > 'f')
+				break;
+	
+			i = underscore + 1;
+		};
+	}
 
 	protected static SyntaxToken ScanNumericLiteral(string line, ref int startAt)
 	{
 		bool hex = false;
+		bool binary = false;
 		bool point = false;
 		bool exponent = false;
 		var i = startAt;
@@ -764,19 +885,45 @@ public abstract class FGParser
 		{
 			i += 2;
 			hex = true;
-			while (i < line.Length)
+			if (isCSharp4)
 			{
-				c = line[i];
-				if (c >= '0' && c <= '9' || c >= 'a' && c <= 'f' || c >= 'A' && c <= 'F')
-					++i;
-				else
-					break;
+				while (i < line.Length)
+				{
+					c = line[i];
+					if (c >= '0' && c <= '9' || c >= 'a' && c <= 'f' || c >= 'A' && c <= 'F')
+						++i;
+					else
+						break;
+				}
+			}
+			else
+			{
+				ScanHexDigitsWithUnderscore(line, ref i);
+			}
+		}
+		else if (line[i] == '0' && i < line.Length - 1 && (line[i + 1] == 'b' || line[i + 1] == 'B'))
+		{
+			i += 2;
+			binary = true;
+			if (isCSharp4)
+			{
+				while (i < line.Length)
+				{
+					c = line[i];
+					if (c == '0' || c == '1')
+						++i;
+					else
+						break;
+				}
+			}
+			else
+			{
+				ScanBinaryDigitsWithUnderscore(line, ref i);
 			}
 		}
 		else
 		{
-			while (i < line.Length && line[i] >= '0' && line[i] <= '9')
-				++i;
+			ScanDigitsWithUnderscore(line, ref i);
 		}
 
 		if (i > startAt && i < line.Length)
@@ -801,7 +948,7 @@ public abstract class FGParser
 			}
 		}
 
-		if (hex)
+		if (hex || binary)
 		{
 			token = new SyntaxToken(SyntaxToken.Kind.IntegerLiteral, line.Substring(startAt, i - startAt));
 			startAt = i;
@@ -841,7 +988,7 @@ public abstract class FGParser
 			}
 			if (c < '0' || c > '9')
 				break;
-			++i;
+			ScanDigitsWithUnderscore(line, ref i);
 		}
 		token = new SyntaxToken(
 			point || exponent ? SyntaxToken.Kind.RealLiteral : SyntaxToken.Kind.IntegerLiteral,

@@ -1,9 +1,9 @@
 ﻿/* SCRIPT INSPECTOR 3
- * version 3.0.30, May 2021
- * Copyright © 2012-2021, Flipbook Games
+ * version 3.0.33, May 2022
+ * Copyright © 2012-2022, Flipbook Games
  * 
- * Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text,
- * now transformed into an advanced C# IDE!!!
+ * Script Inspector 3 - World's Fastest IDE for Unity
+ * 
  * 
  * Follow me on http://twitter.com/FlipbookGames
  * Like Flipbook Games on Facebook http://facebook.com/FlipbookGames
@@ -68,7 +68,7 @@ namespace ScriptInspector.Themes
 			lineNumbers				= TangoColors.aluminium5,
 			lineNumbersHighlight	= TangoColors.aluminium3,
 			lineNumbersBackground	= TangoColors.aluminium7,
-			fold					= TangoColors.aluminium3,
+			fold					= TangoColors.aluminium4,
 			
 			activeSelection			= TangoColors.aluminium5,
 			passiveSelection		= TangoColors.aluminium5,

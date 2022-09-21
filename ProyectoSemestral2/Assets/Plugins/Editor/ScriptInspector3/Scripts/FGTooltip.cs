@@ -1,9 +1,9 @@
 ﻿/* SCRIPT INSPECTOR 3
- * version 3.0.30, May 2021
- * Copyright © 2012-2021, Flipbook Games
+ * version 3.0.33, May 2022
+ * Copyright © 2012-2022, Flipbook Games
  * 
- * Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text,
- * now transformed into an advanced C# IDE!!!
+ * Script Inspector 3 - World's Fastest IDE for Unity
+ * 
  * 
  * Follow me on http://twitter.com/FlipbookGames
  * Like Flipbook Games on Facebook http://facebook.com/FlipbookGames
@@ -113,7 +113,7 @@ public class FGTooltip : FGPopupWindow
 					var group = methodGroup as MethodGroupDefinition;
 					if (group != null && group.methods.Count > 1)
 					{
-						var methodOverloads = new MethodDefinition[group.methods.Count];
+						MethodDefinition[] methodOverloads = null;
 						//group.methods.CopyTo(methodOverloads);
 						Scope leafScope = null;
 						for (var i = leaf.parent; i != null; i = i.parent)
@@ -292,7 +292,7 @@ public class FGTooltip : FGPopupWindow
 		if (isTokenTooltip && Event.current.type == EventType.MouseMove ||
 			Event.current.type == EventType.ScrollWheel ||
 			Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.Escape ||
-			textEditor.styles.tooltipFrameStyle == null)
+			textEditor.styles.tooltipTextStyle == null)
 		{
 			EditorApplication.delayCall -= Hide;
 			EditorApplication.delayCall += Hide;
@@ -336,19 +336,37 @@ public class FGTooltip : FGPopupWindow
 
 	//	if (Event.current.type == EventType.Repaint)
 		{
+#if UNITY_2019_3_OR_NEWER
+			var rcPixels = EditorGUIUtility.PointsToPixels(position);
+			var size = new Vector2(Mathf.Floor(rcPixels.width), Mathf.Floor(rcPixels.height));
+			size = EditorGUIUtility.PixelsToPoints(size);
+			var width = Mathf.Floor(size.x);
+			var height = Mathf.Floor(size.y);
+
+			var rc1 = new Rect(offset.x, offset.y, position.width, position.height);
+			FGTextEditor.FillRect(rc1, textEditor.styles.scrollViewColor);
+			rc1.Set(offset.x, offset.y, width, 1f);
+			FGTextEditor.FillRect(rc1, textEditor.styles.tooltipFrameColor);
+			rc1 = new Rect(offset.x, offset.y, 1f, height);
+			FGTextEditor.FillRect(rc1, textEditor.styles.tooltipFrameColor);
+			rc1 = new Rect(offset.x, height - 1f, width, 1f);
+			FGTextEditor.FillRect(rc1, textEditor.styles.tooltipFrameColor);
+			rc1 = new Rect(width - 1f, offset.y, 1f, height);
+			FGTextEditor.FillRect(rc1, textEditor.styles.tooltipFrameColor);
+#else
 			if (SISettings.useStandardColorInPopups)
 			{
-				//GUI.Label(new Rect(0f, 0f, position.width, position.height), GUIContent.none, textEditor.styles.lineNumbersSeparator);
 				var rc1 = new Rect(offset.x + 1f, offset.y + 1f, position.width - 2f, position.height - 2f);
-				GUI.Label(rc1, GUIContent.none, textEditor.styles.scrollViewStyle);
+				FGTextEditor.FillRect(rc1, textEditor.styles.scrollViewColor);
 			}
 			else
 			{
 				var rc1 = new Rect(offset.x, offset.y, position.width, position.height);
-				GUI.Label(rc1, GUIContent.none, textEditor.styles.tooltipFrameStyle);
+				FGTextEditor.FillRect(rc1, textEditor.styles.tooltipFrameColor);
 				rc1 = new Rect(offset.x + 1f, offset.y + 1f, position.width - 2f, position.height - 2f);
-				GUI.Label(rc1, GUIContent.none, textEditor.styles.tooltipBgStyle);
+				FGTextEditor.FillRect(rc1, textEditor.styles.scrollViewColor);
 			}
+#endif
 			
 			if (!isTokenTooltip && textLines == null)
 				textLines = text.Split(new [] {'\n'});
@@ -428,7 +446,8 @@ public class FGTooltip : FGPopupWindow
 			}
 			else if (!isTokenTooltip && (Event.current.keyCode == KeyCode.UpArrow || Event.current.keyCode == KeyCode.DownArrow))
 			{
-				Event.current.modifiers = Event.current.modifiers & ~(EventModifiers.Control | EventModifiers.Command);
+				if ((Event.current.modifiers & EventModifiers.Shift) == EventModifiers.None)
+					Event.current.modifiers &= ~(EventModifiers.Control | EventModifiers.Command);
 				Hide();
 			}
 			

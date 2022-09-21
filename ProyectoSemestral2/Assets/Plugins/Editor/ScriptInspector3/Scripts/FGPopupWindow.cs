@@ -1,9 +1,9 @@
 ﻿/* SCRIPT INSPECTOR 3
- * version 3.0.30, May 2021
- * Copyright © 2012-2021, Flipbook Games
+ * version 3.0.33, May 2022
+ * Copyright © 2012-2022, Flipbook Games
  * 
- * Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text,
- * now transformed into an advanced C# IDE!!!
+ * Script Inspector 3 - World's Fastest IDE for Unity
+ * 
  * 
  * Follow me on http://twitter.com/FlipbookGames
  * Like Flipbook Games on Facebook http://facebook.com/FlipbookGames
@@ -137,7 +137,6 @@ public class FGPopupWindow : EditorWindow
 	}
 
 	private static readonly object boxedValueTrue = true;
-	private static readonly object boxedValueFalse = false;
 	
 	private static object GetContainerWindow(EditorWindow window)
 	{
@@ -164,7 +163,7 @@ public class FGPopupWindow : EditorWindow
 			return rc;
 		
 		rc.height += 20f;
-		rc = (Rect) fitToScreenMethod.Invoke(container, new object[] {rc, boxedValueTrue, boxedValueFalse});
+		rc = (Rect) fitToScreenMethod.Invoke(container, new object[] {rc, boxedValueTrue, boxedValueTrue});
 		rc.height -= 20f;
 		
 		return rc;
@@ -188,6 +187,9 @@ public class FGPopupWindow : EditorWindow
 	
 	protected Rect SetSize(float width, float height)
 	{
+		width = Mathf.Ceil(width);
+		height = Mathf.Ceil(height);
+
 		var x = horizontal ? (flipped ? dropDownRect.x - width : dropDownRect.xMax) : dropDownRect.x;
 		var y = horizontal ? dropDownRect.y : (flipped ? dropDownRect.y - height : dropDownRect.yMax);
 		var rc = new Rect(x, y, width, height);
@@ -195,7 +197,7 @@ public class FGPopupWindow : EditorWindow
 		
 		if (startsFlipped == flipped)
 		{
-			if (horizontal ? rc.x != fit.x : rc.y != fit.y)
+			if (horizontal ? Mathf.Abs(rc.x - fit.x) > 1f : Mathf.Abs(rc.y - fit.y) > 1f)
 			{
 				//Debug.Log("rc = " + rc + "\tfit = " + fit);
 				flipped = !flipped;

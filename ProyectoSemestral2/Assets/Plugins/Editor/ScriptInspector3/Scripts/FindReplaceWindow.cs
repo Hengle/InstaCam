@@ -1,9 +1,9 @@
 ﻿/* SCRIPT INSPECTOR 3
- * version 3.0.30, May 2021
- * Copyright © 2012-2021, Flipbook Games
+ * version 3.0.33, May 2022
+ * Copyright © 2012-2022, Flipbook Games
  * 
- * Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text,
- * now transformed into an advanced C# IDE!!!
+ * Script Inspector 3 - World's Fastest IDE for Unity
+ * 
  * 
  * Follow me on http://twitter.com/FlipbookGames
  * Like Flipbook Games on Facebook http://facebook.com/FlipbookGames
@@ -26,6 +26,7 @@ public enum FindReplace_LookIn
 	WholeProject,
 	OpenTabsOnly,
 	CurrentTabOnly,
+	SelectionOnly,
 	
 	AllGameAssemblies,
 	AllEditorAssemblies,
@@ -71,6 +72,13 @@ public class FindReplaceWindow : EditorWindow
 		"Whole Project",
 		"Open Tabs Only",
 		"Current Tab Only",
+	};
+	
+	private static string[] lookInOptionsWithSelection = new [] {
+		"Whole Project",
+		"Open Tabs Only",
+		"Current Tab Only",
+		"Selection Only",
 	};
 	
 	private static readonly GUILayoutOption[] historyLayoutOptions = new GUILayoutOption[] { GUILayout.Height(16f), GUILayout.Width(13f) };
@@ -503,9 +511,13 @@ public class FindReplaceWindow : EditorWindow
 #endif
 			{
 				var option = (int) lookInOption;
-				if (lookInOption > FindReplace_LookIn.CurrentTabOnly)
+				if (lookInOption > FindReplace_LookIn.SelectionOnly)
 					option = (int) FindReplace_LookIn.WholeProject;
-				var newOption = EditorGUILayout.Popup("Search scope:", option, lookInOptionsNoAssemblies);
+				var hasSelection = editor != null && editor.selectionStartPosition != null;
+				if (!hasSelection && lookInOption == FindReplace_LookIn.SelectionOnly)
+					option = (int) FindReplace_LookIn.WholeProject;
+				var lookInOptions = hasSelection ? lookInOptionsWithSelection : lookInOptionsNoAssemblies;
+				var newOption = EditorGUILayout.Popup("Search scope:", option, lookInOptions);
 				if (newOption != option)
 					lookInOption = (FindReplace_LookIn) newOption;
 			}
@@ -593,10 +605,10 @@ public class FindReplaceWindow : EditorWindow
 		}
 	}
 	
-	private static List<string> ignoreFileTypes = new List<string> { ".dll", ".a", ".so", ".dylib", ".exe" };
-	private static List<string> scriptFileTypes = new List<string> { ".cs", ".js", ".boo" };
-	public static List<string> shaderFileTypes = new List<string> { ".shader", ".cg", ".cginc", ".hlsl", ".hlslinc" };
-	private static List<string> nonTextFileTypes = new List<string> {
+	private static HashSet<string> ignoreFileTypes = new HashSet<string> { ".dll", ".a", ".so", ".dylib", ".exe" };
+	private static HashSet<string> scriptFileTypes = new HashSet<string> { ".cs", ".js", ".boo" };
+	public static HashSet<string> shaderFileTypes = new HashSet<string> { ".shader", ".cg", ".cginc", ".hlsl", ".hlslinc" };
+	private static HashSet<string> nonTextFileTypes = new HashSet<string> {
 		".dll", ".a", ".so", ".dylib", ".exe", ".cs", ".js", ".boo", ".shader", ".cg", ".cginc", ".hlsl", ".hlslinc"
 		};
 	
@@ -659,7 +671,7 @@ public class FindReplaceWindow : EditorWindow
 			lookForOption == FindReplace_LookFor.Shaders ||
 			lookForOption == FindReplace_LookFor.TextAssets)
 		{
-			if (lookInOption > FindReplace_LookIn.CurrentTabOnly)
+			if (lookInOption > FindReplace_LookIn.SelectionOnly)
 				lookInOption = FindReplace_LookIn.WholeProject;
 		}
 		
@@ -667,7 +679,7 @@ public class FindReplaceWindow : EditorWindow
 		{
 			allTextAssetGuids = (from w in FGCodeWindow.CodeWindows select w.TargetAssetGuid).Distinct().ToArray();
 		}
-		else if (lookInOption == FindReplace_LookIn.CurrentTabOnly)
+		else if (lookInOption == FindReplace_LookIn.CurrentTabOnly || lookInOption == FindReplace_LookIn.SelectionOnly)
 		{
 			allTextAssetGuids = new [] { editor != null ? editor.targetGuid : FGCodeWindow.GetGuidHistory().FirstOrDefault() };
 		}
@@ -783,6 +795,18 @@ public class FindReplaceWindow : EditorWindow
 			matchCase = matchCase,
 			matchWord = matchWholeWord,
 		};
+		if (lookInOption == FindReplace_LookIn.SelectionOnly && editor != null && editor.selectionStartPosition != null)
+		{
+			var from = editor.selectionStartPosition;
+			var to = editor.caretPosition;
+			if (to < from)
+			{
+				var temp = from;
+				from = to;
+				to = temp;
+			}
+			searchOptions.selection = TextSpan.Create(new TextPosition(from.line, from.characterIndex), new TextPosition(to.line, to.characterIndex));
+		}
 		
 		FindResultsWindow resultsWindow = FindResultsWindow.Create(
 			"Searching for '" + findText + "'...",

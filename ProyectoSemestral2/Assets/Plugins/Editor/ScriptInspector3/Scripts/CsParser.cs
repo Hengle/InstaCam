@@ -1,9 +1,9 @@
 ﻿/* SCRIPT INSPECTOR 3
- * version 3.0.30, May 2021
- * Copyright © 2012-2021, Flipbook Games
+ * version 3.0.33, May 2022
+ * Copyright © 2012-2022, Flipbook Games
  * 
- * Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text,
- * now transformed into an advanced C# IDE!!!
+ * Script Inspector 3 - World's Fastest IDE for Unity
+ * 
  * 
  * Follow me on http://twitter.com/FlipbookGames
  * Like Flipbook Games on Facebook http://facebook.com/FlipbookGames
@@ -22,15 +22,6 @@ using Debug = UnityEngine.Debug;
 
 public class CsParser : FGParser
 {
-	public static bool isCSharp4 =
-#if UNITY_2019_3_OR_NEWER
-		false;
-#elif UNITY_2017_1_OR_NEWER
-		UnityEditor.PlayerSettings.scriptingRuntimeVersion == UnityEditor.ScriptingRuntimeVersion.Legacy;
-#else
-		true;
-#endif
-
 	public override HashSet<string> Keywords { get { return keywords; } }
 	public override HashSet<string> BuiltInLiterals { get { return scriptLiterals; } }
 
@@ -65,7 +56,6 @@ public class CsParser : FGParser
 		"++", "--", "->", "+", "-", "!", "~", "++", "--", "&", "*", "/", "%", "+", "-", "<<", ">>", "<", ">",
 		"<=", ">=", "==", "!=", "&", "^", "|", "&&", "||", "??", "?", "::", ":",
 		"=", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=", "<<=", ">>=", "=>",
-		"?.", "?[",
 	};
 
 	private static readonly HashSet<string> preprocessorKeywords = new HashSet<string>{
@@ -416,6 +406,7 @@ public class CsParser : FGParser
 			text == "case" ||
 			text == "try" ||
 			text == "catch" ||
+			text == "finally" ||
 			text == "throw";
 	}
 	
@@ -873,7 +864,6 @@ public class CsParser : FGParser
 					// Multi-character operators / punctuators
 					// "++", "--", "<<", ">>", "<=", ">=", "==", "!=", "&&", "||", "??", "+=", "-=", "*=", "/=", "%=",
 					// "&=", "|=", "^=", "<<=", ">>=", "=>", "::"
-					// "?.", "?["
 					var punctuatorStart = startAt++;
 					if (startAt < line.Length)
 					{
@@ -881,7 +871,7 @@ public class CsParser : FGParser
 						switch (line[punctuatorStart])
 						{
 							case '?':
-								if (nextCharacter == '?' || !isCSharp4 && (nextCharacter == '.' || nextCharacter == '['))
+								if (nextCharacter == '?')
 									++startAt;
 								break;
 							case '+':
@@ -1255,7 +1245,7 @@ public class CsParser : FGParser
 					continue;
 				}
 			}
-			else if (c == '}' || c == ')' || c == ']' || c == ':')
+			else if (c == '}' || c == ')' || c == ']' || scanInterpolationFormat && c == ':')
 			{
 				break;
 			}
@@ -1279,10 +1269,6 @@ public class CsParser : FGParser
 				ScanRegularBalancedText(line, ref i, false);
 				if (i < length && line[i] == ')')
 					++i;
-			}
-			else if (scanInterpolationFormat && c == ':')
-			{
-				break;
 			}
 		}
 		

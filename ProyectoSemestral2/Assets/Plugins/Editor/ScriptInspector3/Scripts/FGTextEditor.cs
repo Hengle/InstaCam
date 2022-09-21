@@ -1,9 +1,9 @@
 ﻿/* SCRIPT INSPECTOR 3
- * version 3.0.30, May 2021
- * Copyright © 2012-2021, Flipbook Games
+ * version 3.0.33, May 2022
+ * Copyright © 2012-2022, Flipbook Games
  * 
- * Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text,
- * now transformed into an advanced C# IDE!!!
+ * Script Inspector 3 - World's Fastest IDE for Unity
+ * 
  * 
  * Follow me on http://twitter.com/FlipbookGames
  * Like Flipbook Games on Facebook http://facebook.com/FlipbookGames
@@ -83,7 +83,7 @@ public class FGTextEditor
 
 	public class Styles
 	{
-		public GUIStyle scrollViewStyle;
+		public Color scrollViewColor;
 		public GUIStyle normalStyle;
 		public GUIStyle hyperlinkStyle;
 		public GUIStyle mailtoStyle;
@@ -123,30 +123,31 @@ public class FGTextEditor
 		public GUIStyle xmlDocsTagsStyle;
 		
 		public GUIStyle lineNumbersStyle;
-		public GUIStyle lineNumbersBackground;
-		public GUIStyle lineNumbersSeparator;
+		public GUIStyle currentLineNumberStyle;
+		public Color lineNumbersBackground;
+		public Color lineNumbersSeparator;
 
-		public GUIStyle caretStyle;
-		public GUIStyle activeSelectionStyle;
-		public GUIStyle passiveSelectionStyle;
-		public GUIStyle searchResultStyle;
+		public Color caretColor;
+		public Color activeSelectionColor;
+		public Color passiveSelectionColor;
+		public Color searchResultColor;
 		
-		public GUIStyle trackChangesAfterSaveStyle;
-		public GUIStyle trackChangesBeforeSaveStyle;
-		public GUIStyle trackChangesRevertedStyle;
+		public Color trackChangesAfterSaveColor;
+		public Color trackChangesBeforeSaveColor;
+		public Color trackChangesRevertedColor;
 		
-		public GUIStyle currentLineStyle;
-		public GUIStyle currentLineInactiveStyle;
+		public Color currentLineColor;
+		public Color currentLineInactiveColor;
 		
-		public GUIStyle referenceHighlightStyle;
-		public GUIStyle referenceModifyHighlightStyle;
+		public Color referenceHighlightColor;
+		public Color referenceModifyHighlightColor;
 		
-		public GUIStyle tooltipBgStyle;
-		public GUIStyle tooltipFrameStyle;
+		public Color tooltipBgColor;
+		public Color tooltipFrameColor;
 		public GUIStyle tooltipTextStyle;
 		
-		public GUIStyle listFrameStyle;
-		public GUIStyle listBgStyle;
+		public Color listFrameColor;
+		public Color listBgColor;
 		
 		public GUIStyle ping;
 		public GUIStyle toolbarSearchField;
@@ -195,7 +196,9 @@ public class FGTextEditor
 	
 	[NonSerialized]
 	private EditorWindow parentWindow;
-	public Vector2 charSize { get; private set; }
+	[NonSerialized]
+	public Vector2 charSize;
+	//private static float[] charWidths = new float[65536];
 	//private Dictionary<string, float> tokenWidths = new Dictionary<string, float>();
 	
 	private bool wordWrapping;
@@ -1083,7 +1086,7 @@ public class FGTextEditor
 		{
 			lastAutoScrollTime = frameTime;
 
-			float caretTime = ((float) (frameTime - caretMoveTime).TotalSeconds) % 1f;
+			float caretTime = UnityEditorInternal.InternalEditorUtility.isApplicationActive ? ((float) (frameTime - caretMoveTime).TotalSeconds) % 1f : 0f;
 
 			if (!hasSelection && highightReferencesTime != caretMoveTime)
 			{
@@ -1334,9 +1337,6 @@ public class FGTextEditor
 		else
 			currentThemeCode = themes[themeIndex];
 		
-		styles.scrollViewStyle = styles.scrollViewStyle ?? new GUIStyle(GUIStyle.none);
-		styles.searchResultStyle = styles.searchResultStyle ?? new GUIStyle(GUIStyle.none);
-		
 		styles.normalStyle = styles.normalStyle ?? new GUIStyle(GUIStyle.none);
 		styles.normalStyle.richText = false;
 		var fontPath = SISettings.fontHinting ? currentFont : "Smooth " + currentFont;
@@ -1387,6 +1387,7 @@ public class FGTextEditor
 		styles.xmlDocsStyle = styles.xmlDocsStyle ?? new GUIStyle(styles.normalStyle);
 		styles.xmlDocsTagsStyle = styles.xmlDocsTagsStyle ?? new GUIStyle(styles.normalStyle);
 		styles.lineNumbersStyle = styles.lineNumbersStyle ?? new GUIStyle(styles.normalStyle);
+		styles.currentLineNumberStyle = styles.currentLineNumberStyle ?? new GUIStyle(styles.normalStyle);
 		styles.tooltipTextStyle = styles.tooltipTextStyle ?? new GUIStyle(styles.normalStyle);
 
 		styles.hyperlinkStyle.font = styles.normalStyle.font;
@@ -1421,6 +1422,7 @@ public class FGTextEditor
 		styles.xmlDocsStyle.font = styles.normalStyle.font;
 		styles.xmlDocsTagsStyle.font = styles.normalStyle.font;
 		styles.lineNumbersStyle.font = styles.normalStyle.font;
+		styles.currentLineNumberStyle.font = styles.normalStyle.font;
 		styles.tooltipTextStyle.font = styles.normalStyle.font;
 		styles.tooltipTextStyle.wordWrap = true;
 
@@ -1458,6 +1460,7 @@ public class FGTextEditor
 			styles.xmlDocsStyle.fontSize = styles.normalStyle.fontSize;
 			styles.xmlDocsTagsStyle.fontSize = styles.normalStyle.fontSize;
 			styles.lineNumbersStyle.fontSize = styles.normalStyle.fontSize;
+			styles.currentLineNumberStyle.fontSize = styles.normalStyle.fontSize;
 			styles.tooltipTextStyle.fontSize = styles.normalStyle.fontSize;
 		}
 		else
@@ -1495,27 +1498,10 @@ public class FGTextEditor
 			styles.xmlDocsStyle.fontSize = 0;
 			styles.xmlDocsTagsStyle.fontSize = 0;
 			styles.lineNumbersStyle.fontSize = 0;
+			styles.currentLineNumberStyle.fontSize = 0;
 			styles.tooltipTextStyle.fontSize = 0;
 		}
 
-		styles.lineNumbersBackground = styles.lineNumbersBackground ?? new GUIStyle();
-		styles.lineNumbersSeparator = styles.lineNumbersSeparator ?? new GUIStyle();
-		styles.caretStyle = styles.caretStyle ?? new GUIStyle();
-		styles.activeSelectionStyle = styles.activeSelectionStyle ?? new GUIStyle();
-		styles.passiveSelectionStyle = styles.passiveSelectionStyle ?? new GUIStyle();
-		styles.trackChangesAfterSaveStyle = styles.trackChangesAfterSaveStyle ?? new GUIStyle();
-		styles.trackChangesBeforeSaveStyle = styles.trackChangesBeforeSaveStyle ?? new GUIStyle();
-		styles.trackChangesRevertedStyle = styles.trackChangesRevertedStyle ?? new GUIStyle();
-		styles.currentLineStyle = styles.currentLineStyle ?? new GUIStyle();
-		styles.currentLineInactiveStyle = styles.currentLineInactiveStyle ?? new GUIStyle();
-		styles.referenceHighlightStyle = styles.referenceHighlightStyle ?? new GUIStyle();
-		styles.referenceModifyHighlightStyle = styles.referenceModifyHighlightStyle ?? new GUIStyle();
-		styles.tooltipBgStyle = styles.tooltipBgStyle ?? new GUIStyle();
-		styles.tooltipFrameStyle = styles.tooltipFrameStyle ?? new GUIStyle();
-		
-		styles.listFrameStyle = styles.listFrameStyle ?? new GUIStyle();
-		styles.listBgStyle = styles.listBgStyle ?? new GUIStyle();
-		
 		styles.upArrowStyle = styles.upArrowStyle ?? new GUIStyle();
 		styles.downArrowStyle = styles.downArrowStyle ?? new GUIStyle();
 		styles.upArrowStyle.normal.background = LoadEditorResource<Texture2D>("upArrowOff.png", "d_upArrowOff.png");
@@ -1560,23 +1546,23 @@ public class FGTextEditor
 
 	private static void ApplyTheme(Styles styles, Theme currentTheme)
 	{
-		styles.scrollViewStyle.normal.background = FlatColorTexture(currentTheme.background);
-		styles.searchResultStyle.normal.background = FlatColorTexture(currentTheme.searchResults);
-		styles.caretStyle.normal.background = FlatColorTexture(currentTheme.text);
-		styles.activeSelectionStyle.normal.background = FlatColorTexture(currentTheme.activeSelection);
-		styles.passiveSelectionStyle.normal.background = FlatColorTexture(currentTheme.passiveSelection);
-		styles.trackChangesBeforeSaveStyle.normal.background = FlatColorTexture(currentTheme.trackChanged);
-		styles.trackChangesAfterSaveStyle.normal.background = FlatColorTexture(currentTheme.trackSaved);
-		styles.trackChangesRevertedStyle.normal.background = FlatColorTexture(currentTheme.trackReverted);
-		styles.currentLineStyle.normal.background = FlatColorTexture(currentTheme.currentLine);
-		styles.currentLineInactiveStyle.normal.background = FlatColorTexture(currentTheme.currentLineInactive);
-		styles.referenceHighlightStyle.normal.background = FlatColorTexture(currentTheme.referenceHighlight);
-		styles.referenceModifyHighlightStyle.normal.background = FlatColorTexture(currentTheme.referenceModifyHighlight);
-		styles.tooltipBgStyle.normal.background = FlatColorTexture(currentTheme.tooltipBackground);
-		styles.tooltipFrameStyle.normal.background = FlatColorTexture(currentTheme.tooltipFrame);
+		styles.scrollViewColor = currentTheme.background;
+		styles.searchResultColor = currentTheme.searchResults;
+		styles.caretColor = currentTheme.text;
+		styles.activeSelectionColor = currentTheme.activeSelection;
+		styles.passiveSelectionColor = currentTheme.passiveSelection;
+		styles.trackChangesBeforeSaveColor = currentTheme.trackChanged;
+		styles.trackChangesAfterSaveColor = currentTheme.trackSaved;
+		styles.trackChangesRevertedColor = currentTheme.trackReverted;
+		styles.currentLineColor = currentTheme.currentLine;
+		styles.currentLineInactiveColor = currentTheme.currentLineInactive;
+		styles.referenceHighlightColor = currentTheme.referenceHighlight;
+		styles.referenceModifyHighlightColor = currentTheme.referenceModifyHighlight;
+		styles.tooltipBgColor = currentTheme.tooltipBackground;
+		styles.tooltipFrameColor = currentTheme.tooltipFrame;
 		
-		styles.listFrameStyle.normal.background = FlatColorTexture(currentTheme.listPopupFrame == Color.clear ? currentTheme.fold : currentTheme.listPopupFrame);
-		styles.listBgStyle.normal.background = FlatColorTexture(currentTheme.listPopupBackground);
+		styles.listFrameColor = currentTheme.listPopupFrame == Color.clear ? currentTheme.fold : currentTheme.listPopupFrame;
+		styles.listBgColor = currentTheme.listPopupBackground;
 		
 		styles.normalStyle.normal.textColor = currentTheme.text;
 		styles.keywordStyle.normal.textColor = currentTheme.keywords;
@@ -1615,13 +1601,13 @@ public class FGTextEditor
 		styles.hyperlinkStyle.normal.background = styles.mailtoStyle.normal.background =
 			UnderlineTexture(currentTheme.hyperlinks, (int)styles.mailtoStyle.lineHeight);
 
-		styles.lineNumbersBackground.normal.background = FlatColorTexture(currentTheme.lineNumbersBackground);
-		styles.lineNumbersSeparator.normal.background = FlatColorTexture(currentTheme.fold);
+		styles.lineNumbersBackground = currentTheme.lineNumbersBackground;
+		styles.lineNumbersSeparator = currentTheme.fold;
 
 		styles.lineNumbersStyle.normal.textColor = currentTheme.lineNumbers;
-		styles.lineNumbersStyle.hover.textColor = currentTheme.lineNumbersHighlight;
-		styles.lineNumbersStyle.hover.background = styles.lineNumbersBackground.normal.background;
 		styles.lineNumbersStyle.alignment = TextAnchor.UpperRight;
+		styles.currentLineNumberStyle.normal.textColor = currentTheme.lineNumbersHighlight;
+		styles.currentLineNumberStyle.alignment = TextAnchor.UpperRight;
 
 		bool isDynamic = GetDynamicFontSize(styles.normalStyle.font) != 0;
 		int boldFilter = currentFont == "Fonts/DejaVu Sans Mono.ttf" ? 3 : 2;
@@ -1653,17 +1639,15 @@ public class FGTextEditor
 		styles.enumMemberStyle.fontStyle = isDynamic ? (FontStyle)((int)currentTheme.enumMembersStyle & boldFilter) : 0;
 	}
 
-	private static Texture2D FlatColorTexture(Color color)
+	public static void FillRect(Rect rect, Color color)
 	{
-#if UNITY_2018_1_OR_NEWER
-		Texture2D flat = new Texture2D(1, 1, TextureFormat.RGBA32, false, false);
-#else
-		Texture2D flat = new Texture2D(1, 1, TextureFormat.RGBA32, false, true);
-#endif
-		flat.SetPixels(new Color[] { color });
-		flat.Apply();
-		flat.hideFlags = HideFlags.HideAndDontSave;
-		return flat;
+		if (Event.current.type != EventType.Repaint)
+			return;
+		
+		Color oldColor = GUI.color;
+		GUI.color = color;
+		GUI.DrawTexture(rect, EditorGUIUtility.whiteTexture);
+		GUI.color = oldColor;
 	}
 
 	private static Texture2D UnderlineTexture(Color color, int lineHeight)
@@ -1686,7 +1670,7 @@ public class FGTextEditor
 	
 	public EditorWindow OwnerWindow { get { return parentWindow ?? currentInspector; } }
 	
-	private bool helpButtonClicked = false;
+	private bool clearSearchButtonClicked = false;
 	
 	private void ShowWrenchMenu(Rect rc)
 	{
@@ -1885,9 +1869,9 @@ public class FGTextEditor
 		var topLeft = inspectorElement.ChangeCoordinatesTo(inspectorRootScrollView, Vector2.zero);
 		inspectorEditorTopLeft = topLeft;
 #if UNITY_2019_3_OR_NEWER
-		height = rc1.height - topLeft.y - (isTextAsset ? 0f : 9f);
+		height = rc1.height - topLeft.y - (isTextAsset ? 1f : 12f);
 #else
-		height = rc1.height - topLeft.y - (isTextAsset ? 0f : 5f);
+		height = rc1.height - topLeft.y - (isTextAsset ? 1f : 8f);
 #endif
 		if (topLeft.y == 0f || height < 1f)
 			return this.currentInspector.position.height - 195f;
@@ -1941,10 +1925,10 @@ public class FGTextEditor
 		if (GUIUtility.hotControl != 0)
 		{
 			//Debug.Log("hotControl: " + GUIUtility.hotControl + "  nextControlID: " + nextControlID + "  Event: " + Event.current);
-			if (GUIUtility.hotControl == nextControlID - 2)
+			if (GUIUtility.hotControl >= nextControlID - 3 && GUIUtility.hotControl <= nextControlID - 2)
 			{
 				GUIUtility.hotControl = 0;
-				helpButtonClicked = true;
+				clearSearchButtonClicked = true;
 			//	Repaint();
 			}
 		}
@@ -2140,7 +2124,7 @@ public class FGTextEditor
 			}
 		}
 		
-		//EditorGUI.DrawRect(new Rect(Event.current.mousePosition.x - 1f, Event.current.mousePosition.y - 1f, 3f, 3f), Color.black);
+		//FillRect(new Rect(Event.current.mousePosition.x - 1f, Event.current.mousePosition.y - 1f, 3f, 3f), Color.black);
 		
 		if (argumentsHint != null)
 		{
@@ -2253,7 +2237,7 @@ public class FGTextEditor
 	
 	private void UpdateMatchingBraces()
 	{
-		matchingBraceLeft = matchingBraceRight = new TextPosition();
+		matchingBraceLeft = matchingBraceRight = TextPosition.invalid;
 		
 		int lineRight, index;
 		bool atTokenEnd;
@@ -2293,7 +2277,8 @@ public class FGTextEditor
 		}
 		
 		matchingBraceLeft = textBuffer.GetOpeningBraceLeftOf(lineLeft, index, -1);
-		matchingBraceRight = textBuffer.GetClosingBraceRightOf(lineRight, index, -1);
+		if (matchingBraceLeft.line >= 0)
+			matchingBraceRight = textBuffer.GetClosingBraceRightOf(lineRight, index, -1);
 	}
 	
 	[NonSerialized]
@@ -2399,9 +2384,9 @@ public class FGTextEditor
 				var lastWhitespace = -1;
 				for (var i = 0; i < token.text.Length; ++i)
 				{
-					xOffset += GetTextWidth(line, charIndex + i, charIndex + i + 1, xOffset);
-					//column += token.text[i] != '\t' ? 1 : tabSize - (column % tabSize);
-					if (token.text[i] == ' ' || token.text[i] == '\t')
+					var c = token.text[i];
+					xOffset += GetCharWidth(c, xOffset);
+					if (c == ' ' || c == '\t')
 						lastWhitespace = i;
 					if (xOffset >= maxWidth)
 					{
@@ -2410,7 +2395,10 @@ public class FGTextEditor
 
 						if (lastWhitespace >= lastLineBreak)
 						{
-							lastLineBreak = lastWhitespace + 1;
+							if (i == lastWhitespace)
+								lastLineBreak = lastWhitespace;
+							else
+								lastLineBreak = lastWhitespace + 1;
 							lineBreaks.Add(charIndex + lastLineBreak);
 							lastWhitespace = -1;
 						}
@@ -2424,7 +2412,6 @@ public class FGTextEditor
 							lineBreaks.Add(charIndex);
 						}
 						xOffset = GetTextWidth(line, charIndex + lastLineBreak, charIndex + i, 0f);
-						//column = i - lastLineBreak;
 					}
 				}
 
@@ -3216,7 +3203,7 @@ public class FGTextEditor
 				if (Event.current == null || Event.current.type == EventType.Used)
 				{
 					nextF12GoesBack = false;
-					GUIUtility.ExitGUI();
+					//GUIUtility.ExitGUI();
 					return;
 				}
 				//Event.current.Use();
@@ -3293,6 +3280,8 @@ public class FGTextEditor
 				marginLeft += 9f;
 			}
 		}
+
+		var canGoToOnScroll = true;
 		
 	onScroll:
 		
@@ -3357,10 +3346,10 @@ public class FGTextEditor
 					codeViewRect.height -= 15f;
 			}
 			
-			codeViewRect.xMin = Mathf.Ceil((codeViewRect.x - 1f - marginLeft) / charSize.x) * charSize.x + 0f + marginLeft;
-			codeViewRect.width = Mathf.Floor(codeViewRect.width / charSize.x) * charSize.x;
-			codeViewRect.yMin = Mathf.Ceil(codeViewRect.y / charSize.y) * charSize.y;
-			codeViewRect.height = Mathf.Floor(codeViewRect.height / charSize.y) * charSize.y;
+			//codeViewRect.xMin = Mathf.Ceil((codeViewRect.x - 1f - marginLeft) / charSize.x) * charSize.x + 0f + marginLeft;
+			//codeViewRect.width = Mathf.Floor(codeViewRect.width / charSize.x) * charSize.x;
+			//codeViewRect.yMin = Mathf.Ceil(codeViewRect.y / charSize.y) * charSize.y;
+			//codeViewRect.height = Mathf.Floor(codeViewRect.height / charSize.y) * charSize.y;
 			
 			float yOffset;
 			if (wordWrapping /*&& !IsLoading*/)
@@ -3442,7 +3431,11 @@ public class FGTextEditor
 					scrollPositionOffset = scrollPosition.y - GetLineOffset(scrollPositionLine);
 				}
 				needsRepaint = false;
-				goto onScroll;
+				if (canGoToOnScroll)
+				{
+					canGoToOnScroll = false;
+					goto onScroll;
+				}
 			}
 		}
 
@@ -3470,6 +3463,8 @@ public class FGTextEditor
 				}
 			}
 
+			pingTimer = 0.999f;
+
 			if (needsRepaint)
 			{
 				pingStartTime = frameTime;
@@ -3480,11 +3475,11 @@ public class FGTextEditor
 					scrollPositionOffset = scrollPosition.y - GetLineOffset(scrollPositionLine);
 				}
 				needsRepaint = false;
-				goto onScroll;
-			}
-			else
-			{
-				pingTimer = 0.999f;
+				if (canGoToOnScroll)
+				{
+					canGoToOnScroll = false;
+					goto onScroll;
+				}
 			}
 		}
 
@@ -3501,18 +3496,28 @@ public class FGTextEditor
 					scrollPositionOffset = scrollPosition.y - GetLineOffset(scrollPositionLine);
 					if (line != scrollPositionLine || offset != scrollPositionOffset)
 					{
-						goto onScroll;
+						if (canGoToOnScroll)
+						{
+							canGoToOnScroll = false;
+							goto onScroll;
+						}
 					}
 				}
 				else
 				{
 				//	Repaint();
 				//	DoGUI(enableGUI);
-					goto onScroll;
+					if (canGoToOnScroll)
+					{
+						canGoToOnScroll = false;
+						goto onScroll;
+					}
 				//	return;
 				}
 			}
 		}
+
+		scrollPosition.y = Mathf.Clamp(scrollPosition.y, 0f, Mathf.Max(contentRect.height - codeViewRect.height, 0f));
 
 		if (Event.current.type == EventType.Layout)
 		{
@@ -3528,7 +3533,7 @@ public class FGTextEditor
 		//	contentRect.xMax += marginLeft + marginRight;
 
 		// Filling the background
-		GUI.Box(scrollViewRect, GUIContent.none, styles.scrollViewStyle);
+		FillRect(scrollViewRect, styles.scrollViewColor);
 
 		if (lastMouseEvent != null && autoScrollDelta != Vector2.zero)
 		{
@@ -3586,7 +3591,7 @@ public class FGTextEditor
 		
 		if (isScrollWheelEvent)
 		{
-			scrollPosition.x = Mathf.Clamp(scrollPosition.x + Event.current.delta.x * charSize.y, 0f, contentRect.width - codeViewRect.width);
+			scrollPosition.x = Mathf.Clamp(scrollPosition.x + Event.current.delta.x * charSize.y, 0f, contentRect.width - codeViewRect.width + 4f);
 			scrollPosition.y = Mathf.Clamp(scrollPosition.y + Event.current.delta.y * charSize.y, 0f, contentRect.height - codeViewRect.height);
 			Event.current.Use();
 
@@ -3757,10 +3762,10 @@ public class FGTextEditor
 			fullCodeViewRect.yMin += -4f;
 			fullCodeViewRect.yMax += 4f;
 		
-			codeViewRect.xMin = Mathf.Ceil((codeViewRect.x - 1f - marginLeft) / charSize.x) * charSize.x + 0f + marginLeft;
-			codeViewRect.width = Mathf.Floor(codeViewRect.width / charSize.x) * charSize.x;
-			codeViewRect.yMin = Mathf.Ceil(codeViewRect.y / charSize.y) * charSize.y;
-			codeViewRect.height = Mathf.Floor(codeViewRect.height / charSize.y) * charSize.y;
+			//codeViewRect.xMin = Mathf.Ceil((codeViewRect.x - 1f - marginLeft) / charSize.x) * charSize.x + 0f + marginLeft;
+			//codeViewRect.width = Mathf.Floor(codeViewRect.width / charSize.x) * charSize.x;
+			//codeViewRect.yMin = Mathf.Ceil(codeViewRect.y / charSize.y) * charSize.y;
+			//codeViewRect.height = Mathf.Floor(codeViewRect.height / charSize.y) * charSize.y;
 
 			// Uncomment for debugging only
 			//GUI.Box(codeViewRect, GUIContent.none);
@@ -3792,18 +3797,18 @@ public class FGTextEditor
 				float yOffset = charSize.y * row + GetLineOffset(caretPosition.line);
 				Rect currentLineRect = new Rect(marginLeft - 4f + smoothScrollPosition.x, yOffset, codeViewRect.width + charSize.x + 4f, 1f);
 				if (SISettings.frameCurrentLine)
-					GUI.Label(currentLineRect, GUIContent.none, hasCodeViewFocus ? styles.currentLineStyle : styles.currentLineInactiveStyle);
+					FillRect(currentLineRect, hasCodeViewFocus ? styles.currentLineColor : styles.currentLineInactiveColor);
 
 				currentLineRect.y += charSize.y - 1f;
 				if (SISettings.frameCurrentLine)
-					GUI.Label(currentLineRect, GUIContent.none, hasCodeViewFocus ? styles.currentLineStyle : styles.currentLineInactiveStyle);
+					FillRect(currentLineRect, hasCodeViewFocus ? styles.currentLineColor : styles.currentLineInactiveColor);
 
 				currentLineRect.y -= charSize.y - 2f;
 				currentLineRect.height = charSize.y - 2f;
 				Color oldColor = GUI.color;
 				GUI.color = new Color(1f, 1f, 1f, SISettings.highlightCurrentLineAlpha);
 				if (SISettings.highlightCurrentLine)
-					GUI.Label(currentLineRect, GUIContent.none, hasCodeViewFocus ? styles.currentLineStyle : styles.currentLineInactiveStyle);
+					FillRect(currentLineRect, hasCodeViewFocus ? styles.currentLineColor : styles.currentLineInactiveColor);
 				GUI.color = oldColor;
 			}
 
@@ -3826,7 +3831,7 @@ public class FGTextEditor
 						if (highlightRect.line > toLine)
 							break;
 						
-						DrawSelectionRectCharIndex(highlightRect.line, highlightRect.characterIndex, searchStringLength, false, styles.searchResultStyle);
+						DrawSelectionRectCharIndex(highlightRect.line, highlightRect.characterIndex, searchStringLength, false, styles.searchResultColor);
 					}
 				}
 				
@@ -3842,7 +3847,7 @@ public class FGTextEditor
 					//if (wordWrapping)
 						DrawSelectionRectCharIndex(caretPosition.line,
 							Math.Min(caretPosition.characterIndex, selectionStartPosition.characterIndex),
-							Math.Abs(caretPosition.characterIndex - selectionStartPosition.characterIndex), false, null);
+							Math.Abs(caretPosition.characterIndex - selectionStartPosition.characterIndex), false);
 					//else
 					//	DrawSelectionRect(caretPosition.line, Math.Min(caretPosition.column, selectionStartPosition.column),
 					//		Math.Abs(caretPosition.column - selectionStartPosition.column));
@@ -3858,8 +3863,8 @@ public class FGTextEditor
 					//if (wordWrapping)
 					//{
 						DrawSelectionRectCharIndex(firstLine, fromPos.characterIndex,
-							textBuffer.lines[firstLine].Length - fromPos.characterIndex, true, null);
-						DrawSelectionRectCharIndex(lastLine, 0, toPos.characterIndex, false, null);
+							textBuffer.lines[firstLine].Length - fromPos.characterIndex, true);
+						DrawSelectionRectCharIndex(lastLine, 0, toPos.characterIndex, false);
 					//}
 					//else
 					//{
@@ -3876,7 +3881,7 @@ public class FGTextEditor
 					if (lastLine >= toLine)
 						lastLine = toLine - 1;
 					for (int line = firstLine; line <= lastLine; ++line)
-						DrawSelectionRectCharIndex(line, 0, textBuffer.lines[line].Length, true, null);
+						DrawSelectionRectCharIndex(line, 0, textBuffer.lines[line].Length, true);
 				}
 			}
 
@@ -4108,16 +4113,16 @@ public class FGTextEditor
 										if (token.parent != null && token.parent.resolvedSymbol != null &&
 											token.parent.resolvedSymbol.GetGenericSymbol() == highlightedSymbol)
 										{
-											var referenceStyle = GetReferenceHighlightStyle(token);
-											GUI.Label(rect, GUIContent.none, referenceStyle);
+											var referenceColor = GetReferenceHighlightColor(token);
+											FillRect(rect, referenceColor);
 										}
 									}
 									else if (highlightedPPSymbol != null)
 									{
 										if (token.tokenKind == SyntaxToken.Kind.PreprocessorSymbol && token.text == highlightedPPSymbol)
 										{
-											var referenceStyle = GetReferenceHighlightStyle(token);
-											GUI.Label(rect, GUIContent.none, referenceStyle);
+											var referenceColor = GetReferenceHighlightColor(token);
+											FillRect(rect, referenceColor);
 										}
 									}
 								}
@@ -4212,7 +4217,7 @@ public class FGTextEditor
 				var charLeft = textBuffer.lines[spanLeft.line][spanLeft.index];
 				var charRight = textBuffer.lines[spanRight.line][spanRight.index];
 				var diff = charRight - charLeft;
-				var matchingStyle = diff == 1 || diff == 2 ? styles.referenceHighlightStyle : styles.referenceModifyHighlightStyle;
+				var matchingColor = diff == 1 || diff == 2 ? styles.referenceHighlightColor : styles.referenceModifyHighlightColor;
 				var rcLeftPlus = new Rect(rcLeft.x - 1f, rcLeft.yMax, rcLeft.width + 2f, 1f);
 				var rcRightPlus = new Rect(rcRight.x - 1f, rcRight.yMax, rcRight.width + 2f, 1f);
 				
@@ -4225,8 +4230,8 @@ public class FGTextEditor
 				var tokenLeft = textBuffer.formatedLines[matchingBraceLeft.line].tokens[matchingBraceLeft.index];
 				var tokenRight = textBuffer.formatedLines[matchingBraceRight.line].tokens[matchingBraceRight.index];
 				
-				GUI.Label(rcLeft, GUIContent.none, matchingStyle);
-				GUI.Label(rcRight, GUIContent.none, matchingStyle);
+				FillRect(rcLeft, matchingColor);
+				FillRect(rcRight, matchingColor);
 				GUI.Label(rcLeft, new GUIContent(tokenLeft.text), styles.normalStyle);
 				GUI.Label(rcRight, new GUIContent(tokenRight.text), styles.normalStyle);
 				
@@ -4266,12 +4271,12 @@ public class FGTextEditor
 		{
 			FGTextBuffer.CaretPos position = codeViewDragging && mouseDownOnSelection ? mouseDropPosition : caretPosition;
 
-			float caretTime = ((float) (frameTime - caretMoveTime).TotalSeconds) % 1f;
+			float caretTime = UnityEditorInternal.InternalEditorUtility.isApplicationActive ? ((float) (frameTime - caretMoveTime).TotalSeconds) % 1f : 0f;
 			isCaretOn = caretTime < 0.5f;
 			if ((isCaretOn || pingTimer > 0f && pingStartTime != default(System.DateTime)) && position.line >= fromLine && position.line < toLine)
 			{
 				var caretRect = GetCaretRect(position);
-				GUI.Label(caretRect, GUIContent.none, isCaretOn ? styles.caretStyle : styles.scrollViewStyle);
+				FillRect(caretRect, isCaretOn ? styles.caretColor : styles.scrollViewColor);
 			}
 			
 			//if (Input.compositionString != "" && selectionStartPosition != null)
@@ -4294,11 +4299,11 @@ public class FGTextEditor
 				// if the source code is shorter than the view...
 				if (rect.height < scrollViewRect.height)
 					rect.height = scrollViewRect.height;
-				styles.lineNumbersBackground.Draw(rect, false, false, false, false);
+				FillRect(rect, styles.lineNumbersBackground);
 
 				rect.xMin = marginLeft - 5f + smoothScrollPosition.x;
 				rect.width = 1f;
-				styles.lineNumbersSeparator.Draw(rect, false, false, false, false);
+				FillRect(rect, styles.lineNumbersSeparator);
 			}
 
 			if (showLineNumbers)
@@ -4318,7 +4323,10 @@ public class FGTextEditor
 					
 					tempContent.text = cache[i] ?? (cache[i] = (i + 1 + lineNumbersOffset).ToString());
 					rect.Set(smoothScrollPosition.x, GetLineOffset(i), lineNumbersWidth, charSize.y);
-					styles.lineNumbersStyle.Draw(rect, tempContent, caretPosition.line == i, false, false, false);
+					if (caretPosition.line == i)
+						styles.currentLineNumberStyle.Draw(rect, tempContent, false, false, false, false);
+					else
+						styles.lineNumbersStyle.Draw(rect, tempContent, false, false, false, false);
 				}
 
 				lineNumberCachedStrings = cache;
@@ -4343,11 +4351,11 @@ public class FGTextEditor
 							continue;
 
 						if (version == savedVersion)
-							GUI.Label(rect, GUIContent.none, styles.trackChangesAfterSaveStyle);
+							FillRect(rect, styles.trackChangesAfterSaveColor);
 						else if (version > savedVersion)
-							GUI.Label(rect, GUIContent.none, styles.trackChangesBeforeSaveStyle);
+							FillRect(rect, styles.trackChangesBeforeSaveColor);
 						else
-							GUI.Label(rect, GUIContent.none, styles.trackChangesRevertedStyle);
+							FillRect(rect, styles.trackChangesRevertedColor);
 					}
 				}
 			}
@@ -4423,7 +4431,12 @@ public class FGTextEditor
 
 	endScrollViewAndExit:
 
-		if (smoothScrollPosition != scrollPosition)
+		if (needsRepaint)
+		{
+			needsRepaint = false;
+			Repaint();
+		}
+		else if (smoothScrollPosition != scrollPosition)
 			Repaint();
 		else if (Event.current.type == EventType.Repaint)
 			scrollInstantly = false;
@@ -4473,9 +4486,25 @@ public class FGTextEditor
 				if (leaf.resolvedSymbol == null || leaf.syntaxError != null)
 					FGResolver.ResolveNode(leaf.parent);
 				
-				if (leaf.resolvedSymbol != null)
+				var symbol = leaf.resolvedSymbol;
+				
+				if (symbol != null)
 				{
-					switch (leaf.resolvedSymbol.kind)
+					var kind = symbol.kind;
+					
+					if (kind == SymbolKind.Constructor || kind == SymbolKind.Destructor)
+					{
+						var type = symbol.parentSymbol != null ? symbol.parentSymbol : null;
+						if (type != null && !(type is TypeDefinitionBase))
+							type = type.parentSymbol;
+						if (type is TypeDefinitionBase)
+						{
+							kind = type.kind;
+							symbol = type;
+						}
+					}
+					
+					switch (kind)
 					{
 					case SymbolKind.Null:
 						tokenStyle = textBuffer.styles.builtInLiteralsStyle;
@@ -4520,7 +4549,9 @@ public class FGTextEditor
 					case SymbolKind.ForEachVariable:
 					case SymbolKind.FromClauseVariable:
 					case SymbolKind.Variable:
+					case SymbolKind.TupleDeconstructVariable:
 					case SymbolKind.OutVariable:
+					case SymbolKind.IsVariable:
 					case SymbolKind.LocalConstant:
 						tokenStyle = textBuffer.styles.variableStyle;
 						break;
@@ -4532,14 +4563,13 @@ public class FGTextEditor
 						break;
 					case SymbolKind.ConstantField:
 					case SymbolKind.Field:
-						if (leaf.resolvedSymbol.parentSymbol != null &&
-							leaf.resolvedSymbol.parentSymbol.kind == SymbolKind.Enum)
+						if (symbol.parentSymbol != null && symbol.parentSymbol.kind == SymbolKind.Enum)
 						{
 							tokenStyle = textBuffer.styles.enumMemberStyle;
 						}
 						else
 						{
-							var typeOfSymbol = leaf.resolvedSymbol.TypeOf();
+							var typeOfSymbol = symbol.TypeOf();
 							if (typeOfSymbol != null && typeOfSymbol.kind == SymbolKind.Delegate)
 								tokenStyle = textBuffer.styles.eventStyle;
 							else
@@ -4566,11 +4596,14 @@ public class FGTextEditor
 		GUI.color = oldColor;
 	}
 
-	private void DrawSelectionRectCharIndex(int line, int startCharIndex, int numChars, bool newLine, GUIStyle style)
+	private void DrawSelectionRectCharIndex(int line, int startCharIndex, int numChars, bool newLine)
 	{
-		if (style == null)
-			style = hasCodeViewFocus ? styles.activeSelectionStyle : styles.passiveSelectionStyle;
-		var addCursorRect = !codeViewDragging && style == styles.activeSelectionStyle;
+		DrawSelectionRectCharIndex(line, startCharIndex, numChars, newLine, hasCodeViewFocus ? styles.activeSelectionColor : styles.passiveSelectionColor);
+	}
+	
+	private void DrawSelectionRectCharIndex(int line, int startCharIndex, int numChars, bool newLine, Color color)
+	{
+		var addCursorRect = !codeViewDragging && color == styles.activeSelectionColor;
 
 		if (!wordWrapping)
 		{
@@ -4580,7 +4613,7 @@ public class FGTextEditor
 			if (newLine)
 				toXOffset += charSize.x;
 			var selectionRect = new Rect(fromXOffset + marginLeft, yOffset, toXOffset - fromXOffset, charSize.y);
-			GUI.Label(selectionRect, GUIContent.none, style);
+			FillRect(selectionRect, color);
 
 			if (addCursorRect)
 			{
@@ -4602,7 +4635,7 @@ public class FGTextEditor
 			{
 				var xOffset = GetCharXOffset(startCharIndex, line, rowStart);
 				var selectionRect = new Rect(xOffset + marginLeft, yOffset + row * charSize.y, charSize.x, charSize.y);
-				GUI.Label(selectionRect, GUIContent.none, style);
+				FillRect(selectionRect, color);
 				if (addCursorRect)
 					EditorGUIUtility.AddCursorRect(selectionRect, MouseCursor.MoveArrow);
 
@@ -4620,7 +4653,7 @@ public class FGTextEditor
 				var toXOffset = GetCharXOffset(rowStart + startCharIndex + nChars, line, rowStart)
 					+ (numChars == nChars && newLine ? charSize.x : 0);
 				var selectionRect = new Rect(fromXOffset + marginLeft, yOffset, toXOffset - fromXOffset, charSize.y);
-				GUI.Label(selectionRect, GUIContent.none, style);
+				FillRect(selectionRect, color);
 				if (addCursorRect)
 					EditorGUIUtility.AddCursorRect(selectionRect, MouseCursor.MoveArrow);
 
@@ -4633,26 +4666,35 @@ public class FGTextEditor
 		}
 	}
 	
-	public GUIStyle GetReferenceHighlightStyle(SyntaxToken token)
+	public Color GetReferenceHighlightColor(SyntaxToken token)
 	{
-		var style = styles.referenceHighlightStyle;
+		var color = styles.referenceHighlightColor;
 		if (!SISettings.highlightWritesInRed)
-			return style;
+			return color;
 		
 		if (highlightedSymbol != null && FGResolver.IsWriteReference(token))
-			style = styles.referenceModifyHighlightStyle;
+			color = styles.referenceModifyHighlightColor;
 		
-		return style;
+		return color;
 	}
 
 	public void ValidateCarets()
 	{
 		if (CanEdit())
 		{
-			ValidateCaret(ref caretPosition);
-			if (hasSelection)
-				ValidateCaret(ref _selectionStartPosition);
-			Repaint();
+			if (!ValidateCaret(ref caretPosition))
+			{
+				selectionStartPosition = null;
+				Repaint();
+			}
+			else if (hasSelection)
+			{
+				if (!ValidateCaret(ref _selectionStartPosition))
+				{
+					selectionStartPosition = null;
+					Repaint();
+				}
+			}
 		}
 	}
 
@@ -4715,11 +4757,34 @@ public class FGTextEditor
 	
 	private Rect GetTextRect(TextSpan span)
 	{
-		var topLeftStart = BufferToViewPosition(span.line, span.index, false);
+		var topLeftStart = BufferToViewPosition(span.line, span.index, true);
 		var width = GetTextWidth(span.line, span.index, span.index + span.indexOffset, topLeftStart.x);
 		Rect result = new Rect(topLeftStart.x + marginLeft, topLeftStart.y + GetLineOffset(span.line), width, charSize.y);
 		
 		return result;
+	}
+	
+	private float GetCharWidth(char c, float xOffset)
+	{
+		var charWidth = 0f;
+		if (c == '\t')
+		{
+			var tabSize = SISettings.tabSize * charSize.x;
+			var oldXOffest = xOffset;
+			xOffset += 0.75f * charSize.x;
+			xOffset += tabSize - (xOffset % tabSize);
+			charWidth = xOffset - oldXOffest;
+		}
+		else if (c < 0x7f)
+		{
+			charWidth = charSize.x;
+		}
+		else
+		{
+			tempContent.text = c.ToString();
+			charWidth = styles.normalStyle.CalcSize(tempContent).x;
+		}
+		return charWidth;
 	}
 	
 	private float GetTextWidth(int line, int fromChar, int toChar, float xOffset)
@@ -4742,7 +4807,11 @@ public class FGTextEditor
 			var charWidth = 0f;
 			var c = s[i];
 			if (c == '\t')
-				charWidth = tabSize - (xOffset % tabSize);
+			{
+				var newXOffset = xOffset + 0.75f * charSize.x;
+				newXOffset += tabSize - (newXOffset % tabSize);
+				charWidth = newXOffset - xOffset;
+			}
 			else if (c < 0x7f)
 				charWidth = charSize.x;
 			else
@@ -4921,7 +4990,8 @@ public class FGTextEditor
 			&& fullCodeViewRect.Contains(current.mousePosition)
 			&& clickedLine >= 0
 			&& clickedLine < textBuffer.lines.Count
-			&& mouseOverCharIndex < textBuffer.lines[clickedLine].Length)
+			&& mouseOverCharIndex < textBuffer.lines[clickedLine].Length
+			&& UnityEditorInternal.InternalEditorUtility.isApplicationActive)
 		{
 			int tokenLine, tokenIndex;
 			bool atTokenEnd;
@@ -6166,7 +6236,7 @@ public class FGTextEditor
 			if (argumentsHint != null)
 				argumentsHint.Hide();
 		}
-		else if(methodSymbol.kind == SymbolKind.Method || methodSymbol.kind == SymbolKind.MethodGroup)
+		else if(methodSymbol.kind == SymbolKind.Method || methodSymbol.kind == SymbolKind.Constructor || methodSymbol.kind == SymbolKind.MethodGroup)
 		{
 			var wasFlipped = false;
 			if (argumentsHint != null)
@@ -6256,6 +6326,7 @@ public class FGTextEditor
 					}
 				}
 			}
+			
 			if (tokenLeft != null && (tokenLeft.parent == null || tokenLeft.parent.grammarNode == null))
 			{
 			//	Debug.Log(tokenLeft + "\nkind: " + tokenLeft.tokenKind);
@@ -6267,7 +6338,7 @@ public class FGTextEditor
 
 				var scanner = TextBuffer.Parser.MoveAfterLeaf(tokenLeft != null ? tokenLeft.parent : null);
 				var currentScannerNode = scanner != null ? scanner.CurrentParseTreeNode : null;
-			//	Debug.Log("scanner.CurrentParseTreeNode before: " + ParentsLog(scanner.CurrentParseTreeNode));
+			//	Debug.Log("scanner.CurrentParseTreeNode before: " + scanner.CurrentParseTreeNode);
 
 				var grammar = CsGrammar.Instance;
 
@@ -6299,9 +6370,7 @@ public class FGTextEditor
 					tokenSet.Remove(grammar.tokenInterpStrEnd);
 					tokenSet.Remove(grammar.tokenInterpStrFormat);
 				}
-				if (tokenSet.Remove(grammar.tokenLiteral))
-					if (!autocompleteWindow.IdentifiersOnly)
-						data.Add(new KeywordAsSD("null"));
+				tokenSet.Remove(grammar.tokenLiteral);
 				
 				var enclosingScopeNode = CsGrammar.EnclosingScopeNode(currentScannerNode);
 				var enclosingScope = enclosingScopeNode != null ? enclosingScopeNode.scope : null;
@@ -6416,6 +6485,7 @@ public class FGTextEditor
 										typeDefiningNode = currentScannerNode.FindChildByName("type") as ParseTree.Node;
 										break;
 									case "throwStatement":
+									case "throwExpression":
 										expectedType = SymbolDefinition.builtInTypes_Exception;
 										break;
 									case "constantDeclarator":
@@ -6833,7 +6903,10 @@ public class FGTextEditor
 			if (c == ' ')
 				xOffset += charSize.x;
 			else if (c == '\t')
+			{
+				xOffset += 0.75f * charSize.x;
 				xOffset += tabSize - (xOffset % tabSize);
+			}
 			else if (c < 0x7f)
 				xOffset += charSize.x;
 			else
@@ -6866,7 +6939,11 @@ public class FGTextEditor
 		{
 			var c = text[i];
 			if (c == '\t')
-				charWidth = tabSize - (xOffset % tabSize);
+			{
+				var newXOffset = xOffset + 0.75f * charSize.x;
+				newXOffset += tabSize - (newXOffset % tabSize);
+				charWidth = newXOffset - xOffset;
+			}
 			else if (c < 0x7f)
 				charWidth = charSize.x;
 			else
@@ -7056,6 +7133,13 @@ public class FGTextEditor
 	
 	private string HelpURL()
 	{
+	//	var result = _HelpURL();
+	//	Debug.Log(result);
+	//	return result;
+	//}
+	
+	//private string _HelpURL()
+	//{
 		var token = GetTokenAtCursor();
 
 		if ((token.tokenKind == SyntaxToken.Kind.Identifier ||
@@ -7269,7 +7353,10 @@ public class FGTextEditor
 					assemblyName.FastStartsWith("UnityEngine.") ||
 					assemblyName.FastStartsWith("UnityEditor."))
 				{
-					if (SISettings.useLocalUnityDocumentation || Application.internetReachability == NetworkReachability.NotReachable)
+					var isLocalDocumentationAvailable = Help.GetHelpURLForObject(OwnerWindow)[0] == 'f';
+					var useLocalDocumentation = isLocalDocumentationAvailable
+						&& (SISettings.useLocalUnityDocumentation || Application.internetReachability == NetworkReachability.NotReachable);
+					if (useLocalDocumentation)
 						return "file:///unity/ScriptReference/" + symbol.UnityHelpName;
 					else
 						return "http://docs.unity3d.com/ScriptReference/" + symbol.UnityHelpName + ".html";
@@ -7279,16 +7366,23 @@ public class FGTextEditor
 					var nonEnumMember = symbol;
 					if (nonEnumMember.kind == SymbolKind.EnumMember)
 						nonEnumMember = nonEnumMember.parentSymbol;
-					if (nonEnumMember.FullName == nonEnumMember.FullReflectionName)
+					//if (nonEnumMember.FullName == nonEnumMember.FullReflectionName)
+					//{
+					//	//return "https://docs.microsoft.com/en-us/dotnet/api/" + nonEnumMember.FullName + "?view=net-5.0";
+					//	var urlName = nonEnumMember.FullName;
+					//	if (urlName.EndsWith(".ctor"))
+					//		urlName = urlName.Substring(0, urlName.Length - 5) + "%23ctor";
+					//	return "http://msdn.microsoft.com/library/" + urlName + "(v=vs.90)";
+					//}
+					//else
 					{
-						return "http://msdn.microsoft.com/library/" + nonEnumMember.FullName + "(v=vs.90)";
-					}
-					else
-					{
+						var urlName = nonEnumMember.GetGenericSymbol().FullReflectionName;
+						if (urlName.EndsWith(".ctor"))
+							urlName = urlName.Substring(0, urlName.Length - 5) + "%23ctor";
 						return
 							"http://msdn.microsoft.com/query/dev12.query?appId=Dev12IDEF1&l=EN-US&k=k(" +
-							nonEnumMember.GetGenericSymbol().FullReflectionName +
-							");k(TargetFrameworkMoniker-.NETFramework,Version%3Dv3.5);k(DevLang-csharp)";
+							urlName +
+							");k(TargetFrameworkMoniker-.NETFramework,Version%3Dv4.7);k(DevLang-csharp)";
 					}
 				}
 			}
@@ -7486,6 +7580,15 @@ public class FGTextEditor
 				if (symbol != null)
 				{
 					declarations = symbol.declarations;
+					
+					if (symbol.kind == SymbolKind.Constructor && (declarations == null || declarations.Count == 0))
+					{
+						symbol = symbol.TypeOf();
+						if (symbol != null)
+						{
+							declarations = symbol.declarations;
+						}
+					}
 				}
 			}
 		}
@@ -9101,7 +9204,7 @@ public class FGTextEditor
 			{
 				if (tokenLeft.tokenKind == SyntaxToken.Kind.Punctuator)
 				{
-					if (text == "." || text == "?.")
+					if (text == "." /*|| text == "?."*/)
 					{
 						autoPopupCompletions = true;
 						var nextLineText = textBuffer.lines[nextCaretLine];
@@ -9129,10 +9232,15 @@ public class FGTextEditor
 				}
 			}
 			
+			var uc = text[0];//char.ToUpper(text[0]);
+			
+			if (uc == '_' && (tokenLeft == null || tokenLeft.text != "."))
+			{
+				return;
+			}
+			
 			if (tokenLeft == null || tokenLeft.tokenKind != SyntaxToken.Kind.Comment)
 			{
-				var uc = text[0];//char.ToUpper(text[0]);
-				
 				//if (uc == ' ')
 				//{
 				//	var line = textBuffer.formatedLines[insertedAtLine];
@@ -9500,10 +9608,12 @@ public class FGTextEditor
 						ParseTree.Leaf methodLeaf = null;
 						if (nodeLeft.RuleName == "typeArgumentList")
 							nodeLeft = nodeLeft.parent;
-						if (nodeLeft.RuleName == "primaryExpressionStart")
+						if (nodeLeft.RuleName == "primaryExpressionStart" || nodeLeft.RuleName == "typeOrGeneric")
 							methodLeaf = nodeLeft.LeafAt(0);
 						else if (nodeLeft.RuleName == "accessIdentifier")
 							methodLeaf = nodeLeft.LeafAt(1);
+						else if (nodeLeft.RuleName == "constructorInitializer")
+							methodLeaf = leafBeforeArgs;
 						if (methodLeaf != null)
 						{
 							if (methodLeaf.parent != null)
@@ -9942,7 +10052,10 @@ public class FGTextEditor
 		else
 		{
 			addRecentLocationOnFocusLost = false;
-			FGCodeWindow.OpenAssetInTab(location.assetGuid, location.line, location.index);
+			//if (location.assetGuid == "assets/editor/fakepath.cs")
+			//	EditorApplication.ExecuteMenuItem("Window/Immediate");
+			//else
+				FGCodeWindow.OpenAssetInTab(location.assetGuid, location.line, location.index);
 		}
 	}
 	
@@ -9987,8 +10100,8 @@ public class FGTextEditor
 	private SymbolDefinition codePathSymbol;
 	private readonly List<CodePath> codePaths = new List<CodePath>();
 
-	private static GUIStyle breadCrumbLeft, breadCrumbLeftOn;
-	private static GUIStyle breadCrumbMid, breadCrumbMidOn;
+	private static GUIStyle breadCrumbLeft, breadCrumbLeftOn, breadcrumbLeftBg;
+	private static GUIStyle breadCrumbMid, breadCrumbMidOn, breadcrumbMidBg;
 	
 	[NonSerialized]
 	private readonly GUIContent cachedContentRegion = new GUIContent("#region ");
@@ -10000,21 +10113,34 @@ public class FGTextEditor
 		if (!textBuffer.isCsFile)
 			return 0f;
 
+#if UNITY_2019_3_OR_NEWER
+		scrollViewRect.yMin += 21f;
+		//	codeViewRect.yMin += 21f;
+#else
 		scrollViewRect.yMin += 18f;
 		//	codeViewRect.yMin += 18f;
+#endif
 
 		var wasGuiEnabled = GUI.enabled;
 		GUI.enabled = true;
 		
+#if UNITY_2019_3_OR_NEWER
+		var toolbarRect = new Rect(scrollViewRect.xMin, scrollViewRect.yMin - 21f, scrollViewRect.width, 20f);
+#else
 		var toolbarRect = new Rect(scrollViewRect.xMin, scrollViewRect.yMin - 18f, scrollViewRect.width, 17f);
+#endif
 		GUI.Label(toolbarRect, GUIContent.none, EditorStyles.toolbar);
 		toolbarRect.width -= 60f;
 
 		var isOSX = Application.platform == RuntimePlatform.OSXEditor;
+#if UNITY_2019_3_OR_NEWER
+		var rc = new Rect(5f, toolbarRect.yMin, 25f, 20f);
+#else
 		var rc = new Rect(5f, toolbarRect.yMin, 25f, 17f);
+#endif
 		GUI.enabled = CanGoBack() && CanEdit();
 		tempContent.image = null;
-		tempContent.text = "\u25c4";
+		tempContent.text = EditorStyles.standardFont.name[0] == 'I' ? "\u2190" : "\u25c4";
 		tempContent.tooltip = SISettings.wordBreak_UseBothModifiers ?
 			isOSX ? ("Go Back ⌥⌘←") : ("Go Back\n(Ctrl+Alt+Left)") :
 			isOSX ? ("Go Back ⌥←") : ("Go Back\n(Alt+Left)");
@@ -10024,7 +10150,7 @@ public class FGTextEditor
 		}
 		rc.x += 25f;
 		GUI.enabled = CanGoForward() && CanEdit();
-		tempContent.text = "\u25ba";
+		tempContent.text = EditorStyles.standardFont.name[0] == 'I' ? "\u2192" : "\u25ba";
 		tempContent.tooltip = SISettings.wordBreak_UseBothModifiers ?
 			isOSX ? ("Go Forward ⌥⌘→") : ("Go Forward\n(Ctrl+Alt+Right)") :
 			isOSX ? ("Go Forward ⌥→") : ("Go Forward\n(Alt+Right)");
@@ -10039,7 +10165,11 @@ public class FGTextEditor
 		if (caretPosition.line >= textBuffer.formatedLines.Length)
 		{
 			GUI.enabled = wasGuiEnabled;
+#if UNITY_2019_3_OR_NEWER
+			return 21f;
+#else
 			return 18f;
+#endif
 		}
 		
 		FGTextBuffer.FormatedLine ppLine = null;
@@ -10054,7 +10184,11 @@ public class FGTextEditor
 			if (line == null || line.tokens == null)
 			{
 				GUI.enabled = wasGuiEnabled;
+#if UNITY_2019_3_OR_NEWER
+				return 21f;
+#else
 				return 18f;
+#endif
 			}
 
 			var tokens = line.tokens;
@@ -10094,7 +10228,11 @@ public class FGTextEditor
 				if (line == null || line.tokens == null)
 				{
 					GUI.enabled = wasGuiEnabled;
+#if UNITY_2019_3_OR_NEWER
+					return 21f;
+#else
 					return 18f;
+#endif
 				}
 
 				var tokens = line.tokens;
@@ -10187,9 +10325,11 @@ public class FGTextEditor
 			
 			if (breadCrumbLeft == null)
 			{
-#if !UNITY_2019_3_OR_NEWER
 				breadCrumbLeft = "GUIEditor.BreadcrumbLeft";
 				breadCrumbMid = "GUIEditor.BreadcrumbMid";
+#if UNITY_2019_3_OR_NEWER
+				breadcrumbLeftBg = "GUIEditor.BreadcrumbLeftBackground";
+				breadcrumbMidBg = "GUIEditor.BreadcrumbMidBackground";
 #endif
 	
 				if (breadCrumbLeft == null)
@@ -10311,6 +10451,7 @@ public class FGTextEditor
 
 			var buttonStyle = breadCrumbLeft;
 			var buttonStyleOn = breadCrumbLeftOn;
+			var buttonStyleBg = breadcrumbLeftBg;
 			for (var j = 0; j < codePaths.Count; ++j)
 			{
 				if (rc.x >= toolbarRect.xMax)
@@ -10326,6 +10467,13 @@ public class FGTextEditor
 					size.x = rc.width;
 				}
 				var modifiers = Event.current.modifiers & ~(EventModifiers.FunctionKey | EventModifiers.CapsLock | EventModifiers.Numeric);
+				if (buttonStyleBg != null && Event.current.type == EventType.Repaint)
+				{
+					var hot = EditorGUIUtility.hotControl == 1326 + j;
+					var active = EditorGUIUtility.hotControl == 0 || hot;
+					var hover = rc.Contains(Event.current.mousePosition);
+					buttonStyleBg.Draw(rc, hover != hot, active, path.down || hover && hot, false);
+				}
 				if (GUI.Button(rc, content, path.down ? buttonStyleOn : buttonStyle) ||
 					j == codePaths.Count - 1 &&
 					Event.current.type == EventType.KeyDown &&
@@ -10608,6 +10756,7 @@ public class FGTextEditor
 
 				buttonStyle = breadCrumbMid;
 				buttonStyleOn = breadCrumbMidOn;
+				buttonStyleBg = breadcrumbMidBg;
 			}
 		}
 		
@@ -10706,7 +10855,11 @@ public class FGTextEditor
 		}
 			
 		GUI.enabled = wasGuiEnabled;
+#if UNITY_2019_3_OR_NEWER
+		return 21f;
+#else
 		return 18f;
+#endif
 	}
 	
 	private string ReadableOperatorName(SymbolDefinition symbol, out bool addParameters)
@@ -11166,17 +11319,36 @@ public class FGTextEditor
 	private GUIContent undoButtonContent = new GUIContent();
 	private GUIContent redoButtonContent = new GUIContent();
 	private GUIContent toggleCommentButtonContent = new GUIContent();
+	
+	private static GUIStyle toolbarDropDownToggleStyle;
 
+	public static bool DropDownToggle(ref bool toggled, Rect toggleRect, GUIContent content)
+	{
+		Rect arrowRightRect = new Rect(toggleRect.xMax - EditorStyles.toolbarDropDown.padding.right, toggleRect.y, EditorStyles.toolbarDropDown.padding.right, toggleRect.height);
+
+		var guiWasEnabled = GUI.enabled;
+		GUI.enabled = true;
+		var clicked = EditorGUI.DropdownButton(arrowRightRect, GUIContent.none, FocusType.Passive, EditorStyles.toolbarButton);
+		GUI.enabled = guiWasEnabled;
+
+		if (!clicked)
+		{
+			toggled = GUI.Toggle(toggleRect, toggled, content, EditorStyles.toolbarDropDown);
+		} 
+		
+		if (Event.current.type == EventType.Repaint)
+		{
+			GUI.enabled = true;
+			var isHover = arrowRightRect.Contains(Event.current.mousePosition);
+			EditorStyles.toolbarDropDown.Draw(arrowRightRect, isHover, Event.current.button == 1, false, isHover);
+			GUI.enabled = guiWasEnabled;
+		}
+
+		return clicked;
+	}
+	
 	private float DoToolbar()
 	{
-		//if (Event.current.type == EventType.Layout)
-		//	return 18f;
-		
-		Rect toolbarRect = new Rect(scrollViewRect.xMin, scrollViewRect.yMin - 18f /*- 18f*/, scrollViewRect.width, 17f);
-		//var wasGuiEnabled = GUI.enabled;
-		GUI.enabled = true;
-		GUI.Label(toolbarRect, GUIContent.none, EditorStyles.toolbar);
-
 		bool isOSX = Application.platform == RuntimePlatform.OSXEditor;
 
 		if (!saveButtonContent.image)
@@ -11202,52 +11374,85 @@ public class FGTextEditor
 				toggleCommentButtonContent = new GUIContent(textBuffer.isBooFile ? "#..." : "//...", "Toggle Comment Selection\n(Ctrl+K or Ctrl+/)");
 			}
 		}
+
+		Vector2 contentSize = EditorStyles.toolbarButton.CalcSize(popOutButtonContent);
+
+#if UNITY_2019_3_OR_NEWER
+		if (toolbarDropDownToggleStyle == null)
+			toolbarDropDownToggleStyle = "toolbarDropDownToggle";
+
+		var height = contentSize.y + 1f;
+		scrollViewRect.yMin = scrollViewRect.yMin + height - 18f;
+		Rect toolbarRect = new Rect(scrollViewRect.xMin, scrollViewRect.yMin - height, scrollViewRect.width, height + 1f);
+#else
+		var height = 18f;
+		Rect toolbarRect = new Rect(scrollViewRect.xMin, scrollViewRect.yMin - 18f, scrollViewRect.width, 17f);
+#endif
 		
+		if (Event.current.type == EventType.Layout)
+			return height;
+		
+		GUI.enabled = true;
+		GUI.Label(toolbarRect, GUIContent.none, EditorStyles.toolbar);
+
 		Color oldColor = GUI.color;
 		GUI.contentColor = EditorStyles.toolbarButton.normal.textColor;
 
-		Vector2 contentSize = EditorStyles.toolbarButton.CalcSize(popOutButtonContent);
 		Rect rc = new Rect(toolbarRect.xMin + 6f, toolbarRect.yMin, contentSize.x, contentSize.y);
 		if (GUI.Button(rc, popOutButtonContent, EditorStyles.toolbarButton))
 		{
 			EditorApplication.delayCall += OpenInNewTab;
-			return 18f;
+			return height;
 		}
 		
 		var enableBuildIcon = !IsModified && FGTextBufferManager.HasPendingAssetImports;
+		var enableReload = !EditorApplication.isCompiling && !FGTextBufferManager.IsReloadingAssemblies;
 		
-		GUI.enabled = CanEdit() && (IsModified || enableBuildIcon);
-		contentSize = EditorStyles.toolbarButton.CalcSize(saveButtonContent);
-		rc.Set(rc.xMax + 6f, toolbarRect.yMin, contentSize.x, contentSize.y);
-		//if (Event.current.type != EventType.Repaint)
-		if (GUI.Button(rc, enableBuildIcon ? buildButtonContent : saveButtonContent, EditorStyles.toolbarButton))
-			SaveBuffer();
-		/* WIP Code
-		GUIStyle splitButton = new GUIStyle(EditorStyles.toolbarDropDown);
-		splitButton.padding.right -= 4;
-		splitButton.padding.left -= 2;
-		splitButton.contentOffset = new Vector2(4f, 0f);
-		contentSize = splitButton.CalcSize(GUIContent.none);
-		contentSize.x -= 5f;
-		Rect rc2 = new Rect(rc.xMax + 1f, toolbarRect.yMin, contentSize.x, contentSize.y);
-		GUI.enabled = CanEdit();
-
-		if (GUI.Button(rc2, GUIContent.none, splitButton))
+		GUI.enabled = CanEdit() && (IsModified || enableBuildIcon && enableReload);
+		
+		if (textBuffer != null && textBuffer.isCsFile && toolbarDropDownToggleStyle != null)
 		{
-			GenericMenu menu = new GenericMenu();
-			menu.AddItem(new GUIContent("Save " + targetName + " %&s"), false, SaveScript);
-			menu.AddItem(new GUIContent("Save as"), false, SaveScript);
-			menu.AddSeparator(string.Empty);
-			menu.AddItem(new GUIContent("Save All"), false, () => FGTextBufferManager.SaveAllModified(false));
-			menu.DropDown(rc);
+			contentSize = toolbarDropDownToggleStyle.CalcSize(saveButtonContent);
+		 	
+			rc.Set(rc.xMax + 6f, toolbarRect.yMin, contentSize.x, contentSize.y);
+			
+			bool toggled = false;
+			if (DropDownToggle(ref toggled, rc, enableBuildIcon ? buildButtonContent : saveButtonContent))
+			{
+				GenericMenu menu = new GenericMenu();
+			
+				if (GUI.enabled)
+					menu.AddItem(new GUIContent(enableBuildIcon ? "Save All, Compile, and Reload _%s" : "Save _%s"), false, SaveBuffer);
+				else
+					menu.AddItem(new GUIContent(enableBuildIcon ? "Save All, Compile, and Reload _%s" : "Save _%s"), false, null);
+			
+#if UNITY_EDITOR_OSX
+				if (enableReload)
+					menu.AddItem(new GUIContent("Save All, Compile, and Reload _&%r"), false, MenuReloadAssemblies);
+				else
+					menu.AddItem(new GUIContent("Save All, Compile, and Reload _&%r"), false, null);
+#else
+				if (enableReload)
+					menu.AddItem(new GUIContent("Save All, Compile, and Reload _%r"), false, MenuReloadAssemblies);
+				else
+					menu.AddItem(new GUIContent("Save All, Compile, and Reload _%r"), false, null);
+#endif
+				menu.AddSeparator(string.Empty);
+				menu.AddItem(new GUIContent("Compile and Reload on Save"), SISettings.compileOnSave, () => SISettings.compileOnSave.Toggle());
+				menu.DropDown(rc); 
+			}
+			else if (toggled)
+			{
+				SaveBuffer();
+			}
 		}
-		if (Event.current.type == EventType.Repaint)
+		else
 		{
-			GUI.enabled = CanEdit();
-			if (GUI.Button(rc, new GUIContent(saveIcon, "Save " + targetName + (isOSX ? " ⌥⌘S" : "\n(Ctrl+Alt+S)")), EditorStyles.toolbarButton))
-				SaveScript();
+			contentSize = EditorStyles.toolbarButton.CalcSize(saveButtonContent);
+			rc.Set(rc.xMax + 6f, toolbarRect.yMin, contentSize.x, contentSize.y);
+			if (GUI.Button(rc, enableBuildIcon ? buildButtonContent : saveButtonContent, EditorStyles.toolbarButton))
+				SaveBuffer();
 		}
-		*/
 
 		GUI.enabled = CanUndo();
 		contentSize = EditorStyles.toolbarButton.CalcSize(undoButtonContent);
@@ -11267,17 +11472,17 @@ public class FGTextEditor
 			Redo();
 		}
 
-		if (textBuffer != null && !textBuffer.isText)
-		{
-			GUI.enabled = CanEdit();
-			contentSize = EditorStyles.toolbarButton.CalcSize(toggleCommentButtonContent);
-			rc = new Rect(rc.xMax, toolbarRect.yMin, contentSize.x, contentSize.y);
-			if (GUI.Button(rc, toggleCommentButtonContent, EditorStyles.toolbarButton))
-			{
-				focusCodeView = true;
-				ToggleCommentSelection();
-			}
-		}
+		//if (textBuffer != null && !textBuffer.isText)
+		//{
+		//	GUI.enabled = CanEdit();
+		//	contentSize = EditorStyles.toolbarButton.CalcSize(toggleCommentButtonContent);
+		//	rc = new Rect(rc.xMax, toolbarRect.yMin, contentSize.x, contentSize.y);
+		//	if (GUI.Button(rc, toggleCommentButtonContent, EditorStyles.toolbarButton))
+		//	{
+		//		focusCodeView = true;
+		//		ToggleCommentSelection();
+		//	}
+		//}
 
 		//GUI.enabled = textBuffer.hyperlinks.Count > 0;
 		//GUIContent links = new GUIContent(textBuffer.hyperlinks.Count.ToString(), hyperlinksIcon);
@@ -11547,7 +11752,7 @@ public class FGTextEditor
 			Event.current.Use();
 
 		GUI.enabled = true;
-		return 18f;
+		return height;
 	}
 
 	private void OpenInNewTab()
@@ -11617,8 +11822,6 @@ public class FGTextEditor
 		{
 			if (Event.current.keyCode == KeyCode.Escape)
 			{
-				//searchString = string.Empty;
-				//SetSearchText(searchString);
 				focusCodeViewOnEscapeUp = true;
 				Event.current.Use();
 			}
@@ -11636,15 +11839,6 @@ public class FGTextEditor
 				focusSearchBox = true;
 				Event.current.Use();
 			}
-			//else if (Event.current.character == '\n')
-			//{
-			//	//currentSearchResult = currentSearchResult < 0 ? 0 :
-			//	//	currentSearchResult < searchResults.Count ? currentSearchResult : searchResults.Count - 1;
-			//	//ShowSearchResult(currentSearchResult);
-			//	SearchNext();
-			//	focusCodeView = true;
-			//	Event.current.Use();
-			//}
 			else if (Event.current.keyCode == KeyCode.Tab)
 			{
 				focusCodeViewOnEscapeUp = true;
@@ -11694,7 +11888,7 @@ public class FGTextEditor
 		Repaint();
 	}
 
-	public static bool OverrideButton(Rect position, GUIContent content, GUIStyle style, bool forceHot)
+	public bool OverrideButton(Rect position, GUIContent content, GUIStyle style, bool forceHot)
 	{
 		int controlID = GUIUtility.GetControlID(buttonHash, FocusType.Passive, position);
 		if (forceHot)
@@ -11703,10 +11897,17 @@ public class FGTextEditor
 		switch (Event.current.GetTypeForControl(controlID))
 		{
 			case EventType.MouseDown:
+			case EventType.MouseMove:
 				if (position.Contains(Event.current.mousePosition))
 				{
 					GUIUtility.hotControl = controlID;
 					Event.current.Use();
+					needsRepaint = true;
+				}
+				else if (GUIUtility.hotControl == controlID && !position.Contains(Event.current.mousePosition))
+				{
+					GUIUtility.hotControl = 0;
+					needsRepaint = true;
 				}
 				return false;
 
@@ -11714,6 +11915,7 @@ public class FGTextEditor
 				if (GUIUtility.hotControl != controlID)
 					return false;
 
+				needsRepaint = true;
 				GUIUtility.hotControl = 0;
 				Event.current.Use();
 				return position.Contains(Event.current.mousePosition);
@@ -11725,6 +11927,17 @@ public class FGTextEditor
 
 			case EventType.Repaint:
 				style.Draw(position, content, controlID);
+				break;
+			
+			case EventType.Used:
+				if (Event.current.rawType == EventType.MouseUp)
+				{
+					if (GUIUtility.hotControl == controlID)
+					{
+						GUIUtility.hotControl = 0;
+						needsRepaint = true;
+					}
+				}
 				break;
 		}
 
@@ -11738,17 +11951,31 @@ public class FGTextEditor
 	[System.NonSerialized]
 	private int cachedCurrentSearchResult;
 
+	private static GUIStyle toolbarSearchFieldClear;
+	private static GUIStyle toolbarSearchFieldInfo;
+
 	private string ToolbarSearchField(Rect position, string text)
     {
 		if (styles.toolbarSearchField == null)
 		{
-			styles.toolbarSearchField = "ToolbarSeachTextField";
-			styles.toolbarSearchFieldCancelButton = "ToolbarSeachCancelButton";
-			styles.toolbarSearchFieldCancelButtonEmpty = "ToolbarSeachCancelButtonEmpty";
+			styles.toolbarSearchField = new GUIStyle("ToolbarSeachTextField");
+			styles.toolbarSearchFieldCancelButton = new GUIStyle("ToolbarSeachCancelButton");
+			styles.toolbarSearchFieldCancelButtonEmpty = new GUIStyle("ToolbarSeachCancelButtonEmpty");
+			toolbarSearchFieldClear = new GUIStyle(styles.toolbarSearchField);
+			toolbarSearchFieldClear.name = "Si3SearchFieldClear";
+			toolbarSearchFieldClear.imagePosition = ImagePosition.TextOnly;
+			toolbarSearchFieldInfo = new GUIStyle(styles.toolbarSearchField);
+			toolbarSearchFieldInfo.name = "Si3SearchFieldInfo";
+			toolbarSearchFieldInfo.alignment = TextAnchor.MiddleRight;
+			toolbarSearchFieldInfo.imagePosition = ImagePosition.TextOnly;
 		}
 
 		Rect rc = position;
+		#if UNITY_2019_3_OR_NEWER
+	    rc.width += 2f;
+	    #else
 		rc.width -= 14f;
+		#endif
 		if (Event.current.type == EventType.Repaint)
 		{
 			styles.toolbarSearchField.Draw(rc, GUIContent.none, false, false, false, hasSearchBoxFocus);
@@ -11759,7 +11986,6 @@ public class FGTextEditor
 				GUI.enabled = false;
 				Color color = GUI.backgroundColor;
 				GUI.backgroundColor = Color.clear;
-				styles.toolbarSearchField.alignment = TextAnchor.UpperRight;
 				if (searchResults.Count > 0)
 				{
 					if (searchString == null || searchResults.Count != cachedSearchResultsCount || currentSearchResult != cachedCurrentSearchResult)
@@ -11771,24 +11997,28 @@ public class FGTextEditor
 							(currentSearchResult + 1).ToString() + " of " + cachedSearchResultsCount.ToString() :
 							cachedSearchResultsCount.ToString() + " results") + "\xa0";
 					}
-					rc.width -= 20f;
-					styles.toolbarSearchField.Draw(rc, searchInfoString, false, false, false, hasSearchBoxFocus);
-					rc.width += 20f;
+					rc.width -= 30f;
+					toolbarSearchFieldInfo.Draw(rc, searchInfoString, false, false, false, hasSearchBoxFocus);
+					rc.width += 30f;
 				}
 				else
 				{
 					rc.width -= 4f;
-					styles.toolbarSearchField.Draw(rc, "no results", false, false, false, hasSearchBoxFocus);
+					toolbarSearchFieldInfo.Draw(rc, "no results", false, false, false, hasSearchBoxFocus);
 					rc.width += 4f;
 				}
-				styles.toolbarSearchField.alignment = TextAnchor.UpperLeft;
 				GUI.enabled = enabled;
 				GUI.backgroundColor = color;
 			}
 		}
-		rc.width -= 20f;
-	    
-	    GUI.SetNextControlName("SearchBox");
+		#if UNITY_2019_3_OR_NEWER
+		rc.x = rc.x + styles.toolbarSearchField.fixedWidth;
+		rc.width -= 46f;
+		#else
+		rc.width -= 40f;
+		#endif
+		
+		GUI.SetNextControlName("SearchBox");
 		if (focusSearchBox)
 		{
 			GUI.FocusControl("SearchBox");
@@ -11804,22 +12034,22 @@ public class FGTextEditor
 
 		Color bgColor = GUI.backgroundColor;
 		GUI.backgroundColor = Color.clear;
-		text = EditorGUI.TextField(rc, text, styles.toolbarSearchField);
+		text = EditorGUI.TextField(rc, text, toolbarSearchFieldClear);
+		
+		hasSearchBoxFocus = focusSearchBox || GUI.GetNameOfFocusedControl() == "SearchBox";
+		
+		bool isEmpty = text == string.Empty;
+		
+		if (!hasSearchBoxFocus && !isEmpty && text.Trim() == "")
+			GUI.Label(rc, text.Replace("\t", "<tab>").Replace(" ", "<space>"), toolbarSearchFieldClear);
 		GUI.backgroundColor = bgColor;
 		
-	    hasSearchBoxFocus = focusSearchBox || GUI.GetNameOfFocusedControl() == "SearchBox";
-
-		bool isEmpty = text == string.Empty;
-
-	    if (!hasSearchBoxFocus && !isEmpty && text.Trim() == "")
-			GUI.Label(rc, text.Replace("\t", "<tab>").Replace(" ", "<space>"), styles.toolbarSearchField);
-
 		rc = position;
 		rc.x += position.width - 14f;
 		rc.width = 14f;
 		if (!isEmpty)
 		{
-			if (OverrideButton(rc, GUIContent.none, styles.toolbarSearchFieldCancelButton, helpButtonClicked))
+			if (OverrideButton(rc, GUIContent.none, styles.toolbarSearchFieldCancelButton, clearSearchButtonClicked))
 			{
 				text = string.Empty;
 				focusCodeView = true;
@@ -11829,19 +12059,18 @@ public class FGTextEditor
 		else
 		{
 			GUI.Label(rc, GUIContent.none, styles.toolbarSearchFieldCancelButtonEmpty);
-			if (helpButtonClicked)
+			if (clearSearchButtonClicked)
 				focusSearchBox = true;
 		}
-		helpButtonClicked = false;
+	    clearSearchButtonClicked = false;
 
-		rc.x -= 10f;
-		rc.y += 1f;
-        rc.width = 10f;
-		rc.height = 13f;
+		rc.x -= 15f;
+		rc.width = 14f;
+		rc.height = 15f;
 		if (!isEmpty && searchResults.Count != 0 && GUI.Button(rc, GUIContent.none, styles.downArrowStyle))
 			SearchNext();
 
-		rc.x -= 10f;
+		rc.x -= 14f;
 		if (!isEmpty && searchResults.Count != 0 && GUI.Button(rc, GUIContent.none, styles.upArrowStyle))
 			SearchPrevious();
 
@@ -12155,6 +12384,7 @@ public class FGTextEditor
 			stylesCode.commentStyle.fontSize = 0;
 			stylesCode.stringStyle.fontSize = 0;
 			stylesCode.lineNumbersStyle.fontSize = 0;
+			stylesCode.currentLineNumberStyle.fontSize = 0;
 			stylesCode.preprocessorStyle.fontSize = 0;
 			stylesCode.parameterStyle.fontSize = 0;
 			stylesCode.typeParameterStyle.fontSize = 0;
@@ -12172,6 +12402,7 @@ public class FGTextEditor
 			stylesCode.commentStyle.fontStyle = 0;
 			stylesCode.stringStyle.fontStyle = 0;
 			stylesCode.lineNumbersStyle.fontStyle = 0;
+			stylesCode.currentLineNumberStyle.fontStyle = 0;
 			stylesCode.preprocessorStyle.fontStyle = 0;
 			stylesCode.parameterStyle.fontStyle = 0;
 			stylesCode.typeParameterStyle.fontStyle = 0;
@@ -12190,6 +12421,7 @@ public class FGTextEditor
 			stylesText.commentStyle.fontSize = 0;
 			stylesText.stringStyle.fontSize = 0;
 			stylesText.lineNumbersStyle.fontSize = 0;
+			stylesText.currentLineNumberStyle.fontSize = 0;
 			stylesText.preprocessorStyle.fontSize = 0;
 			stylesText.parameterStyle.fontSize = 0;
 			stylesText.typeParameterStyle.fontSize = 0;
@@ -12207,6 +12439,7 @@ public class FGTextEditor
 			stylesText.commentStyle.fontStyle = 0;
 			stylesText.stringStyle.fontStyle = 0;
 			stylesText.lineNumbersStyle.fontStyle = 0;
+			stylesText.currentLineNumberStyle.fontStyle = 0;
 			stylesText.preprocessorStyle.fontStyle = 0;
 			stylesText.parameterStyle.fontStyle = 0;
 			stylesText.typeParameterStyle.fontStyle = 0;

@@ -1,9 +1,9 @@
 ﻿/* SCRIPT INSPECTOR 3
- * version 3.0.30, May 2021
- * Copyright © 2012-2021, Flipbook Games
+ * version 3.0.33, May 2022
+ * Copyright © 2012-2022, Flipbook Games
  * 
- * Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text,
- * now transformed into an advanced C# IDE!!!
+ * Script Inspector 3 - World's Fastest IDE for Unity
+ * 
  * 
  * Follow me on http://twitter.com/FlipbookGames
  * Like Flipbook Games on Facebook http://facebook.com/FlipbookGames
@@ -129,9 +129,12 @@ namespace ScriptInspector
 				var msg = wParam.ToInt32();
 				
 				var wnd = EditorWindow.focusedWindow;
+				var asPopupWnd = wnd as FGPopupWindow;
+				if (asPopupWnd != null)
+					wnd = FGTextBuffer.activeEditor.OwnerWindow;
 				if (wnd != null &&
-				(FGTextBuffer.activeEditor != null &&
-					FGTextBuffer.activeEditor.hasCodeViewFocus &&
+					(FGTextBuffer.activeEditor != null &&
+					(FGTextBuffer.activeEditor.hasCodeViewFocus || FGTextBuffer.activeEditor.hasSearchBoxFocus) &&
 					wnd == FGTextBuffer.activeEditor.OwnerWindow
 					|| (wnd is FGConsole || wnd is FindResultsWindow)))
 				{
@@ -177,6 +180,10 @@ namespace ScriptInspector
 					}
 					
 					var wnd = EditorWindow.focusedWindow;
+					var asPopupWnd = wnd as FGPopupWindow;
+					if (asPopupWnd != null)
+						wnd = FGTextBuffer.activeEditor.OwnerWindow;
+
 					if (wnd != null &&
 						(FGTextBuffer.activeEditor != null &&
 						(FGTextBuffer.activeEditor.hasCodeViewFocus || FGTextBuffer.activeEditor.hasSearchBoxFocus) &&
@@ -257,7 +264,13 @@ namespace ScriptInspector
 			{
 				var temp = delayedKeyEvent;
 				delayedKeyEvent = null;
-				if (sendToWindow && sendToWindow == EditorWindow.focusedWindow)
+				
+				var wnd = EditorWindow.focusedWindow;
+				var asPopupWnd = wnd as FGPopupWindow;
+				if (asPopupWnd != null)
+					wnd = FGTextBuffer.activeEditor.OwnerWindow;
+
+				if (sendToWindow && sendToWindow == wnd)
 				{
 					//Debug.Log("Forwarding " + temp);
 					sendToWindow.SendEvent(temp);

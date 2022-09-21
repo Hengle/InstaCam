@@ -1,9 +1,9 @@
 ﻿/* SCRIPT INSPECTOR 3
- * version 3.0.30, May 2021
- * Copyright © 2012-2021, Flipbook Games
+ * version 3.0.33, May 2022
+ * Copyright © 2012-2022, Flipbook Games
  * 
- * Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text,
- * now transformed into an advanced C# IDE!!!
+ * Script Inspector 3 - World's Fastest IDE for Unity
+ * 
  * 
  * Follow me on http://twitter.com/FlipbookGames
  * Like Flipbook Games on Facebook http://facebook.com/FlipbookGames
@@ -327,12 +327,15 @@ public class FGListPopup : FGPopupWindow
 			SymbolKind.Class, SymbolKind.Delegate, SymbolKind.Field, SymbolKind.ConstantField, SymbolKind.LocalConstant,
 			SymbolKind.EnumMember, SymbolKind.Property, SymbolKind.Event, SymbolKind.Indexer,
 			SymbolKind.Method, SymbolKind.Constructor, SymbolKind.Destructor, SymbolKind.Operator,
-			SymbolKind.Accessor, SymbolKind.Parameter, SymbolKind.CatchParameter, SymbolKind.Variable, SymbolKind.CaseVariable,
-			SymbolKind.OutVariable, SymbolKind.ForEachVariable, SymbolKind.FromClauseVariable, SymbolKind.TypeParameter,
-			SymbolKind.Label };
+			SymbolKind.Accessor, SymbolKind.Parameter, SymbolKind.CatchParameter, SymbolKind.Variable,
+			SymbolKind.CaseVariable, SymbolKind.TupleDeconstructVariable,
+			SymbolKind.OutVariable, SymbolKind.IsVariable, SymbolKind.ForEachVariable, SymbolKind.FromClauseVariable,
+			SymbolKind.TypeParameter, SymbolKind.Label };
 		var oneForAll = new HashSet<SymbolKind> { SymbolKind.Namespace, SymbolKind.EnumMember, SymbolKind.Parameter,
-			SymbolKind.CatchParameter, SymbolKind.Variable, SymbolKind.CaseVariable, SymbolKind.OutVariable, SymbolKind.ForEachVariable, SymbolKind.FromClauseVariable,
-			SymbolKind.TypeParameter, SymbolKind.Label, SymbolKind.LocalConstant, SymbolKind.Constructor, SymbolKind.Destructor };
+			SymbolKind.CatchParameter, SymbolKind.Variable, SymbolKind.CaseVariable, SymbolKind.OutVariable,
+			SymbolKind.IsVariable, SymbolKind.ForEachVariable, SymbolKind.FromClauseVariable,
+			SymbolKind.TupleDeconstructVariable, SymbolKind.TypeParameter, SymbolKind.Label, SymbolKind.LocalConstant,
+			SymbolKind.Constructor, SymbolKind.Destructor };
 		symbolIcons = new Texture2D[System.Enum.GetNames(typeof(SymbolKind)).Length, 3];
 		for (var i = 0; i < kinds.Length; i++)
 		{
@@ -343,7 +346,11 @@ public class FGListPopup : FGPopupWindow
 				kind = "EnumItem";
 			else if (kind == "CaseVariable")
 				kind = "Variable";
+			else if (kind == "TupleDeconstructVariable")
+				kind = "Variable";
 			else if (kind == "OutVariable")
+				kind = "Variable";
+			else if (kind == "IsVariable")
 				kind = "Variable";
 			var index = (int) kinds[i];
 			symbolIcons[index, 0] = FGTextEditor.LoadEditorResource<Texture2D>("Symbol Icons/VSObject_" + kind + ".png");
@@ -360,11 +367,11 @@ public class FGListPopup : FGPopupWindow
 			
 #if SI3_WARNINGS
 			if (symbolIcons[index, 0] == null)
-				Debug.LogWarning("No icon for " + kind);
+				Debug.LogWarning("No icon for " + kind + " - " + kinds[i].ToString());
 			if (symbolIcons[index, 1] == null)
-				Debug.LogWarning("No icon for protected " + kind);
+				Debug.LogWarning("No icon for protected " + kind + " - " + kinds[i].ToString());
 			if (symbolIcons[index, 2] == null)
-				Debug.LogWarning("No icon for private " + kind);
+				Debug.LogWarning("No icon for private " + kind + " - " + kinds[i].ToString());
 #endif
 		}
 		symbolIcons[(int) SymbolKind._Keyword, 0] = keywordIcon = FGTextEditor.LoadEditorResource<Texture2D>("Symbol Icons/Keyword.png");
@@ -503,7 +510,10 @@ public class FGListPopup : FGPopupWindow
 			var kind = symbol.kind;
 			if (kind == SymbolKind.Variable || kind == SymbolKind.Parameter || kind == SymbolKind.LocalConstant ||
 				kind == SymbolKind.Label ||
-				kind == SymbolKind.CatchParameter || kind == SymbolKind.FromClauseVariable || kind == SymbolKind.ForEachVariable || kind == SymbolKind.CaseVariable || kind == SymbolKind.OutVariable)
+				kind == SymbolKind.CatchParameter || kind == SymbolKind.FromClauseVariable ||
+				kind == SymbolKind.ForEachVariable || kind == SymbolKind.CaseVariable ||
+				kind == SymbolKind.OutVariable || kind == SymbolKind.IsVariable ||
+				kind == SymbolKind.TupleDeconstructVariable)
 			{
 				var nameOf = NameOf(symbol);
 				var recentIndex = recentCompletions.IndexOf(nameOf);
@@ -633,14 +643,14 @@ public class FGListPopup : FGPopupWindow
 		}
 
 		scrollViewRect = new Rect(offset.x, offset.y, currentWidth, position.height);
-		GUI.Label(scrollViewRect, GUIContent.none, textEditor.styles.listFrameStyle);
+		FGTextEditor.FillRect(scrollViewRect, textEditor.styles.listFrameColor);
 
 		scrollViewRect.xMin++;
 		scrollViewRect.yMin++;
 		scrollViewRect.xMax--;
 		scrollViewRect.yMax--;
 
-		GUI.Label(scrollViewRect, GUIContent.none, textEditor.styles.listBgStyle);
+		FGTextEditor.FillRect(scrollViewRect, textEditor.styles.listBgColor);
 
 		var rcScrollBar = new Rect(scrollViewRect);
 		rcScrollBar.xMin = rcScrollBar.xMax - 15f;

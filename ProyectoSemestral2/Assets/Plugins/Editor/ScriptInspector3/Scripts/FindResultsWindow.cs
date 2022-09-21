@@ -1,9 +1,9 @@
 ﻿/* SCRIPT INSPECTOR 3
- * version 3.0.30, May 2021
- * Copyright © 2012-2021, Flipbook Games
+ * version 3.0.33, May 2022
+ * Copyright © 2012-2022, Flipbook Games
  * 
- * Unity's legendary editor for C#, UnityScript, Boo, Shaders, and text,
- * now transformed into an advanced C# IDE!!!
+ * Script Inspector 3 - World's Fastest IDE for Unity
+ * 
  * 
  * Follow me on http://twitter.com/FlipbookGames
  * Like Flipbook Games on Facebook http://facebook.com/FlipbookGames
@@ -74,6 +74,7 @@ public class FindResultsWindow : EditorWindow
 		public string altText2;
 		public bool matchCase;
 		public bool matchWord;
+		public TextSpan selection;
 	}
 	
 	[System.Serializable]
@@ -404,56 +405,63 @@ public class FindResultsWindow : EditorWindow
 	
 	private void Update()
 	{
-		if (repaintOnUpdate)
+		try
 		{
-			repaintOnUpdate = false;
-			Repaint();
-			return;
-		}
-		
-		if (searchFunction != null && currentAsset < assetGuids.Count)
-		{
-			var guid = assetGuids[currentAsset++];
-			if (validateFileFunction != null)
+			if (repaintOnUpdate)
 			{
-				while (guid != null && !validateFileFunction(guid, filteringOptions))
-				{
-					skippedGuids.Add(guid);
-					if (currentAsset < assetGuids.Count)
-						guid = assetGuids[currentAsset++];
-					else
-						guid = null;
-				}
-			}
-			if (guid != null)
-			{
-				searchFunction(AddResult, guid, searchOptions);
+				repaintOnUpdate = false;
+				Repaint();
 				return;
 			}
-		}
 		
-		if (searchFunction != null && currentAsset == assetGuids.Count)
-		{
-			assetGuids.Clear();
-			currentAsset = 1;
+			if (searchFunction != null && currentAsset < assetGuids.Count)
+			{
+				var guid = assetGuids[currentAsset++];
+				if (validateFileFunction != null)
+				{
+					while (guid != null && !validateFileFunction(guid, filteringOptions))
+					{
+						skippedGuids.Add(guid);
+						if (currentAsset < assetGuids.Count)
+							guid = assetGuids[currentAsset++];
+						else
+							guid = null;
+					}
+				}
+				if (guid != null)
+				{
+					searchFunction(AddResult, guid, searchOptions);
+					return;
+				}
+			}
+		
+			if (searchFunction != null && currentAsset == assetGuids.Count)
+			{
+				assetGuids.Clear();
+				currentAsset = 1;
 			
-			if (referencedSymbol != null)
-				infoText = "References to " + referencedSymbol.FullName;
-			else if (title != "References")
-				infoText = "Find results for '" + searchOptions.text + "'";
-			foundSomeResults = resultsCount > 0;
-			if (replaceAllAfterSearch)
-			{
-				replaceAllAfterSearch = false;
-				ReplaceAll();
-				if (focusAfterReplaceAll)
-					focusAfterReplaceAll.Focus();
-				focusAfterReplaceAll = null;
+				if (referencedSymbol != null)
+					infoText = "References to " + referencedSymbol.FullName;
+				else if (title != "References")
+					infoText = "Find results for '" + searchOptions.text + "'";
+				foundSomeResults = resultsCount > 0;
+				if (replaceAllAfterSearch)
+				{
+					replaceAllAfterSearch = false;
+					ReplaceAll();
+					if (focusAfterReplaceAll)
+						focusAfterReplaceAll.Focus();
+					focusAfterReplaceAll = null;
+				}
+				else
+				{
+					Repaint();
+				}
 			}
-			else
-			{
-				Repaint();
-			}
+		}
+		catch (System.Exception e)
+		{
+			Debug.LogException(e);
 		}
 	}
 	
@@ -548,6 +556,7 @@ public class FindResultsWindow : EditorWindow
 		{
 			foreach (var line in updatedLines)
 				buffer.UpdateHighlighting(line, line);
+			buffer.ValidateCarets();
 			buffer.EndEdit();
 			FGTextBufferManager.AddBufferToGlobalUndo(buffer);
 		}
@@ -754,605 +763,614 @@ public class FindResultsWindow : EditorWindow
 	
 	private void OnGUI()
 	{
-		if (Event.current.isKey && TabSwitcher.OnGUIGlobal())
-			return;
-		
-		bool needsRepaint = false;
-		
-		if (Event.current.type == EventType.KeyDown)
+		try
 		{
-			if (!Event.current.alt && !Event.current.shift && !EditorGUI.actionKey)
+			if (Event.current.isKey && TabSwitcher.OnGUIGlobal())
+				return;
+		
+			bool needsRepaint = false;
+		
+			if (Event.current.type == EventType.KeyDown)
 			{
-				if (Event.current.keyCode == KeyCode.Escape)
+				if (!Event.current.alt && !Event.current.shift && !EditorGUI.actionKey)
 				{
-					var guid = FGCodeWindow.GetGuidHistory().FirstOrDefault();
-					if (!string.IsNullOrEmpty(guid))
-						FGCodeWindow.OpenAssetInTab(guid);
+					if (Event.current.keyCode == KeyCode.Escape)
+					{
+						var guid = FGCodeWindow.GetGuidHistory().FirstOrDefault();
+						if (!string.IsNullOrEmpty(guid))
+							FGCodeWindow.OpenAssetInTab(guid);
+					}
 				}
-			}
 			
-			var nextItem = currentItem;
+				var nextItem = currentItem;
 			
-			if (Event.current.keyCode == KeyCode.DownArrow)
-			{
-				++nextItem;
-				if (GroupByFile)
-				{
-					while (nextItem < results.Count && results[nextItem].description != null &&
-					  collapsedPaths.Contains(results[nextItem].assetPath))
-						++nextItem;
-				}
-				if (nextItem == results.Count)
-					nextItem = currentItem;
-			}
-			else if (Event.current.keyCode == KeyCode.RightArrow && currentItem < results.Count)
-			{
-				if (results[currentItem].description == null && collapsedPaths.Contains(results[currentItem].assetPath))
-				{
-					collapsedPaths.Remove(results[currentItem].assetPath);
-					needsRepaint = true;
-				}
-				else
+				if (Event.current.keyCode == KeyCode.DownArrow)
 				{
 					++nextItem;
-				}
-			}
-			else if (Event.current.keyCode == KeyCode.UpArrow)
-			{
-				--nextItem;
-				if (GroupByFile)
-				{
-					while (nextItem > 0 && results[nextItem].description != null &&
-					  collapsedPaths.Contains(results[nextItem].assetPath))
-						--nextItem;
-				}
-			}
-			else if (Event.current.keyCode == KeyCode.LeftArrow && currentItem < results.Count)
-			{
-				if (results[currentItem].description == null)
-				{
-					collapsedPaths.Add(results[currentItem].assetPath);
-					needsRepaint = true;
-				}
-				else if (GroupByFile)
-				{
-					while (results[nextItem].description != null)
-						--nextItem;
-				}
-				else
-				{
-					--nextItem;
-				}
-			}
-			else if (Event.current.keyCode == KeyCode.Home)
-			{
-				nextItem = 0;
-			}
-			else if (Event.current.keyCode == KeyCode.End)
-			{
-				nextItem = results.Count - 1;
-				if (GroupByFile)
-				{
-					while (nextItem > 0 && results[nextItem].description != null &&
-					  collapsedPaths.Contains(results[nextItem].assetPath))
-						--nextItem;
-				}
-			}
-			
-			nextItem = Mathf.Max(0, Mathf.Min(nextItem, results.Count - 1));
-			scrollToCurrentItem = scrollToCurrentItem || needsRepaint || nextItem != currentItem;
-			needsRepaint = needsRepaint || nextItem != currentItem;
-			currentItem = nextItem;
-			
-			if (Event.current.keyCode == KeyCode.Return ||
-				Event.current.keyCode == KeyCode.KeypadEnter ||
-				Event.current.keyCode == KeyCode.Space)
-			{
-				if (currentItem < results.Count)
-				{
-					Event.current.Use();
-					
-					if (results[currentItem].description != null)
+					if (GroupByFile)
 					{
-						if (replaceText == null || Event.current.keyCode != KeyCode.Space)
-						{
-							GoToResult(currentItem);
-						}
-						else
-						{
-							results[currentItem].selected = !results[currentItem].selected;
-							needsRepaint = true;
-						}
+						while (nextItem < results.Count && results[nextItem].description != null &&
+							collapsedPaths.Contains(results[nextItem].assetPath))
+							++nextItem;
+					}
+					if (nextItem == results.Count)
+						nextItem = currentItem;
+				}
+				else if (Event.current.keyCode == KeyCode.RightArrow && currentItem < results.Count)
+				{
+					if (results[currentItem].description == null && collapsedPaths.Contains(results[currentItem].assetPath))
+					{
+						collapsedPaths.Remove(results[currentItem].assetPath);
+						needsRepaint = true;
 					}
 					else
 					{
-						var path = results[currentItem].assetPath;
-						if (collapsedPaths.Contains(path))
-							collapsedPaths.Remove(path);
-						else
-							collapsedPaths.Add(path);
-						
-						needsRepaint = true;
+						++nextItem;
 					}
 				}
-			}
-			else if (needsRepaint)
-			{
-				Event.current.Use();
-			}
-			
-			if (needsRepaint)
-			{
-				needsRepaint = false;
-				Repaint();
-				return;
-			}
-		}
-		
-		//if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.Escape)
-		//{
-		//	Close();
-		//	editor.OwnerWindow.Focus();
-		//	return;
-		//}
-		
-		if (evenItemStyle == null)
-		{
-			evenItemStyle = new GUIStyle("PR Label");
-			evenItemStyle.padding.top = 2;
-			evenItemStyle.padding.bottom = 2;
-			evenItemStyle.padding.left = 2;
-			evenItemStyle.margin.right = 0;
-			evenItemStyle.fixedHeight = 0;
-			evenItemStyle.richText = false;
-			evenItemStyle.stretchWidth = true;
-			evenItemStyle.wordWrap = false;
-			
-			oddItemStyle = new GUIStyle(evenItemStyle);
-			
-			var evenBackground = (GUIStyle) "CN EntryBackEven";
-			var oddBackground = (GUIStyle) "CN EntryBackodd";
-			evenItemStyle.normal.background = evenBackground.normal.background;
-			evenItemStyle.focused.background = evenBackground.normal.background;
-			oddItemStyle.normal.background = oddBackground.normal.background;
-			oddItemStyle.focused.background = oddBackground.normal.background;
-			
-			pingStyle = (GUIStyle) "PR Ping";
-			pingStyleReference = new GUIStyle(pingStyle);
-			pingStyleReference.normal.background = FGTextEditor.LoadEditorResource<Texture2D>("yellowPing.png");
-			toggleMixedStyle = (GUIStyle) "ToggleMixed";
-			
-			boldToolbarButton = new GUIStyle(EditorStyles.toolbarButton);
-			boldToolbarButton.fontStyle = FontStyle.Bold;
-		}
-		
-#if UNITY_4_0 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3
-		var rcToolbar = new Rect(0f, 0f, Screen.width, 20f);
-#else
-		var rcToolbar = new Rect(0f, 0f, EditorGUIUtility.currentViewWidth, 23f);
-#endif
-		GUI.Label(rcToolbar, GUIContent.none, EditorStyles.toolbar);
-		
-		GUILayout.Space(1f);
-		GUILayout.BeginHorizontal();
-		
-		if (assetGuids.Count > 0)
-		{
-			if (GUILayout.Toggle(false, "Stop", boldToolbarButton, toolbarButtonLayoutOptions))
-			{
-				searchFunction = null;
-				currentAsset = 1;
-				assetGuids.Clear();
-				skippedGuids.Clear();
-				
-				replaceAllAfterSearch = false;
-				focusAfterReplaceAll = null;
-				if (referencedSymbol != null)
-					infoText = "Incomplete references to " + referencedSymbol.FullName;
-				else
-					infoText = "Incomplete find results for '" + searchOptions.text + "'";
-				foundSomeResults = resultsCount > 0;
-				replaceText = null;
-				
-				if (referencedSymbol == null)
-					title = "Find Results";
-			}
-			EditorGUILayout.Space();
-		}
-		
-		GUILayout.Label(infoText, infoTextLayoutOptions);
-		EditorGUILayout.Space();
-		GUILayout.Label(resultsCountText, resultsCountTextLayoutOptions);
-		GUILayout.FlexibleSpace();
-		
-		if (referencedSymbol != null)
-		{
-			var newReads = filteringOptions.reads;
-			var newWrites = filteringOptions.writes;
-			var newOverloads = filteringOptions.overloads;
-			var newOverridingMethods = filteringOptions.overridingMethods;
-			var newOverriddenMethods = filteringOptions.overriddenMethods;
-			var newVars = filteringOptions.vars;
-			var newTypeArgsInVars = filteringOptions.typeArgumentsInVars;
-			var newUnresolved = filteringOptions.unresolved;
-			if (referencedSymbol is InstanceDefinition)
-			{
-				newReads = GUILayout.Toggle(filteringOptions.reads, "Read", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-				newWrites = GUILayout.Toggle(filteringOptions.writes, "Write", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-			}
-			else if (referencedSymbol.kind == SymbolKind.Method || referencedSymbol.kind == SymbolKind.MethodGroup)
-			{
-				newReads = GUILayout.Toggle(filteringOptions.reads, "Refs", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-				
-				newOverloads = GUILayout.Toggle(filteringOptions.overloads, "Overload", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-				newOverriddenMethods = GUILayout.Toggle(filteringOptions.overriddenMethods, "Overridden", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-				newOverridingMethods = GUILayout.Toggle(filteringOptions.overridingMethods, "Overriding", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-			}
-			else
-			{
-				newReads = GUILayout.Toggle(filteringOptions.reads, "Refs", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-				
-				if (referencedSymbol is TypeDefinitionBase)
+				else if (Event.current.keyCode == KeyCode.UpArrow)
 				{
-					newVars = GUILayout.Toggle(filteringOptions.vars, "var", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-					newTypeArgsInVars = GUILayout.Toggle(filteringOptions.typeArgumentsInVars, "var<T>", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-				}
-			}
-			newUnresolved = GUILayout.Toggle(filteringOptions.unresolved, "???", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-			
-			var newInactiveCode = GUILayout.Toggle(filteringOptions.inactiveCode, "#if", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-			var newStrings = GUILayout.Toggle(filteringOptions.strings, "String", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-			var newComments = GUILayout.Toggle(filteringOptions.comments, "Comment", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-			
-			if (newReads != filteringOptions.reads ||
-				newWrites != filteringOptions.writes ||
-				newOverloads != filteringOptions.overloads ||
-				newOverridingMethods != filteringOptions.overridingMethods ||
-				newOverriddenMethods != filteringOptions.overriddenMethods ||
-				newVars != filteringOptions.vars ||
-				newTypeArgsInVars != filteringOptions.typeArgumentsInVars ||
-				newUnresolved != filteringOptions.unresolved ||
-				newInactiveCode != filteringOptions.inactiveCode ||
-				newComments != filteringOptions.comments ||
-				newStrings != filteringOptions.strings)
-			{
-				filteringOptions.reads = newReads;
-				filteringOptions.writes = newWrites;
-				filteringOptions.overloads = newOverloads;
-				filteringOptions.overridingMethods = newOverridingMethods;
-				filteringOptions.overriddenMethods = newOverriddenMethods;
-				filteringOptions.vars = newVars;
-				filteringOptions.typeArgumentsInVars = newTypeArgsInVars;
-				filteringOptions.unresolved = newUnresolved;
-				filteringOptions.inactiveCode = newInactiveCode;
-				filteringOptions.comments = newComments;
-				filteringOptions.strings = newStrings;
-				
-				UpdateFilters();
-			}
-			
-			EditorGUILayout.Space();
-		}
-		
-		GUI.enabled = foundSomeResults;
-		var newGroupByFile = GUILayout.Toggle(GroupByFile, "Group by file", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-		GUI.enabled = true;
-		
-		if (replaceText != null)
-		{
-			EditorGUILayout.Space();
-			
-			GUI.enabled = assetGuids.Count == 0 && foundSomeResults;
-			if (GUILayout.Toggle(false, "Replace all selected", boldToolbarButton, toolbarButtonLayoutOptions))
-			{
-				ReplaceAll();
-			}
-			GUI.enabled = true;
-		}
-		else
-		{
-			GUI.enabled = foundSomeResults;
-			keepResults = GUILayout.Toggle(keepResults, "Keep this results", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
-			GUI.enabled = true;
-		}
-		
-		EditorGUILayout.Space();
-		GUILayout.EndHorizontal();
-		
-		if (newGroupByFile != GroupByFile)
-		{
-			var currentResult = currentItem < results.Count ? results[currentItem] : null;
-			if (currentResult != null && currentResult.description == null)
-				currentResult = results[currentItem + 1];
-			
-			GroupByFile = newGroupByFile;
-			UpdateFilters();
-			
-			if (currentResult != null)
-				currentItem = Mathf.Max(0, results.IndexOf(currentResult));
-			else
-				currentItem = 0;
-			
-			needsRepaint = true;
-			scrollToCurrentItem = true;
-		}
-		
-		if (Event.current.type == EventType.Repaint && assetGuids.Count > 0)
-		{
-			var progress = (currentAsset + 1f + skippedGuids.Count) / assetGuids.Count;
-			var rcProgressBar = rcToolbar;
-			rcProgressBar.yMin = rcProgressBar.yMax - 6f;
-			rcProgressBar.width = rcProgressBar.width * progress;
-			rcProgressBar.height = 7f;
-			//var progressBarColor = new Color32(108, 226, 108, 255);
-			var progressBarColor = new Color32(189, 99, 197, 255);
-			
-			Color oldColor = GUI.color;
-			GUI.color *= progressBarColor;
-			GUI.DrawTexture(rcProgressBar, EditorGUIUtility.whiteTexture);
-			GUI.color = oldColor;
-		}
-		
-#if UNITY_5_4_OR_NEWER
-		listViewHeight = (int)(Screen.height / EditorGUIUtility.pixelsPerPoint - rcToolbar.height - 20f);
-#else
-		listViewHeight = Screen.height - rcToolbar.height - 20f;
-#endif
-		
-		Vector2 scrollToPosition;
-		try
-		{
-			scrollPosition = GUILayout.BeginScrollView(scrollPosition, scrollViewLayoutOptions);
-			scrollToPosition = scrollPosition;
-			
-			EditorGUIUtility.SetIconSize(new Vector2(16f, 16f));
-			
-			//resultsLock.EnterReadLock();
-			
-			if (!foundSomeResults)
-			{
-				GUILayout.Label("No Results...");
-			}
-			else
-			{
-				var currentPath = "";
-				bool isExpanded = true;
-				int drawnItemIndex = 0;
-				for (var i = 0; i < results.Count; ++i)
-				{
-					var result = results[i];
-					if (result.description != null && !isExpanded)
-						continue;
-					
-					var itemStyle = (drawnItemIndex & 1) == 0 ? evenItemStyle : oddItemStyle;
-					
-					++drawnItemIndex;
-					
-					var rc = GUILayoutUtility.GetRect(GUIContent.none, itemStyle, itemRectLayoutOptions);
-					rc.xMin = 0f;
-					
-					if (Event.current.type == EventType.Repaint)
-						itemStyle.Draw(rc, GUIContent.none, false, false, i == currentItem, this == focusedWindow);
-					
-					if (result.description == null)
+					--nextItem;
+					if (GroupByFile)
 					{
-						currentPath = result.assetPath;
-						isExpanded = !collapsedPaths.Contains(currentPath);
-						var rcToggle = rc;
-						rcToggle.xMin = 4f;
-						rcToggle.xMax = 22f;
-						rcToggle.yMin += 3f;
-						bool expand = GUI.Toggle(rcToggle, isExpanded, GUIContent.none, EditorStyles.foldout);
-						if (expand != isExpanded)
+						while (nextItem > 0 && results[nextItem].description != null &&
+							collapsedPaths.Contains(results[nextItem].assetPath))
+							--nextItem;
+					}
+				}
+				else if (Event.current.keyCode == KeyCode.LeftArrow && currentItem < results.Count)
+				{
+					if (results[currentItem].description == null)
+					{
+						collapsedPaths.Add(results[currentItem].assetPath);
+						needsRepaint = true;
+					}
+					else if (GroupByFile)
+					{
+						while (results[nextItem].description != null)
+							--nextItem;
+					}
+					else
+					{
+						--nextItem;
+					}
+				}
+				else if (Event.current.keyCode == KeyCode.Home)
+				{
+					nextItem = 0;
+				}
+				else if (Event.current.keyCode == KeyCode.End)
+				{
+					nextItem = results.Count - 1;
+					if (GroupByFile)
+					{
+						while (nextItem > 0 && results[nextItem].description != null &&
+							collapsedPaths.Contains(results[nextItem].assetPath))
+							--nextItem;
+					}
+				}
+			
+				nextItem = Mathf.Max(0, Mathf.Min(nextItem, results.Count - 1));
+				scrollToCurrentItem = scrollToCurrentItem || needsRepaint || nextItem != currentItem;
+				needsRepaint = needsRepaint || nextItem != currentItem;
+				currentItem = nextItem;
+			
+				if (Event.current.keyCode == KeyCode.Return ||
+					Event.current.keyCode == KeyCode.KeypadEnter ||
+					Event.current.keyCode == KeyCode.Space)
+				{
+					if (currentItem < results.Count)
+					{
+						Event.current.Use();
+					
+						if (results[currentItem].description != null)
 						{
-							currentItem = i;
-							if (expand && !isExpanded)
-								collapsedPaths.Remove(currentPath);
-							else if (!expand && isExpanded)
-								collapsedPaths.Add(currentPath);
+							if (replaceText == null || Event.current.keyCode != KeyCode.Space)
+							{
+								GoToResult(currentItem);
+							}
+							else
+							{
+								results[currentItem].selected = !results[currentItem].selected;
+								needsRepaint = true;
+							}
+						}
+						else
+						{
+							var path = results[currentItem].assetPath;
+							if (collapsedPaths.Contains(path))
+								collapsedPaths.Remove(path);
+							else
+								collapsedPaths.Add(path);
+						
 							needsRepaint = true;
 						}
-						if (replaceText != null)
+					}
+				}
+				else if (needsRepaint)
+				{
+					Event.current.Use();
+				}
+			
+				if (needsRepaint)
+				{
+					needsRepaint = false;
+					Repaint();
+					return;
+				}
+			}
+		
+			//if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.Escape)
+			//{
+			//	Close();
+			//	editor.OwnerWindow.Focus();
+			//	return;
+			//}
+		
+			if (evenItemStyle == null)
+			{
+				evenItemStyle = new GUIStyle("PR Label");
+				evenItemStyle.padding.top = 2;
+				evenItemStyle.padding.bottom = 2;
+				evenItemStyle.padding.left = 2;
+				evenItemStyle.margin.right = 0;
+				evenItemStyle.fixedHeight = 0;
+				evenItemStyle.richText = false;
+				evenItemStyle.stretchWidth = true;
+				evenItemStyle.wordWrap = false;
+			
+				oddItemStyle = new GUIStyle(evenItemStyle);
+			
+				var evenBackground = (GUIStyle) "CN EntryBackEven";
+				var oddBackground = (GUIStyle) "CN EntryBackodd";
+				evenItemStyle.normal.background = evenBackground.normal.background;
+				evenItemStyle.focused.background = evenBackground.normal.background;
+				oddItemStyle.normal.background = oddBackground.normal.background;
+				oddItemStyle.focused.background = oddBackground.normal.background;
+			
+				pingStyle = (GUIStyle) "PR Ping";
+				pingStyleReference = new GUIStyle(pingStyle);
+				pingStyleReference.normal.background = FGTextEditor.LoadEditorResource<Texture2D>("yellowPing.png");
+				toggleMixedStyle = (GUIStyle) "ToggleMixed";
+			
+				boldToolbarButton = new GUIStyle(EditorStyles.toolbarButton);
+				boldToolbarButton.fontStyle = FontStyle.Bold;
+			}
+		
+#if UNITY_4_0 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3
+			var rcToolbar = new Rect(0f, 0f, Screen.width, 20f);
+#else
+			var rcToolbar = new Rect(0f, 0f, EditorGUIUtility.currentViewWidth, 23f);
+#endif
+			GUI.Label(rcToolbar, GUIContent.none, EditorStyles.toolbar);
+		
+			GUILayout.Space(1f);
+			GUILayout.BeginHorizontal();
+		
+			if (assetGuids.Count > 0)
+			{
+				if (GUILayout.Toggle(false, "Stop", boldToolbarButton, toolbarButtonLayoutOptions))
+				{
+					searchFunction = null;
+					currentAsset = 1;
+					assetGuids.Clear();
+					skippedGuids.Clear();
+				
+					replaceAllAfterSearch = false;
+					focusAfterReplaceAll = null;
+					if (referencedSymbol != null)
+						infoText = "Incomplete references to " + referencedSymbol.FullName;
+					else
+						infoText = "Incomplete find results for '" + searchOptions.text + "'";
+					foundSomeResults = resultsCount > 0;
+					replaceText = null;
+				
+					if (referencedSymbol == null)
+						title = "Find Results";
+				}
+				EditorGUILayout.Space();
+			}
+		
+			GUILayout.Label(infoText, infoTextLayoutOptions);
+			EditorGUILayout.Space();
+			GUILayout.Label(resultsCountText, resultsCountTextLayoutOptions);
+			GUILayout.FlexibleSpace();
+		
+			if (referencedSymbol != null)
+			{
+				var newReads = filteringOptions.reads;
+				var newWrites = filteringOptions.writes;
+				var newOverloads = filteringOptions.overloads;
+				var newOverridingMethods = filteringOptions.overridingMethods;
+				var newOverriddenMethods = filteringOptions.overriddenMethods;
+				var newVars = filteringOptions.vars;
+				var newTypeArgsInVars = filteringOptions.typeArgumentsInVars;
+				var newUnresolved = filteringOptions.unresolved;
+				if (referencedSymbol is InstanceDefinition)
+				{
+					newReads = GUILayout.Toggle(filteringOptions.reads, "Read", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+					newWrites = GUILayout.Toggle(filteringOptions.writes, "Write", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+				}
+				else if (referencedSymbol.kind == SymbolKind.Method || referencedSymbol.kind == SymbolKind.MethodGroup)
+				{
+					newReads = GUILayout.Toggle(filteringOptions.reads, "Refs", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+				
+					newOverloads = GUILayout.Toggle(filteringOptions.overloads, "Overload", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+					newOverriddenMethods = GUILayout.Toggle(filteringOptions.overriddenMethods, "Overridden", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+					newOverridingMethods = GUILayout.Toggle(filteringOptions.overridingMethods, "Overriding", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+				}
+				else
+				{
+					newReads = GUILayout.Toggle(filteringOptions.reads, "Refs", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+				
+					if (referencedSymbol is TypeDefinitionBase)
+					{
+						newVars = GUILayout.Toggle(filteringOptions.vars, "var", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+						newTypeArgsInVars = GUILayout.Toggle(filteringOptions.typeArgumentsInVars, "var<T>", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+					}
+				}
+				newUnresolved = GUILayout.Toggle(filteringOptions.unresolved, "???", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+			
+				var newInactiveCode = GUILayout.Toggle(filteringOptions.inactiveCode, "#if", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+				var newStrings = GUILayout.Toggle(filteringOptions.strings, "String", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+				var newComments = GUILayout.Toggle(filteringOptions.comments, "Comment", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+			
+				if (newReads != filteringOptions.reads ||
+					newWrites != filteringOptions.writes ||
+					newOverloads != filteringOptions.overloads ||
+					newOverridingMethods != filteringOptions.overridingMethods ||
+					newOverriddenMethods != filteringOptions.overriddenMethods ||
+					newVars != filteringOptions.vars ||
+					newTypeArgsInVars != filteringOptions.typeArgumentsInVars ||
+					newUnresolved != filteringOptions.unresolved ||
+					newInactiveCode != filteringOptions.inactiveCode ||
+					newComments != filteringOptions.comments ||
+					newStrings != filteringOptions.strings)
+				{
+					filteringOptions.reads = newReads;
+					filteringOptions.writes = newWrites;
+					filteringOptions.overloads = newOverloads;
+					filteringOptions.overridingMethods = newOverridingMethods;
+					filteringOptions.overriddenMethods = newOverriddenMethods;
+					filteringOptions.vars = newVars;
+					filteringOptions.typeArgumentsInVars = newTypeArgsInVars;
+					filteringOptions.unresolved = newUnresolved;
+					filteringOptions.inactiveCode = newInactiveCode;
+					filteringOptions.comments = newComments;
+					filteringOptions.strings = newStrings;
+				
+					UpdateFilters();
+				}
+			
+				EditorGUILayout.Space();
+			}
+		
+			GUI.enabled = foundSomeResults;
+			var newGroupByFile = GUILayout.Toggle(GroupByFile, "Group by file", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+			GUI.enabled = true;
+		
+			if (replaceText != null)
+			{
+				EditorGUILayout.Space();
+			
+				GUI.enabled = assetGuids.Count == 0 && foundSomeResults;
+				if (GUILayout.Toggle(false, "Replace all selected", boldToolbarButton, toolbarButtonLayoutOptions))
+				{
+					ReplaceAll();
+				}
+				GUI.enabled = true;
+			}
+			else
+			{
+				GUI.enabled = foundSomeResults;
+				keepResults = GUILayout.Toggle(keepResults, "Keep this results", EditorStyles.toolbarButton, toolbarButtonLayoutOptions);
+				GUI.enabled = true;
+			}
+		
+			EditorGUILayout.Space();
+			GUILayout.EndHorizontal();
+		
+			if (newGroupByFile != GroupByFile)
+			{
+				var currentResult = currentItem < results.Count ? results[currentItem] : null;
+				if (currentResult != null && currentResult.description == null)
+					currentResult = results[currentItem + 1];
+			
+				GroupByFile = newGroupByFile;
+				UpdateFilters();
+			
+				if (currentResult != null)
+					currentItem = Mathf.Max(0, results.IndexOf(currentResult));
+				else
+					currentItem = 0;
+			
+				needsRepaint = true;
+				scrollToCurrentItem = true;
+			}
+		
+			if (Event.current.type == EventType.Repaint && assetGuids.Count > 0)
+			{
+				var progress = (currentAsset + 1f + skippedGuids.Count) / assetGuids.Count;
+				var rcProgressBar = rcToolbar;
+				rcProgressBar.yMin = rcProgressBar.yMax - 6f;
+				rcProgressBar.width = rcProgressBar.width * progress;
+				rcProgressBar.height = 7f;
+				//var progressBarColor = new Color32(108, 226, 108, 255);
+				var progressBarColor = new Color32(189, 99, 197, 255);
+			
+				Color oldColor = GUI.color;
+				GUI.color *= progressBarColor;
+				GUI.DrawTexture(rcProgressBar, EditorGUIUtility.whiteTexture);
+				GUI.color = oldColor;
+			}
+		
+#if UNITY_5_4_OR_NEWER
+			listViewHeight = (int)(Screen.height / EditorGUIUtility.pixelsPerPoint - rcToolbar.height - 20f);
+			listViewHeight = position.height - rcToolbar.height;
+#else
+			listViewHeight = Screen.height - rcToolbar.height - 20f;
+#endif
+		
+			Vector2 scrollToPosition;
+			try
+			{
+				scrollPosition = GUILayout.BeginScrollView(scrollPosition, scrollViewLayoutOptions);
+				scrollToPosition = scrollPosition;
+			
+				EditorGUIUtility.SetIconSize(new Vector2(16f, 16f));
+			
+				//resultsLock.EnterReadLock();
+			
+				if (!foundSomeResults)
+				{
+					GUILayout.Label("No Results...");
+				}
+				else
+				{
+					var currentPath = "";
+					bool isExpanded = true;
+					int drawnItemIndex = 0;
+					for (var i = 0; i < results.Count; ++i)
+					{
+						var result = results[i];
+						if (result.description != null && !isExpanded)
+							continue;
+					
+						var itemStyle = (drawnItemIndex & 1) == 0 ? evenItemStyle : oddItemStyle;
+					
+						++drawnItemIndex;
+					
+						var rc = GUILayoutUtility.GetRect(GUIContent.none, itemStyle, itemRectLayoutOptions);
+						rc.xMin = 0f;
+					
+						if (Event.current.type == EventType.Repaint)
+							itemStyle.Draw(rc, GUIContent.none, false, false, i == currentItem, this == focusedWindow);
+					
+						if (result.description == null)
 						{
-							rc.xMin += 18f;
-							rcToggle = rc;
-							rcToggle.width = 18f;
-							rcToggle.yMin += 2f;
-							
-							var hasSelected = false;
-							var hasUnselected = false;
-							for (var j = i + 1; j < results.Count && !(hasSelected && hasUnselected); ++j)
+							currentPath = result.assetPath;
+							isExpanded = !collapsedPaths.Contains(currentPath);
+							var rcToggle = rc;
+							rcToggle.xMin = 4f;
+							rcToggle.xMax = 22f;
+							rcToggle.yMin += 3f;
+							bool expand = GUI.Toggle(rcToggle, isExpanded, GUIContent.none, EditorStyles.foldout);
+							if (expand != isExpanded)
 							{
-								var child = results[j];
-								if (child.description == null)
-									break;
-								if (child.selected)
-									hasSelected = true;
-								else
-									hasUnselected = true;
+								currentItem = i;
+								if (expand && !isExpanded)
+									collapsedPaths.Remove(currentPath);
+								else if (!expand && isExpanded)
+									collapsedPaths.Add(currentPath);
+								needsRepaint = true;
 							}
-							var selected = hasSelected;
-							if (selected != GUI.Toggle(rcToggle, selected, GUIContent.none, hasSelected && hasUnselected ? toggleMixedStyle : EditorStyles.toggle))
+							if (replaceText != null)
 							{
-								selected = !selected;
-								for (var j = i + 1; j < results.Count; ++j)
+								rc.xMin += 18f;
+								rcToggle = rc;
+								rcToggle.width = 18f;
+								rcToggle.yMin += 2f;
+							
+								var hasSelected = false;
+								var hasUnselected = false;
+								for (var j = i + 1; j < results.Count && !(hasSelected && hasUnselected); ++j)
 								{
 									var child = results[j];
 									if (child.description == null)
 										break;
-									child.selected = selected;
+									if (child.selected)
+										hasSelected = true;
+									else
+										hasUnselected = true;
+								}
+								var selected = hasSelected;
+								if (selected != GUI.Toggle(rcToggle, selected, GUIContent.none, hasSelected && hasUnselected ? toggleMixedStyle : EditorStyles.toggle))
+								{
+									selected = !selected;
+									for (var j = i + 1; j < results.Count; ++j)
+									{
+										var child = results[j];
+										if (child.description == null)
+											break;
+										child.selected = selected;
+									}
 								}
 							}
 						}
-					}
-					else if (replaceText != null)
-					{
-						if (GroupByFile)
-							rc.xMin += 36f;
-						else
-							rc.xMin += 4f;
-						var rcToggle = rc;
-						rcToggle.width = 18f;
-						rcToggle.yMin += 2f;
-						result.selected = GUI.Toggle(rcToggle, result.selected, GUIContent.none);
-					}
-					
-					if (scrollToCurrentItem && i == currentItem && Event.current.type == EventType.Repaint)
-					{
-						if (rc.yMin < scrollPosition.y)
+						else if (replaceText != null)
 						{
-							scrollToPosition.y = rc.yMin;
-							needsRepaint = true;
+							if (GroupByFile)
+								rc.xMin += 36f;
+							else
+								rc.xMin += 4f;
+							var rcToggle = rc;
+							rcToggle.width = 18f;
+							rcToggle.yMin += 2f;
+							result.selected = GUI.Toggle(rcToggle, result.selected, GUIContent.none);
 						}
-						else if (rc.yMax > scrollPosition.y + listViewHeight)
-						{
-							scrollToPosition.y = rc.yMax - listViewHeight;
-							needsRepaint = true;
-						}						
-					}
 					
-					if (rc.yMax < scrollPosition.y || rc.yMin > scrollPosition.y + listViewHeight)
-					{
-						continue;
-					}
-					
-					if (Event.current.type == EventType.MouseDown && rc.Contains(Event.current.mousePosition))
-					{
-						if (i == currentItem && Event.current.button == 0 && Event.current.clickCount == 2)
+						if (scrollToCurrentItem && i == currentItem && Event.current.type == EventType.Repaint)
 						{
-							if (result.description == null)
+							if (rc.yMin < scrollPosition.y)
 							{
-								if (collapsedPaths.Contains(result.assetPath))
-									collapsedPaths.Remove(result.assetPath);
-								else
-									collapsedPaths.Add(result.assetPath);
-								
+								scrollToPosition.y = rc.yMin;
 								needsRepaint = true;
 							}
-							else
+							else if (rc.yMax > scrollPosition.y + listViewHeight)
 							{
-								FGCodeWindow.OpenAssetInTab(result.assetGuid, result.line, result.characterIndex, result.length);
-							}
+								scrollToPosition.y = rc.yMax - listViewHeight;
+								needsRepaint = true;
+							}						
 						}
-						else if (Event.current.button == 1 && result.description == null)
+					
+						if (rc.yMax < scrollPosition.y || rc.yMin > scrollPosition.y + listViewHeight)
 						{
-							GenericMenu menu = new GenericMenu();
-							menu.AddItem(new GUIContent("Expand All"), false, () => {
-								collapsedPaths.Clear();
-							});
-							menu.AddItem(new GUIContent("Collapse All"), false, () => {
-								foreach (var r in results)
-									if (r.description == null)
-										collapsedPaths.Add(r.assetPath);
-							});
-							menu.ShowAsContext();
+							continue;
 						}
-						currentItem = i;
-						needsRepaint = true;
-						scrollToCurrentItem = true;
-						
-						Event.current.Use();
-					}
 					
-					GUIContent contentContent;
-					int lineInfoLength = 0;
-					if (result.description == null)
-					{
-						contentContent = new GUIContent(result.assetPath, AssetDatabase.GetCachedIcon(result.assetPath));
-						rc.xMin += 16f;
-					}
-					else
-					{
-						string lineInfo;
-						if (GroupByFile)
-							lineInfo = (result.line + 1).ToString() + ":   ";
-						else
-							lineInfo = result.fileName + " (" + (result.line + 1).ToString() + "):   ";
-						lineInfoLength = lineInfo.Length;
-						contentContent = new GUIContent(lineInfo + result.description);
-						if (GroupByFile)
-							rc.xMin += 18f;
-						else if (replaceText != null)
-							rc.xMin += 18f;
-						else
-							rc.xMin += 2f;
-					}
-					
-					if (Event.current.type == EventType.Repaint)
-					{
-						if (result.description != null)
+						if (Event.current.type == EventType.MouseDown && rc.Contains(Event.current.mousePosition))
 						{
-							if (result.rcHighlight.width == 0f)
+							if (i == currentItem && Event.current.button == 0 && Event.current.clickCount == 2)
 							{
-								var dotContent = new GUIContent(".");
-								var preContent = new GUIContent(contentContent.text.Substring(0, lineInfoLength + result.characterIndex - result.trimOffset) + ".");
-								var resultContent = new GUIContent("." + contentContent.text.Substring(0, lineInfoLength + result.characterIndex + result.length - result.trimOffset) + ".");
-								var dotSize = itemStyle.CalcSize(dotContent);
-								var preSize = itemStyle.CalcSize(preContent); preSize.x -= dotSize.x;
-								var resultSize = itemStyle.CalcSize(resultContent); resultSize.x -= dotSize.x * 2f;
-								result.rcHighlight = new Rect(preSize.x - 4f, 2f, resultSize.x - preSize.x + 14f, rc.height - 4f);
-							}
-							var rcHighlight = result.rcHighlight;
-							rcHighlight.x += rc.x;
-							rcHighlight.y += rc.y;
-							
-							GUI.color = new Color(1f, 1f, 1f, 0.4f);
-							var oldBgColor = GUI.backgroundColor;
-							if (result.resultType == ResultType.ReadReference)
-							{
-								GUI.backgroundColor = EditorGUIUtility.isProSkin ? new Color32(14, 69, 131, 162) : new Color32(0xa0, 0xff, 0xff, 0xff);
-								pingStyleReference.Draw(rcHighlight, false, false, false, false);
-							}
-							else if (result.resultType == ResultType.WriteReference || result.resultType == ResultType.ReadWriteReference
-								|| result.resultType == ResultType.MethodOverload)
-							{
-								GUI.backgroundColor = EditorGUIUtility.isProSkin ? new Color32(131, 14, 69, 162) : new Color32(0xff, 0xa0, 0xa0, 0xff);
-								pingStyleReference.Draw(rcHighlight, false, false, false, false);
-							}
-							else if (result.resultType == ResultType.VarReference || result.resultType == ResultType.VarTemplateReference
-								|| result.resultType == ResultType.OverriddenMethod || result.resultType == ResultType.OverridingMethod)
-							{
-								if (result.resultType == ResultType.VarReference || result.resultType == ResultType.OverriddenMethod)
-									GUI.backgroundColor = EditorGUIUtility.isProSkin ? new Color32(14, 131, 69, 162) : new Color32(0xa0, 0xff, 0xa0, 0xff);
+								if (result.description == null)
+								{
+									if (collapsedPaths.Contains(result.assetPath))
+										collapsedPaths.Remove(result.assetPath);
+									else
+										collapsedPaths.Add(result.assetPath);
+								
+									needsRepaint = true;
+								}
 								else
-									GUI.backgroundColor = EditorGUIUtility.isProSkin ? new Color32(131, 69, 131, 162) : new Color32(0xff, 0xa0, 0xff, 0xff);
-								pingStyleReference.Draw(rcHighlight, false, false, false, false);
+								{
+									FGCodeWindow.OpenAssetInTab(result.assetGuid, result.line, result.characterIndex, result.length);
+								}
 							}
-							else
+							else if (Event.current.button == 1 && result.description == null)
 							{
-								pingStyle.Draw(rcHighlight, false, false, false, false);
+								GenericMenu menu = new GenericMenu();
+								menu.AddItem(new GUIContent("Expand All"), false, () => {
+									collapsedPaths.Clear();
+								});
+								menu.AddItem(new GUIContent("Collapse All"), false, () => {
+									foreach (var r in results)
+										if (r.description == null)
+											collapsedPaths.Add(r.assetPath);
+								});
+								menu.ShowAsContext();
 							}
-							GUI.backgroundColor = oldBgColor;
-							GUI.color = Color.white;
-						}
+							currentItem = i;
+							needsRepaint = true;
+							scrollToCurrentItem = true;
 						
-						GUI.backgroundColor = Color.clear;
-						itemStyle.Draw(rc, contentContent, false, false, i == currentItem, this == focusedWindow);
-						GUI.backgroundColor = Color.white;
-					}					
+							Event.current.Use();
+						}
+					
+						GUIContent contentContent;
+						int lineInfoLength = 0;
+						if (result.description == null)
+						{
+							contentContent = new GUIContent(result.assetPath, AssetDatabase.GetCachedIcon(result.assetPath));
+							rc.xMin += 16f;
+						}
+						else
+						{
+							string lineInfo;
+							if (GroupByFile)
+								lineInfo = (result.line + 1).ToString() + ":   ";
+							else
+								lineInfo = result.fileName + " (" + (result.line + 1).ToString() + "):   ";
+							lineInfoLength = lineInfo.Length;
+							contentContent = new GUIContent(lineInfo + result.description);
+							if (GroupByFile)
+								rc.xMin += 18f;
+							else if (replaceText != null)
+								rc.xMin += 18f;
+							else
+								rc.xMin += 2f;
+						}
+					
+						if (Event.current.type == EventType.Repaint)
+						{
+							if (result.description != null)
+							{
+								if (result.rcHighlight.width == 0f)
+								{
+									var dotContent = new GUIContent(".");
+									var preContent = new GUIContent(contentContent.text.Substring(0, lineInfoLength + result.characterIndex - result.trimOffset) + ".");
+									var resultContent = new GUIContent("." + contentContent.text.Substring(0, lineInfoLength + result.characterIndex + result.length - result.trimOffset) + ".");
+									var dotSize = itemStyle.CalcSize(dotContent);
+									var preSize = itemStyle.CalcSize(preContent); preSize.x -= dotSize.x;
+									var resultSize = itemStyle.CalcSize(resultContent); resultSize.x -= dotSize.x * 2f;
+									result.rcHighlight = new Rect(preSize.x - 4f, 2f, resultSize.x - preSize.x + 14f, rc.height - 4f);
+								}
+								var rcHighlight = result.rcHighlight;
+								rcHighlight.x += rc.x;
+								rcHighlight.y += rc.y;
+								
+								GUI.color = new Color(1f, 1f, 1f, EditorGUIUtility.isProSkin ? 0.6f : 0.4f);
+								var oldBgColor = GUI.backgroundColor;
+								var isProSkin = false;
+								if (result.resultType == ResultType.ReadReference)
+								{
+									GUI.backgroundColor = isProSkin ? new Color32(14, 69, 131, 162) : new Color32(0xa0, 0xff, 0xff, 0xff);
+									pingStyleReference.Draw(rcHighlight, false, false, false, false);
+								}
+								else if (result.resultType == ResultType.WriteReference || result.resultType == ResultType.ReadWriteReference
+									|| result.resultType == ResultType.MethodOverload)
+								{
+									GUI.backgroundColor = isProSkin ? new Color32(131, 14, 69, 162) : new Color32(0xff, 0xa0, 0xa0, 0xff);
+									pingStyleReference.Draw(rcHighlight, false, false, false, false);
+								}
+								else if (result.resultType == ResultType.VarReference || result.resultType == ResultType.VarTemplateReference
+									|| result.resultType == ResultType.OverriddenMethod || result.resultType == ResultType.OverridingMethod)
+								{
+									if (result.resultType == ResultType.VarReference || result.resultType == ResultType.OverriddenMethod)
+										GUI.backgroundColor = isProSkin ? new Color32(14, 131, 69, 162) : new Color32(0xa0, 0xff, 0xa0, 0xff);
+									else
+										GUI.backgroundColor = isProSkin ? new Color32(131, 69, 131, 162) : new Color32(0xff, 0xa0, 0xff, 0xff);
+									pingStyleReference.Draw(rcHighlight, false, false, false, false);
+								}
+								else
+								{
+									pingStyle.Draw(rcHighlight, false, false, false, false);
+								}
+								GUI.backgroundColor = oldBgColor;
+								GUI.color = Color.white;
+							}
+						
+							GUI.backgroundColor = Color.clear;
+							itemStyle.Draw(rc, contentContent, false, false, i == currentItem, true);//this == focusedWindow);
+							GUI.backgroundColor = Color.white;
+						}					
+					}
+				}
+			
+				GUILayout.FlexibleSpace();
+			}
+			finally
+			{
+				//resultsLock.ExitReadLock();
+				GUILayout.EndScrollView();
+			}
+		
+			if (Event.current.type == EventType.Repaint)
+			{
+				if (needsRepaint)
+				{
+					scrollToCurrentItem = false;
+					scrollPosition = scrollToPosition;
+					Repaint();
+				}
+				else
+				{
+					scrollToCurrentItem = false;
 				}
 			}
-			
-			GUILayout.FlexibleSpace();
 		}
-		finally
+		catch (System.Exception e)
 		{
-			//resultsLock.ExitReadLock();
-			GUILayout.EndScrollView();
-		}
-		
-		if (Event.current.type == EventType.Repaint)
-		{
-			if (needsRepaint)
-			{
-				scrollToCurrentItem = false;
-				scrollPosition = scrollToPosition;
-				Repaint();
-			}
-			else
-			{
-				scrollToCurrentItem = false;
-			}
+			Debug.LogException(e);
 		}
 	}
 }
