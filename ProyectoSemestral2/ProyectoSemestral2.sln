@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.flipbookgames.scriptinspector3", "com.flipbookgames.scriptinspector3.csproj", "{0DEF63DF-789B-B15D-EB51-8B6197B9F837}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{C92A295E-83C6-ED5B-0ED3-CE6B6C5B8D90}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullscreenEditor", "FullscreenEditor.csproj", "{36270759-65D0-F773-40B4-A484B56DBE3C}"
 EndProject
 Global
@@ -21,6 +23,10 @@ Global
 		{0DEF63DF-789B-B15D-EB51-8B6197B9F837}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DEF63DF-789B-B15D-EB51-8B6197B9F837}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DEF63DF-789B-B15D-EB51-8B6197B9F837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C92A295E-83C6-ED5B-0ED3-CE6B6C5B8D90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C92A295E-83C6-ED5B-0ED3-CE6B6C5B8D90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C92A295E-83C6-ED5B-0ED3-CE6B6C5B8D90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C92A295E-83C6-ED5B-0ED3-CE6B6C5B8D90}.Release|Any CPU.Build.0 = Release|Any CPU
 		{36270759-65D0-F773-40B4-A484B56DBE3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{36270759-65D0-F773-40B4-A484B56DBE3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36270759-65D0-F773-40B4-A484B56DBE3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
