@@ -81,34 +81,34 @@
     <Compile Include="Assets\_OzcarDev\Scripts\Album\PhotoCard.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Shaders\Simple Toon\Shaders\STOutline.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\_OzcarDev\Shaders\PixelShader\Pixelation.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\Shaders\Simple Toon\Shaders\STTransparent.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\Portal\ScreenCutoutShader.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Shaders\Simple Toon\Shaders\STCore.cginc" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Models\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Shaders\Simple Toon\Shaders\STDefault.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Shaders\Simple Toon\Shaders\STFunctions.cginc" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\Models\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -764,6 +764,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="FullscreenEditor.csproj">
+      <Project>{36270759-65D0-F773-40B4-A484B56DBE3C}</Project>
+      <Name>FullscreenEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
