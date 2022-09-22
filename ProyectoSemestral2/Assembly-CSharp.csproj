@@ -54,39 +54,82 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="D:\UnityProjects\InstaCam\ProyectoSemestral2\Library\PackageCache\com.unity.entities@0.51.1-preview.21\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.SystemGenerator.dll" />
+    <Analyzer Include="D:\UnityProjects\InstaCam\ProyectoSemestral2\Library\PackageCache\com.unity.entities@0.51.1-preview.21\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.LambdaJobs.dll" />
+    <Analyzer Include="D:\UnityProjects\InstaCam\ProyectoSemestral2\Library\PackageCache\com.unity.entities@0.51.1-preview.21\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.JobEntity.dll" />
+    <Analyzer Include="D:\UnityProjects\InstaCam\ProyectoSemestral2\Library\PackageCache\com.unity.entities@0.51.1-preview.21\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.Sample.dll" />
+    <Analyzer Include="D:\UnityProjects\InstaCam\ProyectoSemestral2\Library\PackageCache\com.unity.entities@0.51.1-preview.21\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.Common.dll" />
+    <Analyzer Include="D:\UnityProjects\InstaCam\ProyectoSemestral2\Library\PackageCache\com.unity.entities@0.51.1-preview.21\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.AuthoringComponent.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_OzcarDev\Scripts\Player\Move.cs" />
+    <Compile Include="Assets\Performance Tools\SuperLevelOptimizer\Scripts\SLO_SourceMark.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Core\Scripts\Billboards\Billboard.cs" />
+    <Compile Include="Assets\Performance Tools\SuperLevelOptimizer\Scripts\SuperLevelOptimizer.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Interaction\Door.cs" />
-    <Compile Include="Assets\_OzcarDev\Shaders\PixelShader\ShaderHandler.cs" />
-    <Compile Include="Assets\_OzcarDev\Scripts\Interaction\PlayAnim.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Example\Scripts\ApplicationClose.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Example\Scripts\CullingSettingsController.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Example\Scripts\Joystick.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Core\Scripts\ARSInfo.cs" />
     <Compile Include="Assets\_OzcarDev\Prueba.cs" />
-    <Compile Include="Assets\_OzcarDev\Scripts\Camera\CameraHandler.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Example\Scripts\Joystick.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Example\Scripts\FrustumCullingVisualization.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Core\Scripts\TexturesManager.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Album\PhotoAlbumManager.cs" />
-    <Compile Include="Assets\_OzcarDev\Scripts\Interaction\Key.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Interaction\Letter.cs" />
-    <Compile Include="Assets\_OzcarDev\Scripts\Album\ShowPhoto.cs" />
-    <Compile Include="Assets\_OzcarDev\Scripts\Player\Interaction.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\LoadScene.cs" />
-    <Compile Include="Assets\_OzcarDev\Scripts\LimitFPS.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\StaticCullingCore\BinaryTreeNode.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\DataBase\SaveManager.cs" />
-    <Compile Include="Assets\Portal\PortalCamera.cs" />
     <Compile Include="Assets\Portal\PortalTextureSetup.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Camera\ScreenShotHandler.cs" />
-    <Compile Include="Assets\_OzcarDev\Scripts\Interaction\MessagesManager.cs" />
-    <Compile Include="Assets\Portal\PortalTeleporter.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Globals.cs" />
-    <Compile Include="Assets\_OzcarDev\Scripts\DataBase\PlayerData.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\DynamicCullingCore\DynamicCulling.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\StaticCullingCore\BinaryTreeUtil.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Core\Scripts\Billboards\BillboardOfGroup.cs" />
     <Compile Include="Assets\_OzcarDev\Scripts\Album\PhotoCard.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Core\Scripts\Jobs.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\LayersHelper.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\ACSInfo.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\ChunkMark.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Core\Scripts\AdvancedRenderSystem.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Example\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Example\Scripts\DesktopCameraController.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Example\Scripts\MobileCameraController.cs" />
+    <Compile Include="Assets\_OzcarDev\Shaders\PixelShader\ShaderHandler.cs" />
+    <Compile Include="Assets\_OzcarDev\Scripts\Interaction\PlayAnim.cs" />
+    <Compile Include="Assets\_OzcarDev\Scripts\Camera\CameraHandler.cs" />
+    <Compile Include="Assets\_OzcarDev\Scripts\Interaction\Key.cs" />
+    <Compile Include="Assets\_OzcarDev\Scripts\Album\ShowPhoto.cs" />
+    <Compile Include="Assets\_OzcarDev\Scripts\Player\Interaction.cs" />
+    <Compile Include="Assets\_OzcarDev\Scripts\LimitFPS.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Example\Scripts\FPSCounter.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\StaticCullingCore\BinaryTree.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Core\Scripts\Billboards\BaseBillboard.cs" />
+    <Compile Include="Assets\Performance Tools\SuperLevelOptimizer\Scripts\SLO_CombinedMark.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\StaticCullingCore\StaticCulling.cs" />
+    <Compile Include="Assets\Portal\PortalCamera.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Core\Scripts\Helpers.cs" />
+    <Compile Include="Assets\_OzcarDev\Scripts\Interaction\MessagesManager.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Example\Scripts\SpawnController.cs" />
+    <Compile Include="Assets\Portal\PortalTeleporter.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedRenderSystem\Core\Scripts\Billboards\BillboardData.cs" />
+    <Compile Include="Assets\_OzcarDev\Scripts\DataBase\PlayerData.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\StaticCullingCore\Caster.cs" />
+    <Compile Include="Assets\Performance Tools\SuperLevelOptimizer\Scripts\SLO_AtlasMark.cs" />
+    <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Example\Scripts\FPSCounter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Models\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Unlit.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Shaders\Simple Toon\Shaders\STOutline.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Models\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Basic.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\Performance Tools\AdvancedRenderSystem\Documentation\Readme.txt" />
+    <None Include="Assets\Performance Tools\AdvancedRenderSystem\Core\Shader\ARSShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\_OzcarDev\Shaders\PixelShader\Pixelation.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
@@ -106,8 +149,10 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Shaders\Simple Toon\Shaders\STFunctions.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Performance Tools\IF ERRORS!!!.txt" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Performance Tools\SuperLevelOptimizer\Documentation\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -354,8 +399,29 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.8f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Collections.LowLevel.ILSupport">
+      <HintPath>Library\PackageCache\com.unity.collections@1.4.0\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Mdb">
+      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil">
+      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+      <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@1.11.4\Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.8f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -723,35 +789,26 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.8f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Transforms.Hybrid">
+      <HintPath>Library\ScriptAssemblies\Unity.Transforms.Hybrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Properties">
+      <HintPath>Library\ScriptAssemblies\Unity.Properties.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Serialization">
+      <HintPath>Library\ScriptAssemblies\Unity.Serialization.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Services.Core.Analytics">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
+    <Reference Include="UnityEditor.CacheServer">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.CacheServer.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Services.Core.Environments">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
@@ -759,8 +816,107 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Entities.Hybrid.EndToEnd.Tests">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.Hybrid.EndToEnd.Tests.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Properties.UI.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Properties.UI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Scenes">
+      <HintPath>Library\ScriptAssemblies\Unity.Scenes.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Extensions">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Transforms">
+      <HintPath>Library\ScriptAssemblies\Unity.Transforms.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Scenes.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Scenes.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Extensions.Hybrid">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Extensions.Hybrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.BuildUtils">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.BuildUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.Editor.Properties">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.Editor.Properties.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Profiling.Core">
+      <HintPath>Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.Hybrid">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.Hybrid.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Services.Core">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Analytics">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Jobs">
+      <HintPath>Library\ScriptAssemblies\Unity.Jobs.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Environments">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Deformations">
+      <HintPath>Library\ScriptAssemblies\Unity.Deformations.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Properties.UI">
+      <HintPath>Library\ScriptAssemblies\Unity.Properties.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Serialization.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Serialization.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.Hybrid.HybridComponents">
+      <HintPath>Library\ScriptAssemblies\Unity.Entities.Hybrid.HybridComponents.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

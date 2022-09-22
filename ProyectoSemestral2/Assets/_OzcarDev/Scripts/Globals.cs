@@ -14,7 +14,7 @@ public class Globals
     
     };
     
-	public static float[] position= new float[3]{-3.186f,4.9f,-1.34f};
+	public static float[] position= new float[3]{-3.186f,4.9f,28f};
 	public static float[] rotation= new float[3]{0,270,0};
 	
 	
